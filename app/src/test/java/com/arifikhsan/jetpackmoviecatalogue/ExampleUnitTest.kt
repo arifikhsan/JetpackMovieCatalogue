@@ -1,4 +1,4 @@
-package com.arifikhsan.jetpackmoviecatalouge
+package com.arifikhsan.jetpackmoviecatalogue
 
 import org.junit.Test
 
