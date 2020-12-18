@@ -1,6 +1,7 @@
 package com.arifikhsan.jetpackmoviecatalogue.entity
 
-class TVShowEntity (
+data class TVShowEntity (
+        val id: Int,
         val name: String,
         val overview: String,
         val popularity: Double,
