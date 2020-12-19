@@ -11,6 +11,7 @@ import com.arifikhsan.jetpackmoviecatalogue.ui.detail.DetailMovieActivity
 import com.arifikhsan.jetpackmoviecatalogue.ui.detail.DetailMovieActivity.Companion.EXTRA_MOVIE
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import java.text.NumberFormat
 
 class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
 
@@ -41,6 +42,10 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
             with(binding) {
                 tvItemTitle.text = movie.title
                 tvItemDate.text = movie.releaseDate
+
+                val numberFormat = NumberFormat.getInstance()
+                numberFormat.maximumFractionDigits = 2
+
                 tvRate.text = itemView.resources.getString(
                     R.string.rate_from,
                     movie.voteAverage,

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.arifikhsan.jetpackmoviecatalogue.databinding.FragmentMoviesBinding
 import com.arifikhsan.jetpackmoviecatalogue.repository.MovieRepository
@@ -25,7 +26,8 @@ class MoviesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         activity?.let {
-            val movies = MovieRepository.getMovies()
+            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MoviesViewModel::class.java]
+            val movies = viewModel.getMovies()
             val moviesAdapter = MoviesAdapter()
             moviesAdapter.setMovies(movies)
 
