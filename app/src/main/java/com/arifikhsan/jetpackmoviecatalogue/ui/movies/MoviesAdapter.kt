@@ -43,14 +43,12 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
                 tvItemTitle.text = movie.title
                 tvItemDate.text = movie.releaseDate
 
-                val numberFormat = NumberFormat.getInstance()
-                numberFormat.maximumFractionDigits = 2
-
                 tvRate.text = itemView.resources.getString(
                     R.string.rate_from,
                     movie.voteAverage,
                     movie.voteCount
                 )
+
                 Glide.with(itemView.context)
                     .load(movie.posterPath)
                     .apply(
@@ -58,6 +56,7 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
                             .error(R.drawable.ic_error)
                     )
                     .into(imgPoster)
+
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailMovieActivity::class.java)
                     intent.putExtra(EXTRA_MOVIE, movie.id)
