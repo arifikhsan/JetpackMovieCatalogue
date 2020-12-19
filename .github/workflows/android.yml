@@ -25,5 +25,9 @@ jobs:
       - name: Run unit test
         run: ./gradlew test
 
+      - name: Run Instrumental test
+        uses: reactivecircus/android-emulator-runner@v2
+        run: ./gradlew connectedCheck
+
       - name: Build with Gradle
         run: ./gradlew build

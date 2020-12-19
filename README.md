@@ -18,7 +18,7 @@
   - Memastikan **tv show** tidak null.
   - Memastikan **tv show** sesuai.
 
-## Instrumental Test ViewModel Scenario
+## Instrumental Test Scenario
 
 1. Menampilkan Movies
   - Memastikan **rv_movies** dalam keadaan tampil.
