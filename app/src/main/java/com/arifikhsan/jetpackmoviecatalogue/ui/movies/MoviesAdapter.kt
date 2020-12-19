@@ -12,7 +12,8 @@ import com.arifikhsan.jetpackmoviecatalogue.ui.movies.detail.DetailMovieActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
+class MoviesAdapter(private val callback: MovieCallback) :
+    RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
 
     private val movies = ArrayList<MovieEntity>()
 
@@ -35,7 +36,7 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
 
     override fun getItemCount(): Int = movies.size
 
-    class MoviesViewHolder(private val binding: ItemMovieBinding) :
+    inner class MoviesViewHolder(private val binding: ItemMovieBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(movie: MovieEntity) {
             with(binding) {
@@ -61,6 +62,8 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
                     intent.putExtra(EXTRA_MOVIE, movie.id)
                     itemView.context.startActivity(intent)
                 }
+
+                imgShare.setOnClickListener { callback.onShareClick(movie) }
             }
         }
     }

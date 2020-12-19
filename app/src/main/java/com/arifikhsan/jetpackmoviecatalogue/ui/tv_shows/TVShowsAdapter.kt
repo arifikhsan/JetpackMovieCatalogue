@@ -7,12 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.arifikhsan.jetpackmoviecatalogue.R
 import com.arifikhsan.jetpackmoviecatalogue.databinding.ItemMovieBinding
 import com.arifikhsan.jetpackmoviecatalogue.entity.TVShowEntity
-import com.arifikhsan.jetpackmoviecatalogue.ui.movies.detail.DetailMovieActivity
 import com.arifikhsan.jetpackmoviecatalogue.ui.tv_shows.detail.DetailTVShowActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-class TVShowsAdapter : RecyclerView.Adapter<TVShowsAdapter.TVShowsViewHolder>() {
+class TVShowsAdapter(private val callback: TVShowCallback) :
+    RecyclerView.Adapter<TVShowsAdapter.TVShowsViewHolder>() {
 
     private val tvShows = ArrayList<TVShowEntity>()
 
@@ -35,7 +35,7 @@ class TVShowsAdapter : RecyclerView.Adapter<TVShowsAdapter.TVShowsViewHolder>() 
 
     override fun getItemCount(): Int = tvShows.size
 
-    class TVShowsViewHolder(private val binding: ItemMovieBinding) :
+    inner class TVShowsViewHolder(private val binding: ItemMovieBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(tvShow: TVShowEntity) {
@@ -51,7 +51,10 @@ class TVShowsAdapter : RecyclerView.Adapter<TVShowsAdapter.TVShowsViewHolder>() 
 
                 Glide.with(itemView.context)
                     .load(tvShow.posterPath)
-                    .apply(RequestOptions.placeholderOf(R.drawable.ic_loading).error(R.drawable.ic_error))
+                    .apply(
+                        RequestOptions.placeholderOf(R.drawable.ic_loading)
+                            .error(R.drawable.ic_error)
+                    )
                     .into(imgPoster)
 
                 itemView.setOnClickListener {
@@ -59,6 +62,8 @@ class TVShowsAdapter : RecyclerView.Adapter<TVShowsAdapter.TVShowsViewHolder>() 
                     intent.putExtra(DetailTVShowActivity.EXTRA_TV_SHOW, tvShow.id)
                     itemView.context.startActivity(intent)
                 }
+
+                imgShare.setOnClickListener { callback.onShareClick(tvShow) }
             }
         }
     }

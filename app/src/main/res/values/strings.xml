@@ -14,4 +14,6 @@
     <string name="detail_tv_show_from">Detail Acara TV %s</string>
     <string name="detail_tv_show">Detail TV Show</string>
     <string name="title_tv_show">Judul Acara TV</string>
+    <string name="share_text">Segera tonton film \"%s\" di Jetpack Movie!</string>
+    <string name="share_title">Bagikan film ini sekarang!</string>
 </resources>
