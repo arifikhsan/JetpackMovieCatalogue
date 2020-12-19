@@ -1,6 +1,6 @@
 package com.arifikhsan.jetpackmoviecatalogue.ui
 
-interface ViewContract {
-    fun initView()
+interface ActivityContract {
     fun initData()
+    fun initView()
 }

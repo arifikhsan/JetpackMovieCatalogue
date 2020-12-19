@@ -7,11 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.arifikhsan.jetpackmoviecatalogue.R
 import com.arifikhsan.jetpackmoviecatalogue.databinding.ItemMovieBinding
 import com.arifikhsan.jetpackmoviecatalogue.entity.MovieEntity
-import com.arifikhsan.jetpackmoviecatalogue.ui.detail.DetailMovieActivity
-import com.arifikhsan.jetpackmoviecatalogue.ui.detail.DetailMovieActivity.Companion.EXTRA_MOVIE
+import com.arifikhsan.jetpackmoviecatalogue.ui.movies.detail.DetailMovieActivity
+import com.arifikhsan.jetpackmoviecatalogue.ui.movies.detail.DetailMovieActivity.Companion.EXTRA_MOVIE
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import java.text.NumberFormat
 
 class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
 
