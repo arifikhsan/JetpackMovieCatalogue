@@ -13,6 +13,9 @@ class DetailMovieViewModel: ViewModel() {
 
     fun getMovie(): MovieEntity {
         val movies = MovieRepository.getMovies()
-        return movies.find { it.id == movieId }!!
+        val movie: MovieEntity?
+        movie = movies.find { it.id == movieId }
+
+        return movie ?: MovieRepository.getEmptyMovie()
     }
 }

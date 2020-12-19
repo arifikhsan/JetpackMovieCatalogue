@@ -13,6 +13,9 @@ class DetailTVShowViewModel: ViewModel() {
 
     fun getTVShow(): TVShowEntity {
         val tvShows = MovieRepository.getTVShows()
-        return tvShows.find { it.id == tvShowId }!!
+        val tvShow: TVShowEntity?
+        tvShow = tvShows.find { it.id == tvShowId }
+
+        return tvShow ?: MovieRepository.getEmptyTVShow()
     }
 }

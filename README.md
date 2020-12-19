@@ -10,6 +10,8 @@
   - Memastikan **movie** tidak null.
   - Memastikan **movie** sesuai.
   
+  - Memastikan jika id 0 maka dapat objek **movie** kosong
+  
 3. TVShowViewModelTest
   - Memastikan **tv shows** tidak null.
   - Memastikan jumlah **tv shows** sesuai (10).
@@ -18,6 +20,8 @@
   - Memastikan **tv show** tidak null.
   - Memastikan **tv show** sesuai.
 
+  - Memastikan jika id 0 maka dapat objek **movie** kosong
+  
 ## Instrumental Test Scenario
 
 1. Menampilkan Movies

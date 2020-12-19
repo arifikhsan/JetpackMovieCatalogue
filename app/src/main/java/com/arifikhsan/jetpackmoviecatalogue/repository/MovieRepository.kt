@@ -257,4 +257,12 @@ object MovieRepository {
 
         return tvShows
     }
+
+    fun getEmptyMovie() : MovieEntity {
+        return MovieEntity(0, ", ", "", 0.0, "", "", 0.0, 0)
+    }
+
+    fun getEmptyTVShow(): TVShowEntity {
+        return TVShowEntity(0, ", ", "", 0.0, "", "", 0.0, 0)
+    }
 }
