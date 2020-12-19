@@ -10,7 +10,6 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import com.arifikhsan.jetpackmoviecatalogue.R
 import com.arifikhsan.jetpackmoviecatalogue.repository.MovieRepository
 import org.junit.Before
-
 import org.junit.Test
 
 class HomeActivityTest {
