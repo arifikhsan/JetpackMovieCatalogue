@@ -14,7 +14,15 @@
         android:theme="@style/Theme.JetpackMovieCatalogue"
         tools:ignore="AllowBackup">
         <activity
-            android:name="com.arifikhsan.jetpackmoviecatalogue.ui.movies.detail.DetailMovieActivity"
+            android:name=".ui.tv_shows.detail.DetailTVShowActivity"
+            android:label="@string/detail_tv_show"
+            android:parentActivityName=".ui.home.HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.home.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".ui.movies.detail.DetailMovieActivity"
             android:label="@string/detail_movie"
             android:parentActivityName=".ui.home.HomeActivity">
             <meta-data

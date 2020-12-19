@@ -8,6 +8,7 @@ import com.arifikhsan.jetpackmoviecatalogue.R
 import com.arifikhsan.jetpackmoviecatalogue.databinding.ItemMovieBinding
 import com.arifikhsan.jetpackmoviecatalogue.entity.TVShowEntity
 import com.arifikhsan.jetpackmoviecatalogue.ui.movies.detail.DetailMovieActivity
+import com.arifikhsan.jetpackmoviecatalogue.ui.tv_shows.detail.DetailTVShowActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
@@ -54,8 +55,8 @@ class TVShowsAdapter : RecyclerView.Adapter<TVShowsAdapter.TVShowsViewHolder>() 
                     .into(imgPoster)
 
                 itemView.setOnClickListener {
-                    val intent = Intent(itemView.context, DetailMovieActivity::class.java)
-                    intent.putExtra(DetailMovieActivity.EXTRA_MOVIE, tvShow.id)
+                    val intent = Intent(itemView.context, DetailTVShowActivity::class.java)
+                    intent.putExtra(DetailTVShowActivity.EXTRA_TV_SHOW, tvShow.id)
                     itemView.context.startActivity(intent)
                 }
             }

@@ -45,7 +45,8 @@ class DetailMovieActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        supportActionBar?.title = getString(R.string.detail_movie_from, movie.title)
+        supportActionBar?.title = getString(R.string.detail_movie)
+        supportActionBar?.subtitle = movie.title
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 

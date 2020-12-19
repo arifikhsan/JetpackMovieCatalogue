@@ -21,7 +21,7 @@
         tools:ignore="ContentDescription" />
 
     <TextView
-        android:id="@+id/tv_title"
+        android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -31,7 +31,7 @@
         app:layout_constraintEnd_toEndOf="@+id/tv_date"
         app:layout_constraintStart_toStartOf="@+id/tv_date"
         app:layout_constraintTop_toBottomOf="@+id/tv_date"
-        tools:text="@string/title" />
+        tools:text="@string/title_tv_show" />
 
     <TextView
         android:id="@+id/tv_date"
@@ -54,9 +54,9 @@
         android:textColor="@color/teal_700"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/tv_title"
-        app:layout_constraintStart_toStartOf="@+id/tv_title"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+        app:layout_constraintEnd_toEndOf="@+id/tv_name"
+        app:layout_constraintStart_toStartOf="@+id/tv_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
     <TextView
         android:id="@+id/tv_overview"

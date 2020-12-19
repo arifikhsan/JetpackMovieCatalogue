@@ -11,4 +11,7 @@
     <string name="detail_movie">Detail Movie</string>
     <string name="vote_review">5 from 123</string>
     <string name="detail_movie_from">Detail Film %s</string>
+    <string name="detail_tv_show_from">Detail Acara TV %s</string>
+    <string name="detail_tv_show">Detail TV Show</string>
+    <string name="title_tv_show">Judul Acara TV</string>
 </resources>
