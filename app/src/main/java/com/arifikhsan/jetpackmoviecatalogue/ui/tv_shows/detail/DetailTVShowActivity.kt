@@ -19,7 +19,6 @@ class DetailTVShowActivity : AppCompatActivity() {
 
     private lateinit var activityDetailTvShowBinding: ActivityDetailTvShowBinding
     private lateinit var detailTvShowBinding: ContentDetailTvShowBinding
-    private lateinit var tvShow: GetTVShowDetailResponse
 
     private val detailTVShowViewModel: DetailTVShowViewModel by viewModel()
 
@@ -29,8 +28,8 @@ class DetailTVShowActivity : AppCompatActivity() {
         detailTvShowBinding = activityDetailTvShowBinding.detailTvShow
         setContentView(activityDetailTvShowBinding.root)
 
-        initData()
         initView()
+        initData()
     }
 
     private fun initData() {
@@ -39,29 +38,29 @@ class DetailTVShowActivity : AppCompatActivity() {
 
             detailTVShowViewModel.setTVShowId(tvShowId)
             detailTVShowViewModel.getTVShowDetail()
-            detailTVShowViewModel.tvShow.observe(this, { responseTVShow ->
-                responseTVShow?.let { tvShow = responseTVShow }
-            })
-
-            populateDetail()
+            detailTVShowViewModel.tvShow.observe(this, { tvShow -> populateDetail(tvShow) })
         }
     }
 
     private fun initView() {
         supportActionBar?.title = getString(R.string.detail_tv_show)
-        supportActionBar?.subtitle = tvShow.name
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    private fun populateDetail() {
-        detailTvShowBinding.tvName.text = tvShow.name
-        detailTvShowBinding.tvDate.text = tvShow.firstAirDate
-        detailTvShowBinding.tvOverview.text = tvShow.overview
+    private fun populateDetail(tvShow: GetTVShowDetailResponse?) {
+        supportActionBar?.subtitle = tvShow?.name
+        detailTvShowBinding.tvName.text = tvShow?.name
+        detailTvShowBinding.tvDate.text = tvShow?.firstAirDate
+        detailTvShowBinding.tvOverview.text = tvShow?.overview
         detailTvShowBinding.tvRating.text =
-            resources.getString(R.string.rate_from, tvShow.voteAverage?.toFloat(), tvShow.voteCount)
+            resources.getString(
+                R.string.rate_from,
+                tvShow?.voteAverage?.toFloat(),
+                tvShow?.voteCount
+            )
 
         Glide.with(this)
-            .load(tvShow.posterPath)
+            .load("https://image.tmdb.org/t/p/w500/${tvShow?.posterPath}")
             .transform(RoundedCorners(16))
             .apply(RequestOptions.placeholderOf(R.drawable.ic_loading).error(R.drawable.ic_error))
             .into(detailTvShowBinding.imagePoster)
