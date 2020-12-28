@@ -1,7 +1,6 @@
 package com.arifikhsan.jetpackmoviecatalogue.ui.tv_shows
 
-import com.arifikhsan.jetpackmoviecatalogue.entity.MovieEntity
-import com.arifikhsan.jetpackmoviecatalogue.entity.TVShowEntity
+import com.arifikhsan.jetpackmoviecatalogue.model.TVShowModel
 import org.junit.Before
 import org.junit.Test
 
@@ -26,7 +25,7 @@ class TVShowsViewModelTest {
 
     @Test
     fun notGetTVShows() {
-        val tvShows = arrayListOf<TVShowEntity>()
+        val tvShows = arrayListOf<TVShowModel>()
 
         assertFalse(tvShows.isNotEmpty())
         assertNotEquals(10, tvShows.size)

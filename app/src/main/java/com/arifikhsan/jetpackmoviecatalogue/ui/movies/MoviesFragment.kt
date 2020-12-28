@@ -6,21 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ShareCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.arifikhsan.jetpackmoviecatalogue.R
+import com.arifikhsan.jetpackmoviecatalogue.data.response.MovieResultsItem
 import com.arifikhsan.jetpackmoviecatalogue.databinding.FragmentMoviesBinding
-import com.arifikhsan.jetpackmoviecatalogue.entity.MovieEntity
-import com.arifikhsan.jetpackmoviecatalogue.repository.MovieRepository
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MoviesFragment : Fragment(), MovieCallback {
 
     private lateinit var fragmentMoviesBinding: FragmentMoviesBinding
+    private val moviesViewModel: MoviesViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         fragmentMoviesBinding = FragmentMoviesBinding.inflate(layoutInflater, container, false)
         return fragmentMoviesBinding.root
     }
@@ -29,10 +29,9 @@ class MoviesFragment : Fragment(), MovieCallback {
         super.onViewCreated(view, savedInstanceState)
 
         activity?.let {
-            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MoviesViewModel::class.java]
-            val movies = viewModel.getMovies()
+            val movies = moviesViewModel.getMovies()
             val moviesAdapter = MoviesAdapter(this)
-            moviesAdapter.setMovies(movies)
+            movies?.results?.let { allMovies -> moviesAdapter.setMovies(ArrayList(allMovies)) }
 
             with(fragmentMoviesBinding.rvMovies) {
                 layoutManager = LinearLayoutManager(context)
@@ -42,14 +41,14 @@ class MoviesFragment : Fragment(), MovieCallback {
         }
     }
 
-    override fun onShareClick(movie: MovieEntity) {
+    override fun onShareClick(movie: MovieResultsItem?) {
         activity?.let {
             val mimeType = "text/plain"
             ShareCompat.IntentBuilder
                 .from(requireActivity())
                 .setType(mimeType)
                 .setChooserTitle(getString(R.string.share_title))
-                .setText(resources.getString(R.string.share_text, movie.title))
+                .setText(resources.getString(R.string.share_text, movie?.title))
                 .startChooser()
         }
     }

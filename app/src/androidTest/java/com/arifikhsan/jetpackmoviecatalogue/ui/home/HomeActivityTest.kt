@@ -8,7 +8,7 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import com.arifikhsan.jetpackmoviecatalogue.R
-import com.arifikhsan.jetpackmoviecatalogue.repository.MovieRepository
+import com.arifikhsan.jetpackmoviecatalogue.data.repository.MovieRepository
 import org.junit.Before
 import org.junit.Test
 

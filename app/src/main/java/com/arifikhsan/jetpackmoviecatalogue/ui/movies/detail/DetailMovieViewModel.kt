@@ -1,21 +1,17 @@
 package com.arifikhsan.jetpackmoviecatalogue.ui.movies.detail
 
 import androidx.lifecycle.ViewModel
-import com.arifikhsan.jetpackmoviecatalogue.entity.MovieEntity
-import com.arifikhsan.jetpackmoviecatalogue.repository.MovieRepository
+import com.arifikhsan.jetpackmoviecatalogue.data.repository.MovieRepository
+import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMovieDetailResponse
 
-class DetailMovieViewModel: ViewModel() {
-    private var movieId: Int = 0
+class DetailMovieViewModel(private val movieRepository: MovieRepository) : ViewModel() {
+    private var id: Int = 0
 
-    fun setSelectedMovie(movieId: Int) {
-        this.movieId = movieId
+    fun setMovieId(id: Int) {
+        this.id = id
     }
 
-    fun getMovie(): MovieEntity {
-        val movies = MovieRepository.getMovies()
-        val movie: MovieEntity?
-        movie = movies.find { it.id == movieId }
-
-        return movie ?: MovieRepository.getEmptyMovie()
+    fun getMovieDetail(): GetMovieDetailResponse? {
+        return movieRepository.getMovieDetail(id)
     }
 }

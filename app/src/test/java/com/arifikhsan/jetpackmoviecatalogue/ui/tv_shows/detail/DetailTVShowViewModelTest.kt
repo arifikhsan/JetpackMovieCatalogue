@@ -1,7 +1,6 @@
 package com.arifikhsan.jetpackmoviecatalogue.ui.tv_shows.detail
 
-import com.arifikhsan.jetpackmoviecatalogue.repository.MovieRepository
-import com.arifikhsan.jetpackmoviecatalogue.ui.movies.detail.DetailMovieViewModel
+import com.arifikhsan.jetpackmoviecatalogue.data.repository.MovieRepository
 import org.junit.Before
 import org.junit.Test
 

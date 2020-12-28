@@ -1,7 +1,7 @@
 package com.arifikhsan.jetpackmoviecatalogue.ui.movies
 
-import com.arifikhsan.jetpackmoviecatalogue.entity.MovieEntity
+import com.arifikhsan.jetpackmoviecatalogue.data.response.MovieResultsItem
 
 interface MovieCallback {
-    fun onShareClick(movie: MovieEntity)
+    fun onShareClick(movie: MovieResultsItem?)
 }

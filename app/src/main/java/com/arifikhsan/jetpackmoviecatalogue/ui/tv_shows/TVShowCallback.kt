@@ -1,7 +1,7 @@
 package com.arifikhsan.jetpackmoviecatalogue.ui.tv_shows
 
-import com.arifikhsan.jetpackmoviecatalogue.entity.TVShowEntity
+import com.arifikhsan.jetpackmoviecatalogue.data.response.TVShowResultsItem
 
 interface TVShowCallback {
-    fun onShareClick(tvShow: TVShowEntity)
+    fun onShareClick(tvShow: TVShowResultsItem?)
 }

@@ -1,6 +1,6 @@
 package com.arifikhsan.jetpackmoviecatalogue.ui.movies
 
-import com.arifikhsan.jetpackmoviecatalogue.entity.MovieEntity
+import com.arifikhsan.jetpackmoviecatalogue.model.MovieModel
 import org.junit.Before
 import org.junit.Test
 
@@ -25,7 +25,7 @@ class MoviesViewModelTest {
 
     @Test
     fun notGetMovies() {
-        val movies = arrayListOf<MovieEntity>()
+        val movies = arrayListOf<MovieModel>()
 
         assertFalse(movies.isNotEmpty())
         assertNotEquals(10, movies.size)

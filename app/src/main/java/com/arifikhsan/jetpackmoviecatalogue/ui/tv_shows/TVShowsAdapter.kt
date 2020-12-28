@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.arifikhsan.jetpackmoviecatalogue.R
+import com.arifikhsan.jetpackmoviecatalogue.data.response.TVShowResultsItem
 import com.arifikhsan.jetpackmoviecatalogue.databinding.ItemMovieBinding
-import com.arifikhsan.jetpackmoviecatalogue.entity.TVShowEntity
 import com.arifikhsan.jetpackmoviecatalogue.ui.tv_shows.detail.DetailTVShowActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -14,9 +14,9 @@ import com.bumptech.glide.request.RequestOptions
 class TVShowsAdapter(private val callback: TVShowCallback) :
     RecyclerView.Adapter<TVShowsAdapter.TVShowsViewHolder>() {
 
-    private val tvShows = ArrayList<TVShowEntity>()
+    private val tvShows = ArrayList<TVShowResultsItem?>()
 
-    fun setTVShows(shows: ArrayList<TVShowEntity>?) {
+    fun setTVShows(shows: ArrayList<TVShowResultsItem?>?) {
         shows?.let {
             tvShows.clear()
             tvShows.addAll(it)
@@ -38,19 +38,19 @@ class TVShowsAdapter(private val callback: TVShowCallback) :
     inner class TVShowsViewHolder(private val binding: ItemMovieBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(tvShow: TVShowEntity) {
+        fun bind(tvShow: TVShowResultsItem?) {
             with(binding) {
-                tvItemTitle.text = tvShow.name
-                tvItemDate.text = tvShow.firstAirDate
+                tvItemTitle.text = tvShow?.name
+                tvItemDate.text = tvShow?.firstAirDate
 
                 tvRate.text = itemView.resources.getString(
                     R.string.rate_from,
-                    tvShow.voteAverage,
-                    tvShow.voteCount
+                    tvShow?.voteAverage,
+                    tvShow?.voteCount
                 )
 
                 Glide.with(itemView.context)
-                    .load(tvShow.posterPath)
+                    .load(tvShow?.posterPath)
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_loading)
                             .error(R.drawable.ic_error)
@@ -59,7 +59,7 @@ class TVShowsAdapter(private val callback: TVShowCallback) :
 
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailTVShowActivity::class.java)
-                    intent.putExtra(DetailTVShowActivity.EXTRA_TV_SHOW, tvShow.id)
+                    intent.putExtra(DetailTVShowActivity.EXTRA_TV_SHOW, tvShow?.id)
                     itemView.context.startActivity(intent)
                 }
 

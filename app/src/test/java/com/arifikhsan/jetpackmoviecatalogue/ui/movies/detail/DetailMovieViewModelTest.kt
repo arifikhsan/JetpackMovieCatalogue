@@ -1,7 +1,6 @@
 package com.arifikhsan.jetpackmoviecatalogue.ui.movies.detail
 
-import com.arifikhsan.jetpackmoviecatalogue.entity.MovieEntity
-import com.arifikhsan.jetpackmoviecatalogue.repository.MovieRepository
+import com.arifikhsan.jetpackmoviecatalogue.data.repository.MovieRepository
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Before

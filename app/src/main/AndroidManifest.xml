@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackMovieCatalogue"
         tools:ignore="AllowBackup">
+
         <activity
             android:name=".ui.tv_shows.detail.DetailTVShowActivity"
             android:label="@string/detail_tv_show"
@@ -21,6 +23,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.home.HomeActivity" />
         </activity>
+
         <activity
             android:name=".ui.movies.detail.DetailMovieActivity"
             android:label="@string/detail_movie"
@@ -29,6 +32,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.home.HomeActivity" />
         </activity>
+
         <activity
             android:name=".ui.home.HomeActivity"
             android:label="@string/app_name">

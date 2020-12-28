@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.arifikhsan.jetpackmoviecatalogue.R
+import com.arifikhsan.jetpackmoviecatalogue.data.response.MovieResultsItem
 import com.arifikhsan.jetpackmoviecatalogue.databinding.ItemMovieBinding
-import com.arifikhsan.jetpackmoviecatalogue.entity.MovieEntity
 import com.arifikhsan.jetpackmoviecatalogue.ui.movies.detail.DetailMovieActivity
 import com.arifikhsan.jetpackmoviecatalogue.ui.movies.detail.DetailMovieActivity.Companion.EXTRA_MOVIE
 import com.bumptech.glide.Glide
@@ -15,9 +15,9 @@ import com.bumptech.glide.request.RequestOptions
 class MoviesAdapter(private val callback: MovieCallback) :
     RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
 
-    private val movies = ArrayList<MovieEntity>()
+    private val movies = ArrayList<MovieResultsItem?>()
 
-    fun setMovies(movies: ArrayList<MovieEntity>?) {
+    fun setMovies(movies: ArrayList<MovieResultsItem?>?) {
         movies?.let {
             this.movies.clear()
             this.movies.addAll(it)
@@ -38,19 +38,19 @@ class MoviesAdapter(private val callback: MovieCallback) :
 
     inner class MoviesViewHolder(private val binding: ItemMovieBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(movie: MovieEntity) {
+        fun bind(movie: MovieResultsItem?) {
             with(binding) {
-                tvItemTitle.text = movie.title
-                tvItemDate.text = movie.releaseDate
+                tvItemTitle.text = movie?.title
+                tvItemDate.text = movie?.releaseDate
 
                 tvRate.text = itemView.resources.getString(
                     R.string.rate_from,
-                    movie.voteAverage,
-                    movie.voteCount
+                    movie?.voteAverage,
+                    movie?.voteCount
                 )
 
                 Glide.with(itemView.context)
-                    .load(movie.posterPath)
+                    .load(movie?.posterPath)
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_loading)
                             .error(R.drawable.ic_error)
@@ -59,7 +59,7 @@ class MoviesAdapter(private val callback: MovieCallback) :
 
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailMovieActivity::class.java)
-                    intent.putExtra(EXTRA_MOVIE, movie.id)
+                    intent.putExtra(EXTRA_MOVIE, movie?.id)
                     itemView.context.startActivity(intent)
                 }
 

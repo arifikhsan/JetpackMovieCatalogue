@@ -6,20 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ShareCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.arifikhsan.jetpackmoviecatalogue.R
+import com.arifikhsan.jetpackmoviecatalogue.data.response.TVShowResultsItem
 import com.arifikhsan.jetpackmoviecatalogue.databinding.FragmentTvShowsBinding
-import com.arifikhsan.jetpackmoviecatalogue.entity.TVShowEntity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TVShowsFragment : Fragment(), TVShowCallback {
 
     private lateinit var fragmentTVShowsBinding: FragmentTvShowsBinding
+    private val tvShowsViewModel: TVShowsViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         fragmentTVShowsBinding = FragmentTvShowsBinding.inflate(layoutInflater, container, false)
         return fragmentTVShowsBinding.root
     }
@@ -28,10 +29,9 @@ class TVShowsFragment : Fragment(), TVShowCallback {
         super.onViewCreated(view, savedInstanceState)
 
         activity?.let {
-            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TVShowsViewModel::class.java]
-            val tvShows = viewModel.getTVShows()
+            val tvShows = tvShowsViewModel.getTVShows()
             val tvShowsAdapter = TVShowsAdapter(this)
-            tvShowsAdapter.setTVShows(tvShows)
+            tvShows?.results?.let { allTVShows -> tvShowsAdapter.setTVShows(ArrayList(allTVShows)) }
 
             with(fragmentTVShowsBinding.rvTvShows) {
                 layoutManager = LinearLayoutManager(context)
@@ -41,14 +41,14 @@ class TVShowsFragment : Fragment(), TVShowCallback {
         }
     }
 
-    override fun onShareClick(tvShow: TVShowEntity) {
+    override fun onShareClick(tvShow: TVShowResultsItem?) {
         activity?.let {
             val mimeType = "text/plain"
             ShareCompat.IntentBuilder
                 .from(requireActivity())
                 .setType(mimeType)
                 .setChooserTitle(getString(R.string.share_title))
-                .setText(resources.getString(R.string.share_text, tvShow.name))
+                .setText(resources.getString(R.string.share_text, tvShow?.name))
                 .startChooser()
         }
     }
