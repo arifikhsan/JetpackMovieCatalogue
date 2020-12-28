@@ -6,18 +6,20 @@ import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMovieDetailResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMoviesResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowDetailResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowsResponse
+import com.arifikhsan.jetpackmoviecatalogue.data.source.MovieRemoteDataSourceInterface
 import com.arifikhsan.jetpackmoviecatalogue.network.NetworkConfig
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MovieRemoteDataSource(private val networkConfig: NetworkConfig) {
+class MovieRemoteDataSource(private val networkConfig: NetworkConfig) :
+    MovieRemoteDataSourceInterface {
 
     companion object {
         private val TAG = MovieRemoteDataSource::class.java.simpleName
     }
 
-    fun getMovies(): MutableLiveData<GetMoviesResponse?> {
+    override fun getMovies(): MutableLiveData<GetMoviesResponse?> {
         val movies = MutableLiveData<GetMoviesResponse?>()
         val client = networkConfig.getApiService().getMovies()
 
@@ -43,7 +45,7 @@ class MovieRemoteDataSource(private val networkConfig: NetworkConfig) {
         return movies
     }
 
-    fun getMovieDetail(id: Int): MutableLiveData<GetMovieDetailResponse?> {
+    override fun getMovieDetail(id: Int): MutableLiveData<GetMovieDetailResponse?> {
         val movie = MutableLiveData<GetMovieDetailResponse?>()
         val client = networkConfig.getApiService().getMovieDetail(id)
 
@@ -69,7 +71,7 @@ class MovieRemoteDataSource(private val networkConfig: NetworkConfig) {
         return movie
     }
 
-    fun getTVShows(): MutableLiveData<GetTVShowsResponse?> {
+    override fun getTVShows(): MutableLiveData<GetTVShowsResponse?> {
         val tvShows = MutableLiveData<GetTVShowsResponse?>()
 
         val client = networkConfig.getApiService().getTVShows()
@@ -96,7 +98,7 @@ class MovieRemoteDataSource(private val networkConfig: NetworkConfig) {
         return tvShows
     }
 
-    fun getTVShowDetail(id: Int): MutableLiveData<GetTVShowDetailResponse?> {
+    override fun getTVShowDetail(id: Int): MutableLiveData<GetTVShowDetailResponse?> {
         val tvShow = MutableLiveData<GetTVShowDetailResponse?>()
         val client = networkConfig.getApiService().getTVShowDetail(id)
 
