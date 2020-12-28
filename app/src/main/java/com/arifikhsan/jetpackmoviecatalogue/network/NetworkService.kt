@@ -3,6 +3,7 @@ package com.arifikhsan.jetpackmoviecatalogue.network
 import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMovieDetailResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMoviesResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowDetailResponse
+import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowsResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

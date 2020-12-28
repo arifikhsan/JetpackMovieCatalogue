@@ -3,6 +3,7 @@ package com.arifikhsan.jetpackmoviecatalogue.data.source.remote
 import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMovieDetailResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMoviesResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowDetailResponse
+import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowsResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.source.MovieRemoteDataSourceInterface
 import com.arifikhsan.jetpackmoviecatalogue.network.NetworkConfig
 
