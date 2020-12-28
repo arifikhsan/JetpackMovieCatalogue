@@ -12,9 +12,7 @@ class NetworkConfig {
         val loggingInterceptor =
             HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
-        val client = OkHttpClient.Builder()
-            .addInterceptor(loggingInterceptor)
-            .addInterceptor(Interceptor { chain ->
+        val queryParamInterceptor = Interceptor { chain ->
                 val original = chain.request()
                 val originalHttpUrl = original.url
                 val url = originalHttpUrl.newBuilder()
@@ -24,15 +22,11 @@ class NetworkConfig {
                 val requestBuilder = original.newBuilder().url(url)
                 val request = requestBuilder.build()
                 chain.proceed(request)
+            }
 
-//                var request = chain.request()
-//                val url = request.url.newBuilder()
-//                    .addQueryParameter("api_key", "d88141e51ed4b69d58b9531c5ac82e8d")
-//                    .build()
-//                request = request.newBuilder().url(url).build()
-//
-//                chain.proceed(request)
-            })
+        val client = OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
+            .addInterceptor(queryParamInterceptor)
             .build()
 
         val retrofit = Retrofit.Builder()
