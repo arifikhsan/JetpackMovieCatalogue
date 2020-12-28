@@ -50,7 +50,7 @@ class TVShowsAdapter(private val callback: TVShowCallback) :
                 )
 
                 Glide.with(itemView.context)
-                    .load(tvShow?.posterPath)
+                    .load("https://image.tmdb.org/t/p/w500${tvShow?.posterPath}")
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_loading)
                             .error(R.drawable.ic_error)

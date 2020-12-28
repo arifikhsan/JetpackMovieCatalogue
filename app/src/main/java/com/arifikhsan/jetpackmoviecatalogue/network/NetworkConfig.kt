@@ -15,13 +15,23 @@ class NetworkConfig {
         val client = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .addInterceptor(Interceptor { chain ->
-                var request = chain.request()
-                val url = request.url.newBuilder()
+                val original = chain.request()
+                val originalHttpUrl = original.url
+                val url = originalHttpUrl.newBuilder()
                     .addQueryParameter("api_key", "d88141e51ed4b69d58b9531c5ac82e8d")
                     .build()
-                request = request.newBuilder().url(url).build()
 
+                val requestBuilder = original.newBuilder().url(url)
+                val request = requestBuilder.build()
                 chain.proceed(request)
+
+//                var request = chain.request()
+//                val url = request.url.newBuilder()
+//                    .addQueryParameter("api_key", "d88141e51ed4b69d58b9531c5ac82e8d")
+//                    .build()
+//                request = request.newBuilder().url(url).build()
+//
+//                chain.proceed(request)
             })
             .build()
 

@@ -36,8 +36,12 @@ class DetailTVShowActivity : AppCompatActivity() {
     private fun initData() {
         intent.extras?.let {
             val tvShowId = it.getInt(EXTRA_TV_SHOW)
+
             detailTVShowViewModel.setTVShowId(tvShowId)
-            detailTVShowViewModel.getTVShowDetail()?.let { detail -> tvShow = detail }
+            detailTVShowViewModel.getTVShowDetail()
+            detailTVShowViewModel.tvShow.observe(this, { responseTVShow ->
+                responseTVShow?.let { tvShow = responseTVShow }
+            })
 
             populateDetail()
         }

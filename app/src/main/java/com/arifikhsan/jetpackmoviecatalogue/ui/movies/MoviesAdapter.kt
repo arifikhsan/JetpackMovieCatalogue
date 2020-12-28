@@ -50,7 +50,7 @@ class MoviesAdapter(private val callback: MovieCallback) :
                 )
 
                 Glide.with(itemView.context)
-                    .load(movie?.posterPath)
+                    .load("https://image.tmdb.org/t/p/w500${movie?.posterPath}")
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_loading)
                             .error(R.drawable.ic_error)

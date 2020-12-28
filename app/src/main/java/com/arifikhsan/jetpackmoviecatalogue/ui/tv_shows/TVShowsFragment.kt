@@ -29,15 +29,18 @@ class TVShowsFragment : Fragment(), TVShowCallback {
         super.onViewCreated(view, savedInstanceState)
 
         activity?.let {
-            val tvShows = tvShowsViewModel.getTVShows()
-            val tvShowsAdapter = TVShowsAdapter(this)
-            tvShows?.results?.let { allTVShows -> tvShowsAdapter.setTVShows(ArrayList(allTVShows)) }
+            tvShowsViewModel.getTVShows()
+            tvShowsViewModel.tvShows.observe(viewLifecycleOwner, { responseTVShows ->
+                val tvShowsAdapter = TVShowsAdapter(this)
+                responseTVShows?.results?.let { tvShowsAdapter.setTVShows(ArrayList(it)) }
 
-            with(fragmentTVShowsBinding.rvTvShows) {
-                layoutManager = LinearLayoutManager(context)
-                setHasFixedSize(true)
-                adapter = tvShowsAdapter
-            }
+                with(fragmentTVShowsBinding.rvTvShows) {
+                    layoutManager = LinearLayoutManager(context)
+                    setHasFixedSize(true)
+                    adapter = tvShowsAdapter
+                }
+            })
+
         }
     }
 

@@ -29,15 +29,19 @@ class MoviesFragment : Fragment(), MovieCallback {
         super.onViewCreated(view, savedInstanceState)
 
         activity?.let {
-            val movies = moviesViewModel.getMovies()
-            val moviesAdapter = MoviesAdapter(this)
-            movies?.results?.let { allMovies -> moviesAdapter.setMovies(ArrayList(allMovies)) }
+            moviesViewModel.getMovies()
 
-            with(fragmentMoviesBinding.rvMovies) {
-                layoutManager = LinearLayoutManager(context)
-                setHasFixedSize(true)
-                adapter = moviesAdapter
-            }
+            moviesViewModel.movies.observe(viewLifecycleOwner, { movies ->
+                val moviesAdapter = MoviesAdapter(this)
+                movies?.results?.let { moviesAdapter.setMovies(ArrayList(it)) }
+
+                with(fragmentMoviesBinding.rvMovies) {
+                    layoutManager = LinearLayoutManager(context)
+                    setHasFixedSize(true)
+                    adapter = moviesAdapter
+                }
+            })
+
         }
     }
 
