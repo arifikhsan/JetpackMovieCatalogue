@@ -25,12 +25,6 @@ class MoviesViewModelTest {
     @Mock
     private lateinit var repository: MovieRepository
 
-    @Mock
-    private lateinit var dataSource: MovieRemoteDataSource
-
-    @Mock
-    private lateinit var networkConfig: NetworkConfig
-
     @Before
     fun setUp() {
         viewModel = MoviesViewModel(repository)
