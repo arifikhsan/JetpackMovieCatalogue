@@ -50,7 +50,7 @@ class DetailMovieViewModelTest {
         assertEquals(sampleMovie.releaseDate, movie?.releaseDate)
         assertEquals(sampleMovie.voteCount, movie?.voteCount)
 
-//        assertEquals(sampleMovie.popularity, movie?.popularity, 0.0001)
-//        assertEquals(sampleMovie.voteAverage, movie?.voteAverage, 0.0001)
+        assertEquals(sampleMovie.popularity as Double, movie?.popularity as Double, 0.0001)
+        assertEquals(sampleMovie.voteAverage as Double, movie.voteAverage as Double, 0.0001)
     }
 }

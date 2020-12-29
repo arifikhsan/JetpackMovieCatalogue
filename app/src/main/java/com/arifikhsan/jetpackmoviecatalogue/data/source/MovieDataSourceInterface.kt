@@ -6,7 +6,7 @@ import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMoviesResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowDetailResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowsResponse
 
-interface MovieRemoteDataSourceInterface {
+interface MovieDataSourceInterface {
     fun getMovies(): MutableLiveData<GetMoviesResponse?>
     fun getMovieDetail(id: Int): MutableLiveData<GetMovieDetailResponse?>
     fun getTVShows(): MutableLiveData<GetTVShowsResponse?>

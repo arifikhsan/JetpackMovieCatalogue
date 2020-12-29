@@ -7,20 +7,20 @@ import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowDetailRespons
 import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowsResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.MovieRemoteDataSource
 
-class MovieRepository(private val remoteDataSource: MovieRemoteDataSource) {
+class MovieRepository(private val remoteRemoteDataSource: MovieRemoteDataSource) {
     fun getMovies(): MutableLiveData<GetMoviesResponse?> {
-        return remoteDataSource.getMovies()
+        return remoteRemoteDataSource.getMovies()
     }
 
     fun getMovieDetail(id: Int): MutableLiveData<GetMovieDetailResponse?> {
-        return remoteDataSource.getMovieDetail(id)
+        return remoteRemoteDataSource.getMovieDetail(id)
     }
 
     fun getTVShows(): MutableLiveData<GetTVShowsResponse?> {
-        return remoteDataSource.getTVShows()
+        return remoteRemoteDataSource.getTVShows()
     }
 
     fun getTVShowDetail(id: Int): MutableLiveData<GetTVShowDetailResponse?> {
-        return remoteDataSource.getTVShowDetail(id)
+        return remoteRemoteDataSource.getTVShowDetail(id)
     }
 }

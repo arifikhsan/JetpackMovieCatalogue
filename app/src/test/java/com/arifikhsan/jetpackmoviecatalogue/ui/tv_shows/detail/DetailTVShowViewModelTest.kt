@@ -51,7 +51,7 @@ class DetailTVShowViewModelTest {
         assertEquals(sampleTVShow.firstAirDate, tvShow?.firstAirDate)
         assertEquals(sampleTVShow.voteCount, tvShow?.voteCount)
 
-//        assertEquals(sampleTVShow.popularity, tvShow?.popularity, 0.0001)
-//        assertEquals(sampleTVShow.voteAverage, tvShow?.voteAverage, 0.0001)
+        assertEquals(sampleTVShow.popularity as Double, tvShow?.popularity as Double, 0.0001)
+        assertEquals(sampleTVShow.voteAverage as Double, tvShow.voteAverage as Double, 0.0001)
     }
 }

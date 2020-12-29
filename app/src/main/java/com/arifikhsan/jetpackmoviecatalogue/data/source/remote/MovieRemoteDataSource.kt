@@ -6,15 +6,14 @@ import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMovieDetailResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMoviesResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowDetailResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowsResponse
-import com.arifikhsan.jetpackmoviecatalogue.data.source.MovieRemoteDataSourceInterface
+import com.arifikhsan.jetpackmoviecatalogue.data.source.MovieDataSourceInterface
 import com.arifikhsan.jetpackmoviecatalogue.network.NetworkConfig
-import com.arifikhsan.jetpackmoviecatalogue.network.NetworkService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class MovieRemoteDataSource(private val networkConfig: NetworkConfig) :
-    MovieRemoteDataSourceInterface {
+    MovieDataSourceInterface {
 
     companion object {
         private val TAG = MovieRemoteDataSource::class.java.simpleName
