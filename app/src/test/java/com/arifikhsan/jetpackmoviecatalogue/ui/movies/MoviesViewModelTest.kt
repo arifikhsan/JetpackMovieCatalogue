@@ -2,13 +2,10 @@ package com.arifikhsan.jetpackmoviecatalogue.ui.movies
 
 import androidx.lifecycle.MutableLiveData
 import com.arifikhsan.jetpackmoviecatalogue.data.repository.MovieRepository
-import com.arifikhsan.jetpackmoviecatalogue.data.response.ErrorNotFoundResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMoviesResponse
-import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.MovieRemoteDataSource
-import com.arifikhsan.jetpackmoviecatalogue.network.NetworkConfig
 import com.google.gson.Gson
-import junit.framework.Assert.assertEquals
-import junit.framework.Assert.assertNotNull
+import junit.framework.TestCase.assertEquals
+import junit.framework.TestCase.assertNotNull
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -32,16 +29,16 @@ class MoviesViewModelTest {
 
     @Test
     fun getMovies() {
-        val localMovies = Gson().fromJson(
+        val sampleMovies = Gson().fromJson(
             InputStreamReader(javaClass.getResourceAsStream("get_movies.json")),
             GetMoviesResponse::class.java
         )
-        `when`(repository.getMovies()).thenReturn(MutableLiveData(localMovies))
+        `when`(repository.getMovies()).thenReturn(MutableLiveData(sampleMovies))
         viewModel.getMovies()
 
-        assertNotNull(localMovies)
+        assertNotNull(sampleMovies)
         assertNotNull(viewModel.movies)
-        assertEquals(localMovies, viewModel.movies.value)
-        assertEquals(localMovies.results?.size, viewModel.movies.value?.results?.size)
+        assertEquals(sampleMovies, viewModel.movies.value)
+        assertEquals(sampleMovies.results?.size, viewModel.movies.value?.results?.size)
     }
 }
