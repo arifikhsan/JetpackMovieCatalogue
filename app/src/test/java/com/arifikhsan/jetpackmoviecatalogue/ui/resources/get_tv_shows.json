@@ -1,0 +1,409 @@
+{
+    "page": 1,
+    "results": [
+        {
+            "backdrop_path": "/o7qi2v4uWQ8bZ1tW3KI0Ztn2epk.jpg",
+            "first_air_date": "2019-11-12",
+            "genre_ids": [
+                10765,
+                10759
+            ],
+            "id": 82856,
+            "name": "The Mandalorian",
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "The Mandalorian",
+            "overview": "After the fall of the Galactic Empire, lawlessness has spread throughout the galaxy. A lone gunfighter makes his way through the outer reaches, earning his keep as a bounty hunter.",
+            "popularity": 1629.995,
+            "poster_path": "/sWgBv7LV2PRoQgkxwlibdGXKz1S.jpg",
+            "vote_average": 8.5,
+            "vote_count": 4586
+        },
+        {
+            "backdrop_path": "/zlXPNnnUlyg6KyvvjGd2ZxG6Tnw.jpg",
+            "first_air_date": "2017-09-25",
+            "genre_ids": [
+                18
+            ],
+            "id": 71712,
+            "name": "The Good Doctor",
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "The Good Doctor",
+            "overview": "A young surgeon with Savant syndrome is recruited into the surgical unit of a prestigious hospital. The question will arise: can a person who doesn't have the ability to relate to people actually save their lives?",
+            "popularity": 850.19,
+            "poster_path": "/6tfT03sGp9k4c0J3dypjrI8TSAI.jpg",
+            "vote_average": 8.6,
+            "vote_count": 6168
+        },
+        {
+            "backdrop_path": "/edmk8xjGBsYVIf4QtLY9WMaMcXZ.jpg",
+            "first_air_date": "2005-03-27",
+            "genre_ids": [
+                18
+            ],
+            "id": 1416,
+            "name": "Grey's Anatomy",
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "Grey's Anatomy",
+            "overview": "Follows the personal and professional lives of a group of doctors at Seattle’s Grey Sloan Memorial Hospital.",
+            "popularity": 691.524,
+            "poster_path": "/clnyhPqj1SNgpAdeSS6a6fwE6Bo.jpg",
+            "vote_average": 8.1,
+            "vote_count": 4761
+        },
+        {
+            "backdrop_path": "/Wu8kh7oyvaIfkNyMJyJHCamh5L.jpg",
+            "first_air_date": "2020-12-04",
+            "genre_ids": [
+                18
+            ],
+            "id": 97180,
+            "name": "Selena: The Series",
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "Selena: The Series",
+            "overview": "As Mexican-American Tejano singer Selena comes of age and realizes her dreams, she and her family make tough choices to hold on to love and music.",
+            "popularity": 571.644,
+            "poster_path": "/mYsWyfiIMxx4HDm0Wck7oJ9ckez.jpg",
+            "vote_average": 7.5,
+            "vote_count": 739
+        },
+        {
+            "backdrop_path": "/ta5oblpMlEcIPIS2YGcq9XEkWK2.jpg",
+            "first_air_date": "2016-01-25",
+            "genre_ids": [
+                80,
+                10765
+            ],
+            "id": 63174,
+            "name": "Lucifer",
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "Lucifer",
+            "overview": "Bored and unhappy as the Lord of Hell, Lucifer Morningstar abandoned his throne and retired to Los Angeles, where he has teamed up with LAPD detective Chloe Decker to take down criminals. But the longer he's away from the underworld, the greater the threat that the worst of humanity could escape.",
+            "popularity": 532.277,
+            "poster_path": "/4EYPN5mVIhKLfxGruy7Dy41dTVn.jpg",
+            "vote_average": 8.5,
+            "vote_count": 6844
+        },
+        {
+            "backdrop_path": "/f8RGyElWxLiL1lLzC9KcPuUZIzf.jpg",
+            "first_air_date": "2020-11-29",
+            "genre_ids": [
+                80,
+                9648,
+                18
+            ],
+            "id": 89844,
+            "name": "30 Coins",
+            "origin_country": [
+                "ES"
+            ],
+            "original_language": "es",
+            "original_name": "30 Monedas",
+            "overview": "Father Vergara—an exorcist, boxer and ex-convict—lives in a remote village in Spain. Hoping to be lost and forgotten, Vergara’s demons catch up to him.",
+            "popularity": 525.919,
+            "poster_path": "/gmL6MSH3jK2T7zYvzo9dIZb393c.jpg",
+            "vote_average": 6.5,
+            "vote_count": 96
+        },
+        {
+            "backdrop_path": "/34OGjFEbHj0E3lE2w0iTUVq0CBz.jpg",
+            "first_air_date": "2020-10-23",
+            "genre_ids": [
+                18
+            ],
+            "id": 87739,
+            "name": "The Queen's Gambit",
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "The Queen's Gambit",
+            "overview": "In a Kentucky orphanage in the 1950s, a young girl discovers an astonishing talent for chess while struggling with addiction.",
+            "popularity": 409.338,
+            "poster_path": "/zU0htwkhNvBQdVSIKB9s6hgVeFK.jpg",
+            "vote_average": 8.7,
+            "vote_count": 1029
+        },
+        {
+            "backdrop_path": "/6lOtF3yx8iurvaBVz1ZVhwcRgmD.jpg",
+            "first_air_date": "2017-09-27",
+            "genre_ids": [
+                10759,
+                18,
+                10768
+            ],
+            "id": 71789,
+            "name": "SEAL Team",
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "SEAL Team",
+            "overview": "The lives of the elite Navy Seals as they train, plan and execute the most dangerous, high-stakes missions our country can ask.",
+            "popularity": 393.25,
+            "poster_path": "/uTSLeQTeHevt4fplegmQ6bOnE0Z.jpg",
+            "vote_average": 7.8,
+            "vote_count": 768
+        },
+        {
+            "backdrop_path": "/9hvhGtcsGhQY58pukw8w55UEUbL.jpg",
+            "first_air_date": "2017-01-26",
+            "genre_ids": [
+                18,
+                9648
+            ],
+            "id": 69050,
+            "name": "Riverdale",
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "Riverdale",
+            "overview": "Set in the present, the series offers a bold, subversive take on Archie, Betty, Veronica and their friends, exploring the surreality of small-town life, the darkness and weirdness bubbling beneath Riverdale’s wholesome facade.",
+            "popularity": 392.695,
+            "poster_path": "/4X7o1ssOEvp4BFLim1AZmPNcYbU.jpg",
+            "vote_average": 8.6,
+            "vote_count": 7285
+        },
+        {
+            "backdrop_path": "/wgEWTYAAY7F04o4F20j0L1DGB8i.jpg",
+            "first_air_date": "2019-07-23",
+            "genre_ids": [
+                18
+            ],
+            "id": 91605,
+            "name": "I Am...",
+            "origin_country": [],
+            "original_language": "en",
+            "original_name": "I Am...",
+            "overview": "Each hour-long film follows a different women as they experience “moments that are emotionally raw, thought-provoking and utterly personal”.",
+            "popularity": 383.92,
+            "poster_path": "/oogunE22HDTcTxFakKQbwqfw1qo.jpg",
+            "vote_average": 5.2,
+            "vote_count": 10
+        },
+        {
+            "backdrop_path": "/suopoADq0k8YZr4dQXcU6pToj6s.jpg",
+            "first_air_date": "2011-04-17",
+            "genre_ids": [
+                10765,
+                18,
+                10759,
+                9648
+            ],
+            "id": 1399,
+            "name": "Game of Thrones",
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "Game of Thrones",
+            "overview": "Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond.",
+            "popularity": 353.916,
+            "poster_path": "/u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg",
+            "vote_average": 8.4,
+            "vote_count": 12004
+        },
+        {
+            "backdrop_path": "/9yKCJTOh9m3Lol2RY3kw99QPH6x.jpg",
+            "first_air_date": "2019-11-03",
+            "genre_ids": [
+                18,
+                10765
+            ],
+            "id": 68507,
+            "name": "His Dark Materials",
+            "origin_country": [
+                "GB"
+            ],
+            "original_language": "en",
+            "original_name": "His Dark Materials",
+            "overview": "Lyra is an orphan who lives in a parallel universe in which science, theology and magic are entwined. Lyra's search for a kidnapped friend uncovers a sinister plot involving stolen children, and turns into a quest to understand a mysterious phenomenon called Dust. She is later joined on her journey by Will, a boy who possesses a knife that can cut windows between worlds. As Lyra learns the truth about her parents and her prophesied destiny, the two young people are caught up in a war against celestial powers that ranges across many worlds.",
+            "popularity": 353.816,
+            "poster_path": "/g6tIKGc3f1H5QMz1dcgCwADKpZ7.jpg",
+            "vote_average": 8.1,
+            "vote_count": 677
+        },
+        {
+            "backdrop_path": "/mE3zzMkpP8yqlkzdjPsQmJHceoe.jpg",
+            "first_air_date": "2019-02-15",
+            "genre_ids": [
+                10759,
+                10765,
+                18
+            ],
+            "id": 75006,
+            "name": "The Umbrella Academy",
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "The Umbrella Academy",
+            "overview": "A dysfunctional family of superheroes comes together to solve the mystery of their father's death, the threat of the apocalypse and more.",
+            "popularity": 348.705,
+            "poster_path": "/scZlQQYnDVlnpxFTxaIv2g0BWnL.jpg",
+            "vote_average": 8.7,
+            "vote_count": 4903
+        },
+        {
+            "backdrop_path": "/jRpgMeHERgyC7j53pLreJPZMAO6.jpg",
+            "first_air_date": "2020-11-09",
+            "genre_ids": [
+                18
+            ],
+            "id": 90812,
+            "name": "Industry",
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "Industry",
+            "overview": "In the cutthroat world of international finance, a group of young graduates compete for a limited set of permanent positions at a top investment bank in London. The boundaries between colleague, friend, lover, and enemy soon blur as they immerse themselves in a company culture defined as much by sex, drugs and ego as it is by deals and dividends.",
+            "popularity": 345.607,
+            "poster_path": "/4G2aJJs1lXoS0n6ftZglkXtZpc6.jpg",
+            "vote_average": 7,
+            "vote_count": 48
+        },
+        {
+            "backdrop_path": "/92B6765nyQkIW8yLWt3pNcS6Cip.jpg",
+            "first_air_date": "2015-08-23",
+            "genre_ids": [
+                10759,
+                18
+            ],
+            "id": 62286,
+            "name": "Fear the Walking Dead",
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "Fear the Walking Dead",
+            "overview": "What did the world look like as it was transforming into the horrifying apocalypse depicted in \"The Walking Dead\"? This spin-off set in Los Angeles, following new characters as they face the beginning of the end of the world, will answer that question.",
+            "popularity": 335.773,
+            "poster_path": "/wGFUewXPeMErCe2xnCmmLEiHOGh.jpg",
+            "vote_average": 7.5,
+            "vote_count": 2892
+        },
+        {
+            "backdrop_path": "/mGVrXeIjyecj6TKmwPVpHlscEmw.jpg",
+            "first_air_date": "2019-07-25",
+            "genre_ids": [
+                10765,
+                10759
+            ],
+            "id": 76479,
+            "name": "The Boys",
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "The Boys",
+            "overview": "A group of vigilantes known informally as “The Boys” set out to take down corrupt superheroes with no more than blue-collar grit and a willingness to fight dirty.",
+            "popularity": 330.686,
+            "poster_path": "/mY7SeH4HFFxW1hiI6cWuwCRKptN.jpg",
+            "vote_average": 8.5,
+            "vote_count": 3794
+        },
+        {
+            "backdrop_path": "/hpU2cHC9tk90hswCFEpf5AtbqoL.jpg",
+            "first_air_date": "1989-12-16",
+            "genre_ids": [
+                16,
+                35,
+                10751,
+                18
+            ],
+            "id": 456,
+            "name": "The Simpsons",
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "The Simpsons",
+            "overview": "Set in Springfield, the average American town, the show focuses on the antics and everyday adventures of the Simpson family; Homer, Marge, Bart, Lisa and Maggie, as well as a virtual cast of thousands. Since the beginning, the series has been a pop culture icon, attracting hundreds of celebrities to guest star. The show has also made name for itself in its fearless satirical take on politics, media and American life in general.",
+            "popularity": 328.323,
+            "poster_path": "/2IWouZK4gkgHhJa3oyYuSWfSqbG.jpg",
+            "vote_average": 7.8,
+            "vote_count": 5624
+        },
+        {
+            "backdrop_path": "/k7T9xRyzP41wBVNyNeLmh8Ch7gD.jpg",
+            "first_air_date": "2009-09-10",
+            "genre_ids": [
+                18,
+                14,
+                27,
+                10749
+            ],
+            "id": 18165,
+            "name": "The Vampire Diaries",
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "The Vampire Diaries",
+            "overview": "The story of two vampire brothers obsessed with the same girl, who bears a striking resemblance to the beautiful but ruthless vampire they knew and loved in 1864.",
+            "popularity": 328.025,
+            "poster_path": "/aBkVgChtyyJaHyZh1gfd8DbzQon.jpg",
+            "vote_average": 8.3,
+            "vote_count": 4571
+        },
+        {
+            "backdrop_path": "/aq2yEMgRQBPfRkrO0Repo2qhUAT.jpg",
+            "first_air_date": "2013-03-03",
+            "genre_ids": [
+                10759,
+                18
+            ],
+            "id": 44217,
+            "name": "Vikings",
+            "origin_country": [
+                "CA"
+            ],
+            "original_language": "en",
+            "original_name": "Vikings",
+            "overview": "The adventures of Ragnar Lothbrok, the greatest hero of his age. The series tells the sagas of Ragnar's band of Viking brothers and his family, as he rises to become King of the Viking tribes. As well as being a fearless warrior, Ragnar embodies the Norse traditions of devotion to the gods. Legend has it that he was a direct descendant of Odin, the god of war and warriors.",
+            "popularity": 300.76,
+            "poster_path": "/bQLrHIRNEkE3PdIWQrZHynQZazu.jpg",
+            "vote_average": 7.9,
+            "vote_count": 3558
+        },
+        {
+            "backdrop_path": "/nVRyd8hlg0ZLxBn9RaI7mUMQLnz.jpg",
+            "first_air_date": "2005-09-13",
+            "genre_ids": [
+                18,
+                9648,
+                10765
+            ],
+            "id": 1622,
+            "name": "Supernatural",
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "Supernatural",
+            "overview": "When they were boys, Sam and Dean Winchester lost their mother to a mysterious and demonic supernatural force. Subsequently, their father raised them to be soldiers. He taught them about the paranormal evil that lives in the dark corners and on the back roads of America ... and he taught them how to kill it. Now, the Winchester brothers crisscross the country in their '67 Chevy Impala, battling every kind of supernatural threat they encounter along the way. ",
+            "popularity": 297.812,
+            "poster_path": "/KoYWXbnYuS3b0GyQPkbuexlVK9.jpg",
+            "vote_average": 8.1,
+            "vote_count": 4491
+        }
+    ],
+    "total_pages": 500,
+    "total_results": 10000
+}

@@ -61,4 +61,9 @@ class DetailMovieActivity : AppCompatActivity() {
             .apply(RequestOptions.placeholderOf(R.drawable.ic_loading).error(R.drawable.ic_error))
             .into(detailMovieBinding.imagePoster)
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+    }
 }

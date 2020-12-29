@@ -8,6 +8,7 @@ import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowDetailRespons
 import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowsResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.source.MovieRemoteDataSourceInterface
 import com.arifikhsan.jetpackmoviecatalogue.network.NetworkConfig
+import com.arifikhsan.jetpackmoviecatalogue.network.NetworkService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

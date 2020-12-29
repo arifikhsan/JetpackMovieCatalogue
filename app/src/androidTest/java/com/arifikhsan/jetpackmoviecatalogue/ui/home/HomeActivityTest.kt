@@ -14,67 +14,67 @@ import org.junit.Test
 
 class HomeActivityTest {
 
-    private val sampleMovies = MovieRepository.getMovies()
-    private val sampleTVShows = MovieRepository.getTVShows()
-
-    private val sampleMovie = sampleMovies.first()
-    private val sampleTVShow = sampleTVShows.first()
-
-    @Before
-    fun setUp() {
-        ActivityScenario.launch(HomeActivity::class.java)
-    }
-
-    @Test
-    fun loadMovies() {
-        onView(withId(R.id.rv_movies)).check(matches(isDisplayed()))
-        onView(withId(R.id.rv_movies)).perform(
-            RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(
-                sampleMovies.size
-            )
-        )
-    }
-
-    @Test
-    fun loadDetailMovie() {
-        onView(withId(R.id.rv_movies)).perform(
-            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
-                sampleMovies.indexOf(sampleMovie),
-                click()
-            )
-        )
-
-        onView(withId(R.id.tv_title)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_title)).check(matches(withText(sampleMovie.title)))
-        onView(withId(R.id.tv_overview)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_overview)).check(matches(withText(sampleMovie.overview)))
-
-    }
-
-    @Test
-    fun loadTVShows() {
-        onView(withText("Serial TV")).perform(click())
-        onView(withId(R.id.rv_tv_shows)).check(matches(isDisplayed()))
-        onView(withId(R.id.rv_tv_shows)).perform(
-            RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(
-                sampleTVShows.size
-            )
-        )
-    }
-
-    @Test
-    fun loadDetailTVShow() {
-        onView(withText("Serial TV")).perform(click())
-        onView(withId(R.id.rv_tv_shows)).perform(
-            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
-                sampleTVShows.indexOf(sampleTVShow),
-                click()
-            )
-        )
-
-        onView(withId(R.id.tv_name)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_name)).check(matches(withText(sampleTVShow.name)))
-        onView(withId(R.id.tv_overview)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_overview)).check(matches(withText(sampleTVShow.overview)))
-    }
+//    private val sampleMovies = MovieRepository.getMovies()
+//    private val sampleTVShows = MovieRepository.getTVShows()
+//
+//    private val sampleMovie = sampleMovies.first()
+//    private val sampleTVShow = sampleTVShows.first()
+//
+//    @Before
+//    fun setUp() {
+//        ActivityScenario.launch(HomeActivity::class.java)
+//    }
+//
+//    @Test
+//    fun loadMovies() {
+//        onView(withId(R.id.rv_movies)).check(matches(isDisplayed()))
+//        onView(withId(R.id.rv_movies)).perform(
+//            RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(
+//                sampleMovies.size
+//            )
+//        )
+//    }
+//
+//    @Test
+//    fun loadDetailMovie() {
+//        onView(withId(R.id.rv_movies)).perform(
+//            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+//                sampleMovies.indexOf(sampleMovie),
+//                click()
+//            )
+//        )
+//
+//        onView(withId(R.id.tv_title)).check(matches(isDisplayed()))
+//        onView(withId(R.id.tv_title)).check(matches(withText(sampleMovie.title)))
+//        onView(withId(R.id.tv_overview)).check(matches(isDisplayed()))
+//        onView(withId(R.id.tv_overview)).check(matches(withText(sampleMovie.overview)))
+//
+//    }
+//
+//    @Test
+//    fun loadTVShows() {
+//        onView(withText("Serial TV")).perform(click())
+//        onView(withId(R.id.rv_tv_shows)).check(matches(isDisplayed()))
+//        onView(withId(R.id.rv_tv_shows)).perform(
+//            RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(
+//                sampleTVShows.size
+//            )
+//        )
+//    }
+//
+//    @Test
+//    fun loadDetailTVShow() {
+//        onView(withText("Serial TV")).perform(click())
+//        onView(withId(R.id.rv_tv_shows)).perform(
+//            RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+//                sampleTVShows.indexOf(sampleTVShow),
+//                click()
+//            )
+//        )
+//
+//        onView(withId(R.id.tv_name)).check(matches(isDisplayed()))
+//        onView(withId(R.id.tv_name)).check(matches(withText(sampleTVShow.name)))
+//        onView(withId(R.id.tv_overview)).check(matches(isDisplayed()))
+//        onView(withId(R.id.tv_overview)).check(matches(withText(sampleTVShow.overview)))
+//    }
 }
