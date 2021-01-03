@@ -28,6 +28,7 @@
   - Memberi tindakan klik pada data pertama di **rv_movies**.
   - Memastikan **TextView** untuk **title** tampil sesuai dengan yang diharapkan.
   - Memastikan **TextView** untuk **overview** tampil sesuai dengan yang diharapkan.
+  - Memastikan **TextView** untuk **date** tampil sesuai dengan yang diharapkan.
   
 3. Menampilkan tv shows
   - Memastikan **rv_tv_shows** dalam keadaan tampil.
@@ -37,4 +38,5 @@
   - Memberi tindakan klik pada data pertama di **rv_tv_shows**.
   - Memastikan **TextView** untuk **name** tampil sesuai dengan yang diharapkan.
   - Memastikan **TextView** untuk **overview** tampil sesuai dengan yang diharapkan.
+  - Memastikan **TextView** untuk **date** tampil sesuai dengan yang diharapkan.
   

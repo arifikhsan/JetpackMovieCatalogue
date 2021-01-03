@@ -53,7 +53,7 @@ class DetailMovieActivity : AppCompatActivity() {
         detailMovieBinding.tvDate.text = movie?.releaseDate
         detailMovieBinding.tvOverview.text = movie?.overview
         detailMovieBinding.tvRating.text =
-            resources.getString(R.string.rate_from, movie?.voteAverage?.toFloat(), movie?.voteCount)
+            resources.getString(R.string.rate_from, movie?.voteAverage?.toFloat(), movie?.voteCount.toString())
 
         Glide.with(this)
             .load("https://image.tmdb.org/t/p/w500/${movie?.posterPath}")
