@@ -81,7 +81,6 @@ dependencies {
     // idling resource
     implementation "androidx.test.espresso:espresso-idling-resource:$idleResourceVersion"
 
-
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
     androidTestImplementation "androidx.test:runner:$androidTestVersion"
