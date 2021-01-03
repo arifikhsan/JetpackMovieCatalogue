@@ -38,9 +38,12 @@ ext {
     androidXTestVersion = '1.2.0'
     koinVersion = '2.2.2'
     mockitoVersion = '3.6.0'
+    mockitoKotlinVersion = '2.2.0'
     idleResourceVersion = '3.3.0'
 
     materialVersion = '1.2.1'
     recyclerViewVersion = '1.1.0'
     glideVersion = '4.11.0'
+
+    archLifecycleVersion = '2.2.0'
 }
