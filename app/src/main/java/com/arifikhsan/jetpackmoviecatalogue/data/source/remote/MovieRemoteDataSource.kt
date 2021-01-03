@@ -8,6 +8,7 @@ import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowDetailRespons
 import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowsResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.source.MovieDataSourceInterface
 import com.arifikhsan.jetpackmoviecatalogue.network.NetworkConfig
+import com.arifikhsan.jetpackmoviecatalogue.util.EspressoIdlingResource
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,7 +20,19 @@ class MovieRemoteDataSource(private val networkConfig: NetworkConfig) :
         private val TAG = MovieRemoteDataSource::class.java.simpleName
     }
 
+    private fun incrementIdlingResource() {
+        EspressoIdlingResource.increment()
+    }
+
+    fun decrementIdlingResource() {
+        if (!EspressoIdlingResource.getEspressoIdlingResource().isIdleNow) {
+            EspressoIdlingResource.decrement()
+        }
+    }
+
     override fun getMovies(): MutableLiveData<GetMoviesResponse?> {
+        incrementIdlingResource()
+
         val movies = MutableLiveData<GetMoviesResponse?>()
         val client = networkConfig.getApiService().getMovies()
 
@@ -35,10 +48,13 @@ class MovieRemoteDataSource(private val networkConfig: NetworkConfig) :
                     } else {
                         Log.e(TAG, "onFailure: ${response.message()}")
                     }
+
+                    decrementIdlingResource()
                 }
 
                 override fun onFailure(call: Call<GetMoviesResponse>, t: Throwable) {
                     Log.e(TAG, "onFailure: ${t.message.toString()}")
+                    decrementIdlingResource()
                 }
             })
 
@@ -46,6 +62,8 @@ class MovieRemoteDataSource(private val networkConfig: NetworkConfig) :
     }
 
     override fun getMovieDetail(id: Int): MutableLiveData<GetMovieDetailResponse?> {
+        incrementIdlingResource()
+
         val movie = MutableLiveData<GetMovieDetailResponse?>()
         val client = networkConfig.getApiService().getMovieDetail(id)
 
@@ -61,10 +79,13 @@ class MovieRemoteDataSource(private val networkConfig: NetworkConfig) :
                     } else {
                         Log.e(TAG, "onFailure: ${response.message()}")
                     }
+
+                    decrementIdlingResource()
                 }
 
                 override fun onFailure(call: Call<GetMovieDetailResponse>, t: Throwable) {
                     Log.e(TAG, "onFailure: ${t.message.toString()}")
+                    decrementIdlingResource()
                 }
             })
 
@@ -72,8 +93,9 @@ class MovieRemoteDataSource(private val networkConfig: NetworkConfig) :
     }
 
     override fun getTVShows(): MutableLiveData<GetTVShowsResponse?> {
-        val tvShows = MutableLiveData<GetTVShowsResponse?>()
+        incrementIdlingResource()
 
+        val tvShows = MutableLiveData<GetTVShowsResponse?>()
         val client = networkConfig.getApiService().getTVShows()
 
         client
@@ -88,10 +110,13 @@ class MovieRemoteDataSource(private val networkConfig: NetworkConfig) :
                     } else {
                         Log.e(TAG, "onFailure: ${response.message()}")
                     }
+
+                    decrementIdlingResource()
                 }
 
                 override fun onFailure(call: Call<GetTVShowsResponse>, t: Throwable) {
                     Log.e(TAG, "onFailure: ${t.message.toString()}")
+                    decrementIdlingResource()
                 }
             })
 
@@ -99,6 +124,8 @@ class MovieRemoteDataSource(private val networkConfig: NetworkConfig) :
     }
 
     override fun getTVShowDetail(id: Int): MutableLiveData<GetTVShowDetailResponse?> {
+        incrementIdlingResource()
+
         val tvShow = MutableLiveData<GetTVShowDetailResponse?>()
         val client = networkConfig.getApiService().getTVShowDetail(id)
 
@@ -114,10 +141,13 @@ class MovieRemoteDataSource(private val networkConfig: NetworkConfig) :
                     } else {
                         Log.e(TAG, "onFailure: ${response.message()}")
                     }
+
+                    decrementIdlingResource()
                 }
 
                 override fun onFailure(call: Call<GetTVShowDetailResponse>, t: Throwable) {
                     Log.e(TAG, "onFailure: ${t.message.toString()}")
+                    decrementIdlingResource()
                 }
             })
 
