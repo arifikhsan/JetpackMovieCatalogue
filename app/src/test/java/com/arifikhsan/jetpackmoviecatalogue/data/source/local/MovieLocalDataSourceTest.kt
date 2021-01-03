@@ -16,23 +16,21 @@ class MovieLocalDataSourceTest {
 
     @Test
     fun getMovies() {
-        assertNotNull(localDataSource.getMovies().value)
+        assertNotNull(localDataSource.getMovies())
     }
 
     @Test
     fun getMovie() {
-        val movieId = localDataSource.getMovies().value?.results?.random()?.id!!
-        assertNotNull(localDataSource.getMovieDetail(movieId).value)
+        assertNotNull(localDataSource.getMovieDetail())
     }
 
     @Test
     fun getTVShows() {
-        assertNotNull(localDataSource.getTVShows().value)
+        assertNotNull(localDataSource.getTVShows())
     }
 
     @Test
     fun getTVShow() {
-        val tvShowId = localDataSource.getTVShows().value?.results?.random()?.id!!
-        assertNotNull(localDataSource.getTVShowDetail(tvShowId).value)
+        assertNotNull(localDataSource.getTVShowDetail())
     }
 }

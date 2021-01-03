@@ -17,13 +17,10 @@ class MovieLocalDataSource {
     }
 
     fun getMovieDetail(): GetMovieDetailResponse {
-        EspressoIdlingResource.increment()
-        val a = Gson().fromJson(
+        return Gson().fromJson(
             InputStreamReader(javaClass.getResourceAsStream("get_movie.json")),
             GetMovieDetailResponse::class.java
         )
-        EspressoIdlingResource.decrement()
-        return a
     }
 
 //    fun getRandomMovieDetail(): MovieResultsItem {
