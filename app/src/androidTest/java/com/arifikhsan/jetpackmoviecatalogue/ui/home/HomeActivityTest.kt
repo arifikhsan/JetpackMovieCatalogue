@@ -1,5 +1,6 @@
 package com.arifikhsan.jetpackmoviecatalogue.ui.home
 
+import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
@@ -9,8 +10,8 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.contrib.RecyclerViewActions.scrollToPosition
 import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.platform.app.InstrumentationRegistry
 import com.arifikhsan.jetpackmoviecatalogue.R
-import com.arifikhsan.jetpackmoviecatalogue.data.source.local.MovieLocalDataSource
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.MovieRemoteDataSource
 import com.arifikhsan.jetpackmoviecatalogue.network.NetworkConfig
 import com.arifikhsan.jetpackmoviecatalogue.util.EspressoIdlingResource
@@ -24,16 +25,15 @@ class HomeActivityTest {
     private val dataSource = MovieRemoteDataSource(networkConfig)
 
     private val sampleMovies = dataSource.getMovies()
-    private val movieId = sampleMovies.value?.results?.first()?.id ?: 753926
-    private val sampleMovie = dataSource.getMovieDetail(movieId)
-
     private val sampleTVShows = dataSource.getTVShows()
-    private val tvShowId = sampleTVShows.value?.results?.first()?.id ?: 82856
-    private val sampleTVShow = dataSource.getTVShowDetail(tvShowId)
+
+    private lateinit var instrumentalContext: Context
 
     @Before
     fun setUp() {
+        instrumentalContext = InstrumentationRegistry.getInstrumentation().targetContext
         IdlingRegistry.getInstance().register(EspressoIdlingResource.getEspressoIdlingResource())
+
         ActivityScenario.launch(HomeActivity::class.java)
     }
 
@@ -55,20 +55,19 @@ class HomeActivityTest {
         onView(withText("FILM")).perform(click())
         onView(withId(R.id.rv_movies)).check(matches(isDisplayed()))
 
-//        Thread.sleep(2000)
+        val sampleMovie = sampleMovies.value?.results?.first()
+        val position = sampleMovies.value?.results?.indexOf(sampleMovie)!!
 
-        val moviePosition = sampleMovies.value?.results?.indexOf(sampleMovie.value)
-        onView(withId(R.id.rv_movies)).perform(scrollToPosition<RecyclerView.ViewHolder>())
+        onView(withId(R.id.rv_movies)).perform(scrollToPosition<RecyclerView.ViewHolder>(position))
         onView(withId(R.id.rv_movies)).perform(
-            actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click())
+            actionOnItemAtPosition<RecyclerView.ViewHolder>(position, click())
         )
 
-//        Thread.sleep(2000)
-
         onView(withId(R.id.tv_title)).check(matches(isDisplayed()))
-//        onView(withId(R.id.tv_title)).check(matches(withText(sampleMovie.title)))
+        onView(withId(R.id.tv_title)).check(matches(withText(sampleMovie?.title)))
         onView(withId(R.id.tv_overview)).check(matches(isDisplayed()))
-//        onView(withId(R.id.tv_overview)).check(matches(withText(sampleMovie.overview)))
+        onView(withId(R.id.tv_overview)).check(matches(withText(sampleMovie?.overview)))
+        onView(withId(R.id.tv_rating)).check(matches(isDisplayed()))
     }
 
     @Test
@@ -82,18 +81,19 @@ class HomeActivityTest {
 
     @Test
     fun loadDetailTVShow() {
-        Thread.sleep(2000)
-
         onView(withText("Serial TV")).perform(click())
+        onView(withId(R.id.rv_tv_shows)).check(matches(isDisplayed()))
+
+        val sampleTVShow = sampleTVShows.value?.results?.first()
+        val position = sampleTVShows.value?.results?.indexOf(sampleTVShow)!!
+
         onView(withId(R.id.rv_tv_shows)).perform(
-            actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click())
+            actionOnItemAtPosition<RecyclerView.ViewHolder>(position, click())
         )
 
-        Thread.sleep(2000)
-
         onView(withId(R.id.tv_name)).check(matches(isDisplayed()))
-//        onView(withId(R.id.tv_name)).check(matches(withText(sampleTVShow?.name)))
+        onView(withId(R.id.tv_name)).check(matches(withText(sampleTVShow?.name)))
         onView(withId(R.id.tv_overview)).check(matches(isDisplayed()))
-//        onView(withId(R.id.tv_overview)).check(matches(withText(sampleTVShow?.overview)))
+        onView(withId(R.id.tv_overview)).check(matches(withText(sampleTVShow?.overview)))
     }
 }
