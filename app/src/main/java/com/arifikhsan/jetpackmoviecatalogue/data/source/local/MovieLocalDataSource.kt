@@ -4,7 +4,6 @@ import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMovieDetailResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMoviesResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowDetailResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowsResponse
-import com.arifikhsan.jetpackmoviecatalogue.util.EspressoIdlingResource
 import com.google.gson.Gson
 import java.io.InputStreamReader
 
@@ -22,15 +21,6 @@ class MovieLocalDataSource {
             GetMovieDetailResponse::class.java
         )
     }
-
-//    fun getRandomMovieDetail(): MovieResultsItem {
-//        val movies = Gson().fromJson(
-//            InputStreamReader(javaClass.getResourceAsStream("get_movies.json")),
-//            GetMoviesResponse::class.java
-//        )
-//
-//        return movies.results.random()
-//    }
 
     fun getTVShows(): GetTVShowsResponse {
         return Gson().fromJson(
