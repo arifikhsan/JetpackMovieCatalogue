@@ -3,7 +3,7 @@ package com.arifikhsan.jetpackmoviecatalogue.ui.movies.detail
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.arifikhsan.jetpackmoviecatalogue.data.repository.MovieRepository
-import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMovieDetailResponse
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMovieDetailResponse
 
 class DetailMovieViewModel(private val movieRepository: MovieRepository) : ViewModel() {
     lateinit var movie: LiveData<GetMovieDetailResponse?>

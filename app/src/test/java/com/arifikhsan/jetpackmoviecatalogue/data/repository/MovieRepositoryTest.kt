@@ -1,10 +1,10 @@
 package com.arifikhsan.jetpackmoviecatalogue.data.repository
 
 import androidx.lifecycle.MutableLiveData
-import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMovieDetailResponse
-import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMoviesResponse
-import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowDetailResponse
-import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowsResponse
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMovieDetailResponse
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMoviesResponse
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetTVShowDetailResponse
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetTVShowsResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.MovieRemoteDataSource
 import com.google.gson.Gson
 import org.junit.Assert.assertEquals

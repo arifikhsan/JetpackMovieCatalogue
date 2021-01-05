@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.arifikhsan.jetpackmoviecatalogue.R
-import com.arifikhsan.jetpackmoviecatalogue.data.response.TVShowResultsItem
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.TVShowResultsItem
 import com.arifikhsan.jetpackmoviecatalogue.databinding.ItemMovieBinding
 import com.arifikhsan.jetpackmoviecatalogue.ui.tv_shows.detail.DetailTVShowActivity
 import com.bumptech.glide.Glide

@@ -1,4 +1,4 @@
-package com.arifikhsan.jetpackmoviecatalogue.data.response
+package com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,6 +1,6 @@
 package com.arifikhsan.jetpackmoviecatalogue.util
 
-import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMoviesResponse
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMoviesResponse
 import com.google.gson.Gson
 import java.io.File
 import java.io.FileInputStream

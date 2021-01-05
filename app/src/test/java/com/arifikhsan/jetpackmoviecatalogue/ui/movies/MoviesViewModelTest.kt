@@ -2,7 +2,7 @@ package com.arifikhsan.jetpackmoviecatalogue.ui.movies
 
 import androidx.lifecycle.MutableLiveData
 import com.arifikhsan.jetpackmoviecatalogue.data.repository.MovieRepository
-import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMoviesResponse
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMoviesResponse
 import com.google.gson.Gson
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertNotNull

@@ -1,14 +1,11 @@
 package com.arifikhsan.jetpackmoviecatalogue.data.source
 
 import androidx.lifecycle.MutableLiveData
-import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMovieDetailResponse
-import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMoviesResponse
-import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowDetailResponse
-import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowsResponse
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.ApiResponse
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMovieDetailResponse
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMoviesResponse
 
 interface MovieDataSourceInterface {
-    fun getMovies(): MutableLiveData<GetMoviesResponse?>
-    fun getMovieDetail(id: Int): MutableLiveData<GetMovieDetailResponse?>
-    fun getTVShows(): MutableLiveData<GetTVShowsResponse?>
-    fun getTVShowDetail(id: Int): MutableLiveData<GetTVShowDetailResponse?>
+    fun getMovies(): MutableLiveData<ApiResponse<GetMoviesResponse?>>
+    fun getMovieDetail(id: Int): MutableLiveData<ApiResponse<GetMovieDetailResponse?>>
 }

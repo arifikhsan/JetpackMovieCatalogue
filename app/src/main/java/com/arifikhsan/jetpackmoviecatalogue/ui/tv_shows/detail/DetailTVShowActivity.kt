@@ -3,7 +3,7 @@ package com.arifikhsan.jetpackmoviecatalogue.ui.tv_shows.detail
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.arifikhsan.jetpackmoviecatalogue.R
-import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowDetailResponse
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetTVShowDetailResponse
 import com.arifikhsan.jetpackmoviecatalogue.databinding.ActivityDetailTvShowBinding
 import com.arifikhsan.jetpackmoviecatalogue.databinding.ContentDetailTvShowBinding
 import com.bumptech.glide.Glide

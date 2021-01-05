@@ -1,9 +1,9 @@
 package com.arifikhsan.jetpackmoviecatalogue.network
 
-import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMovieDetailResponse
-import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMoviesResponse
-import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowDetailResponse
-import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowsResponse
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMovieDetailResponse
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMoviesResponse
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetTVShowDetailResponse
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetTVShowsResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

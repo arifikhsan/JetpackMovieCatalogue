@@ -1,10 +1,9 @@
 package com.arifikhsan.jetpackmoviecatalogue.ui.movies.detail
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.arifikhsan.jetpackmoviecatalogue.R
-import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMovieDetailResponse
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMovieDetailResponse
 import com.arifikhsan.jetpackmoviecatalogue.databinding.ActivityDetailMovieBinding
 import com.arifikhsan.jetpackmoviecatalogue.databinding.ContentDetailMovieBinding
 import com.bumptech.glide.Glide

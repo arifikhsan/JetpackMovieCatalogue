@@ -8,7 +8,7 @@ import androidx.core.app.ShareCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.arifikhsan.jetpackmoviecatalogue.R
-import com.arifikhsan.jetpackmoviecatalogue.data.response.MovieResultsItem
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.MovieResultsItem
 import com.arifikhsan.jetpackmoviecatalogue.databinding.FragmentMoviesBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

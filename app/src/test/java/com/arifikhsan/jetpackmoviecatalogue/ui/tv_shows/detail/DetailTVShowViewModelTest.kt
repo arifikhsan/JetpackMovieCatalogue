@@ -4,8 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.arifikhsan.jetpackmoviecatalogue.data.repository.MovieRepository
-import com.arifikhsan.jetpackmoviecatalogue.data.response.GetMovieDetailResponse
-import com.arifikhsan.jetpackmoviecatalogue.data.response.GetTVShowDetailResponse
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetTVShowDetailResponse
 import com.google.gson.Gson
 import com.nhaarman.mockitokotlin2.verify
 import org.junit.Assert.assertEquals
