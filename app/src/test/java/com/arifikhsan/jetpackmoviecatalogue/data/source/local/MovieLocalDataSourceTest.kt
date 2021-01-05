@@ -7,30 +7,30 @@ import org.junit.Assert.*
 
 class MovieLocalDataSourceTest {
 
-    private lateinit var localDataSource: MovieLocalDataSource
+    private lateinit var localDatasource: MovieLocalDatasource
 
     @Before
     fun setUp() {
-        localDataSource = MovieLocalDataSource()
+        localDatasource = MovieLocalDatasource()
     }
 
     @Test
     fun getMovies() {
-        assertNotNull(localDataSource.getMovies())
+        assertNotNull(localDatasource.getMovies())
     }
 
     @Test
     fun getMovie() {
-        assertNotNull(localDataSource.getMovieDetail())
+        assertNotNull(localDatasource.getMovieDetail())
     }
 
     @Test
     fun getTVShows() {
-        assertNotNull(localDataSource.getTVShows())
+        assertNotNull(localDatasource.getTVShows())
     }
 
     @Test
     fun getTVShow() {
-        assertNotNull(localDataSource.getTVShowDetail())
+        assertNotNull(localDatasource.getTVShowDetail())
     }
 }
