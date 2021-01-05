@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.arifikhsan.jetpackmoviecatalogue.R
+import com.arifikhsan.jetpackmoviecatalogue.ui.favorite.FavoriteFragment
 import com.arifikhsan.jetpackmoviecatalogue.ui.movies.MoviesFragment
 import com.arifikhsan.jetpackmoviecatalogue.ui.tv_shows.TVShowsFragment
 
@@ -24,6 +25,7 @@ class SectionsPagerAdapter(private val mContext: Context, fm: FragmentManager) :
         return when (position) {
             0 -> MoviesFragment()
             1 -> TVShowsFragment()
+            2 -> FavoriteFragment()
             else -> Fragment()
         }
     }
