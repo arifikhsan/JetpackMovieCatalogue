@@ -14,7 +14,8 @@ class SectionsPagerAdapter(private val mContext: Context, fm: FragmentManager) :
 
     companion object {
         @StringRes
-        private val TAB_TITLES = intArrayOf(R.string.movies, R.string.tv_shows)
+        private val TAB_TITLES =
+            intArrayOf(R.string.movies, R.string.tv_shows, R.string.tab_favorite)
     }
 
     override fun getCount(): Int = TAB_TITLES.size
@@ -27,7 +28,7 @@ class SectionsPagerAdapter(private val mContext: Context, fm: FragmentManager) :
         }
     }
 
-    override fun getPageTitle(position: Int): CharSequence? {
+    override fun getPageTitle(position: Int): CharSequence {
         return mContext.resources.getString(TAB_TITLES[position])
     }
 }

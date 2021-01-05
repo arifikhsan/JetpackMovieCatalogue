@@ -16,4 +16,5 @@
     <string name="title_tv_show">Judul Acara TV</string>
     <string name="share_text">Segera tonton film \"%s\" di Jetpack Movie Catalogue!</string>
     <string name="share_title">Bagikan film ini sekarang!</string>
+    <string name="tab_favorite">Kesukaan</string>
 </resources>
