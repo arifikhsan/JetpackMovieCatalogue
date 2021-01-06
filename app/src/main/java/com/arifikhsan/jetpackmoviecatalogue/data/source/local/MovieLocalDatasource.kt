@@ -1,22 +1,31 @@
 package com.arifikhsan.jetpackmoviecatalogue.data.source.local
 
+import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.paging.DataSource
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.MovieEntity
+import com.arifikhsan.jetpackmoviecatalogue.data.source.local.room.AppDatabase
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.room.MovieDao
 
-class MovieLocalDatasource private constructor(private val mMovieDao: MovieDao) {
+class MovieLocalDatasource {
+    private lateinit var mMovieDao: MovieDao
+    lateinit var application: Application
 
-    companion object {
-        private var INSTANCE: MovieLocalDatasource? = null
+//    companion object {
+//        private var INSTANCE: MovieLocalDatasource? = null
+//
+//        fun getInstance(movieDao: MovieDao): MovieLocalDatasource {
+//            if (INSTANCE == null) {
+//                INSTANCE = MovieLocalDatasource(movieDao)
+//            }
+//
+//            return INSTANCE as MovieLocalDatasource
+//        }
+//    }
 
-        fun getInstance(movieDao: MovieDao): MovieLocalDatasource {
-            if (INSTANCE == null) {
-                INSTANCE = MovieLocalDatasource(movieDao)
-            }
-
-            return INSTANCE as MovieLocalDatasource
-        }
+    init {
+        val db = AppDatabase.getInstance(application)
+        mMovieDao = db.movieDao()
     }
 
     fun getMovies(): DataSource.Factory<Int, MovieEntity> {

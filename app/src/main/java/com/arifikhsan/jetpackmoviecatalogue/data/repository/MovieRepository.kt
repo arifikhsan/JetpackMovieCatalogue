@@ -1,19 +1,24 @@
 package com.arifikhsan.jetpackmoviecatalogue.data.repository
 
 import androidx.lifecycle.MutableLiveData
+import com.arifikhsan.jetpackmoviecatalogue.data.source.local.MovieLocalDatasource
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.MovieRemoteDataSource
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMovieDetailResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMoviesResponse
-import org.koin.java.KoinJavaComponent.inject
+import com.arifikhsan.jetpackmoviecatalogue.util.AppExecutors
 
-class MovieRepository(private val remoteRemoteDataSource: MovieRemoteDataSource) {
+class MovieRepository(
+    private val remote: MovieRemoteDataSource,
+    private val local: MovieLocalDatasource,
+    private val appExecutors: AppExecutors
+) {
 
     fun getMovies(): MutableLiveData<GetMoviesResponse?> {
-        return remoteRemoteDataSource.getMovies()
+        return remote.getMovies()
     }
 
     fun getMovieDetail(id: Int): MutableLiveData<GetMovieDetailResponse?> {
-        return remoteRemoteDataSource.getMovieDetail(id)
+        return local.getMovieDetail(id)
     }
 
 //    fun getTVShows(): MutableLiveData<GetTVShowsResponse?> {
