@@ -48,7 +48,7 @@ class MovieRepository(
         }.asLiveData()
     }
 
-    override fun getMovie(): LiveData<Resource<MovieEntity>> {
+    override fun getMovie(id: Int): LiveData<Resource<MovieEntity>> {
         TODO("Not yet implemented")
     }
 

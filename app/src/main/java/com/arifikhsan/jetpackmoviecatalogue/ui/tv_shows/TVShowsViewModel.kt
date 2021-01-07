@@ -1,14 +1,8 @@
 package com.arifikhsan.jetpackmoviecatalogue.ui.tv_shows
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.arifikhsan.jetpackmoviecatalogue.data.repository.MovieRepository
-import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetTVShowsResponse
+import com.arifikhsan.jetpackmoviecatalogue.data.repository.TVShowRepository
 
-class TVShowsViewModel(private val movieRepository: MovieRepository) : ViewModel() {
-    var tvShows = MutableLiveData<GetTVShowsResponse?>()
-
-    fun getTVShows() {
-        tvShows = movieRepository.getTVShows()
-    }
+class TVShowsViewModel(private val repository: TVShowRepository) : ViewModel() {
+    fun getTVShows() = repository.getTVShows()
 }

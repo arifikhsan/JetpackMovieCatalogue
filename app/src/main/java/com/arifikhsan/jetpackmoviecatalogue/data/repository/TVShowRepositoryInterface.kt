@@ -2,11 +2,10 @@ package com.arifikhsan.jetpackmoviecatalogue.data.repository
 
 import androidx.lifecycle.LiveData
 import androidx.paging.PagedList
-import com.arifikhsan.jetpackmoviecatalogue.model.MovieModel
-import com.arifikhsan.jetpackmoviecatalogue.model.TVShowModel
+import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.TVShowEntity
 import com.arifikhsan.jetpackmoviecatalogue.valueobject.Resource
 
 interface TVShowRepositoryInterface {
-    fun getTVShows(): LiveData<Resource<PagedList<TVShowModel>>>
-    fun getTVShow(): LiveData<Resource<TVShowModel>>
+    fun getTVShows(): LiveData<Resource<PagedList<TVShowEntity>>>
+    fun getTVShow(id: Int): LiveData<Resource<TVShowEntity>>
 }

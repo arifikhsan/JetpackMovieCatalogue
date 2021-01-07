@@ -14,7 +14,7 @@ import org.koin.dsl.module
 
 val appModules = module {
     single { NetworkConfig() }
-    single { MovieRepository(get()) }
+    single { AppExecutors() }
 
     single { MovieRemoteDataSource(get()) }
     single { MovieLocalDatasource() }
@@ -22,5 +22,5 @@ val appModules = module {
     single { TVShowRemoteDataSource(get()) }
     single { TVShowLocalDatasource() }
 
-    single { AppExecutors() }
+    single { MovieRepository(get(), get(), get()) }
 }

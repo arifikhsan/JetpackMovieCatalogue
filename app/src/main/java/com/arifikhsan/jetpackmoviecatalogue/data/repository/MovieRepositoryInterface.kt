@@ -7,5 +7,5 @@ import com.arifikhsan.jetpackmoviecatalogue.valueobject.Resource
 
 interface MovieRepositoryInterface {
     fun getMovies(): LiveData<Resource<PagedList<MovieEntity>>>
-    fun getMovie(): LiveData<Resource<MovieEntity>>
+    fun getMovie(id: Int): LiveData<Resource<MovieEntity>>
 }
