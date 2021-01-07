@@ -6,6 +6,8 @@ import androidx.paging.DataSource
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.MovieEntity
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.room.AppDatabase
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.room.MovieDao
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMoviesResponse
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.MovieResultsItem
 
 class MovieLocalDatasource {
     private lateinit var mMovieDao: MovieDao
@@ -38,6 +40,12 @@ class MovieLocalDatasource {
 
     fun getMovie(id: Int): LiveData<MovieEntity> {
         return mMovieDao.getMovie(id)
+    }
+
+    fun insertMovies(movies: GetMoviesResponse) {
+        movies.results?.let {
+            it.forEach { movie -> insertMovie(MovieResultsItem.toEntity(movie)) }
+        }
     }
 
     fun insertMovie(movieEntity: MovieEntity) {

@@ -1,12 +1,11 @@
 package com.arifikhsan.jetpackmoviecatalogue.data.source.remote
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.arifikhsan.jetpackmoviecatalogue.data.source.MovieDataSourceInterface
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMovieDetailResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMoviesResponse
-import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetTVShowDetailResponse
-import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetTVShowsResponse
 import com.arifikhsan.jetpackmoviecatalogue.network.NetworkConfig
 import com.arifikhsan.jetpackmoviecatalogue.util.EspressoIdlingResource
 import retrofit2.Call
@@ -18,11 +17,11 @@ class MovieRemoteDataSource(private val networkConfig: NetworkConfig) : MovieDat
         private val TAG = MovieRemoteDataSource::class.java.simpleName
     }
 
-    override fun getMovies(): MutableLiveData<ApiResponse<GetMoviesResponse?>> {
+    override fun getMovies(): LiveData<ApiResponse<GetMoviesResponse>> {
         return call(networkConfig.getApiService().getMovies())
     }
 
-    override fun getMovieDetail(id: Int): MutableLiveData<ApiResponse<GetMovieDetailResponse?>> {
+    override fun getMovieDetail(id: Int): LiveData<ApiResponse<GetMovieDetailResponse>> {
         return call(networkConfig.getApiService().getMovieDetail(id))
     }
 
@@ -44,15 +43,17 @@ class MovieRemoteDataSource(private val networkConfig: NetworkConfig) : MovieDat
         }
     }
 
-    private fun <T> call(call: Call<T>): MutableLiveData<ApiResponse<T?>> {
+    private fun <T> call(call: Call<T>): LiveData<ApiResponse<T>> {
         incrementIdlingResource()
-        val returnVal = MutableLiveData<ApiResponse<T?>>()
+        val returnVal = MutableLiveData<ApiResponse<T>>()
 
         Executors.newFixedThreadPool(5).execute {
             val response = call.execute()
 
             if (response.isSuccessful) {
-                returnVal.postValue(ApiResponse.success(response.body()))
+                response.body()?.let {
+                    returnVal.postValue(ApiResponse.success(it))
+                }
             } else {
                 Log.e(TAG, "Error: " + response.errorBody()?.string())
                 returnVal.postValue(null)

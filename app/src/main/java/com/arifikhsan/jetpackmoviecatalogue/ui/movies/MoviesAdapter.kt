@@ -3,8 +3,11 @@ package com.arifikhsan.jetpackmoviecatalogue.ui.movies
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.arifikhsan.jetpackmoviecatalogue.R
+import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.MovieEntity
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.MovieResultsItem
 import com.arifikhsan.jetpackmoviecatalogue.databinding.ItemMovieBinding
 import com.arifikhsan.jetpackmoviecatalogue.ui.movies.detail.DetailMovieActivity
@@ -13,9 +16,21 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
 class MoviesAdapter(private val callback: MovieCallback) :
-    RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
+    PagedListAdapter<MovieEntity, MoviesAdapter.MoviesViewHolder>(DIFF_CALLBACK) {
 
     private val movies = ArrayList<MovieResultsItem?>()
+
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<MovieEntity>() {
+            override fun areItemsTheSame(oldItem: MovieEntity, newItem: MovieEntity): Boolean {
+                return oldItem.id == newItem.id
+            }
+
+            override fun areContentsTheSame(oldItem: MovieEntity, newItem: MovieEntity): Boolean {
+                return oldItem == newItem
+            }
+        }
+    }
 
     fun setMovies(movies: ArrayList<MovieResultsItem?>?) {
         movies?.let {
@@ -31,10 +46,9 @@ class MoviesAdapter(private val callback: MovieCallback) :
     }
 
     override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
-        holder.bind(movies[position])
+        val movie = movies[position]
+        movie?.let { holder.bind(it) }
     }
-
-    override fun getItemCount(): Int = movies.size
 
     inner class MoviesViewHolder(private val binding: ItemMovieBinding) :
         RecyclerView.ViewHolder(binding.root) {
