@@ -6,7 +6,8 @@ import com.arifikhsan.jetpackmoviecatalogue.R
 import com.arifikhsan.jetpackmoviecatalogue.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
-    private lateinit var activityHomeBinding: ActivityHomeBinding
+    private var _activityHomeBinding: ActivityHomeBinding? = null
+    private val binding get() = _activityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,12 +16,12 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        activityHomeBinding = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(activityHomeBinding.root)
+        _activityHomeBinding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding?.root)
 
         val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
-        activityHomeBinding.viewPager.adapter = sectionsPagerAdapter
-        activityHomeBinding.tabs.setupWithViewPager(activityHomeBinding.viewPager)
+        binding?.viewPager?.adapter = sectionsPagerAdapter
+        binding?.tabs?.setupWithViewPager(binding?.viewPager)
 
         supportActionBar?.title = getString(R.string.app_name)
         supportActionBar?.subtitle = getString(R.string.app_subtitle)
@@ -28,11 +29,16 @@ class HomeActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (activityHomeBinding.viewPager.currentItem == 0) {
+        if (binding?.viewPager?.currentItem == 0) {
             super.onBackPressed()
         } else {
-            activityHomeBinding.viewPager.currentItem =
-                activityHomeBinding.viewPager.currentItem - 1
+            binding?.viewPager?.currentItem =
+                binding?.viewPager?.currentItem?.minus(1)!!
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _activityHomeBinding = null
     }
 }

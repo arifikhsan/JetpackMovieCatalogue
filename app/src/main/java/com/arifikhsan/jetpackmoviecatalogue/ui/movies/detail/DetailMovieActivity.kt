@@ -36,7 +36,7 @@ class DetailMovieActivity : AppCompatActivity() {
 
             detailMovieViewModel.setMovieId(movieId)
             detailMovieViewModel.getMovieDetail()
-            detailMovieViewModel.movie.observe(this, { movie -> populateDetail(movie) })
+//            detailMovieViewModel.movie.observe(this, { movie -> populateDetail(movie) })
         }
     }
 

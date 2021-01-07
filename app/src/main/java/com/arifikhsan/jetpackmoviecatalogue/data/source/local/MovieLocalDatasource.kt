@@ -1,6 +1,7 @@
 package com.arifikhsan.jetpackmoviecatalogue.data.source.local
 
 import android.app.Application
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.paging.DataSource
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.MovieEntity
@@ -9,9 +10,8 @@ import com.arifikhsan.jetpackmoviecatalogue.data.source.local.room.MovieDao
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMoviesResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.MovieResultsItem
 
-class MovieLocalDatasource {
-    private lateinit var mMovieDao: MovieDao
-    lateinit var application: Application
+class MovieLocalDatasource(context: Context) {
+    private var mMovieDao: MovieDao
 
 //    companion object {
 //        private var INSTANCE: MovieLocalDatasource? = null
@@ -26,7 +26,7 @@ class MovieLocalDatasource {
 //    }
 
     init {
-        val db = AppDatabase.getInstance(application)
+        val db = AppDatabase.getInstance(context)
         mMovieDao = db.movieDao()
     }
 

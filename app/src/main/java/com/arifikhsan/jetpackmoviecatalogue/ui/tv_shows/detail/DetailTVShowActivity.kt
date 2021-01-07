@@ -38,7 +38,7 @@ class DetailTVShowActivity : AppCompatActivity() {
 
             detailTVShowViewModel.setTVShowId(tvShowId)
             detailTVShowViewModel.getTVShowDetail()
-            detailTVShowViewModel.tvShow.observe(this, { tvShow -> populateDetail(tvShow) })
+//            detailTVShowViewModel.tvShow.observe(this, { tvShow -> populateDetail(tvShow) })
         }
     }
 
@@ -52,12 +52,12 @@ class DetailTVShowActivity : AppCompatActivity() {
         detailTvShowBinding.tvName.text = tvShow?.name
         detailTvShowBinding.tvDate.text = tvShow?.firstAirDate
         detailTvShowBinding.tvOverview.text = tvShow?.overview
-        detailTvShowBinding.tvRating.text =
-            resources.getString(
-                R.string.rate_from,
-                tvShow?.voteAverage?.toFloat(),
-                tvShow?.voteCount
-            )
+//        detailTvShowBinding.tvRating.text =
+//            resources.getString(
+//                R.string.rate_from,
+//                tvShow?.voteAverage?.toFloat(),
+//                tvShow?.voteCount
+//            )
 
         Glide.with(this)
             .load("https://image.tmdb.org/t/p/w500/${tvShow?.posterPath}")

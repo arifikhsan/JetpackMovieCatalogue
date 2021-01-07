@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.arifikhsan.jetpackmoviecatalogue.R
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.MovieEntity
-import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.MovieResultsItem
 import com.arifikhsan.jetpackmoviecatalogue.databinding.ItemMovieBinding
 import com.arifikhsan.jetpackmoviecatalogue.ui.movies.detail.DetailMovieActivity
 import com.arifikhsan.jetpackmoviecatalogue.ui.movies.detail.DetailMovieActivity.Companion.EXTRA_MOVIE
@@ -18,7 +17,7 @@ import com.bumptech.glide.request.RequestOptions
 class MoviesAdapter(private val callback: MovieCallback) :
     PagedListAdapter<MovieEntity, MoviesAdapter.MoviesViewHolder>(DIFF_CALLBACK) {
 
-    private val movies = ArrayList<MovieResultsItem?>()
+//    private val movies = ArrayList<MovieResultsItem?>()
 
     companion object {
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<MovieEntity>() {
@@ -32,12 +31,12 @@ class MoviesAdapter(private val callback: MovieCallback) :
         }
     }
 
-    fun setMovies(movies: ArrayList<MovieResultsItem?>?) {
-        movies?.let {
-            this.movies.clear()
-            this.movies.addAll(it)
-        }
-    }
+//    fun setMovies(movies: ArrayList<MovieResultsItem?>?) {
+//        movies?.let {
+//            this.movies.clear()
+//            this.movies.addAll(it)
+//        }
+//    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
         val itemMovieBinding =
@@ -46,13 +45,13 @@ class MoviesAdapter(private val callback: MovieCallback) :
     }
 
     override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
-        val movie = movies[position]
+        val movie = getItem(position)
         movie?.let { holder.bind(it) }
     }
 
     inner class MoviesViewHolder(private val binding: ItemMovieBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(movie: MovieResultsItem?) {
+        fun bind(movie: MovieEntity?) {
             with(binding) {
                 tvItemTitle.text = movie?.title
                 tvItemDate.text = movie?.releaseDate

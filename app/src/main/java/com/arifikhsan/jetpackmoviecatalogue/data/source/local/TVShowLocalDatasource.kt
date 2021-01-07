@@ -1,15 +1,14 @@
 package com.arifikhsan.jetpackmoviecatalogue.data.source.local
 
-import android.app.Application
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.paging.DataSource
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.TVShowEntity
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.room.AppDatabase
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.room.TVShowDao
 
-class TVShowLocalDatasource {
-    private lateinit var mTVShowDao: TVShowDao
-    lateinit var application: Application
+class TVShowLocalDatasource(context: Context) {
+    private var mTVShowDao: TVShowDao
 
 //    companion object {
 //        private var INSTANCE: TVShowLocalDatasource? = null
@@ -24,7 +23,7 @@ class TVShowLocalDatasource {
 //    }
 
     init {
-        val db = AppDatabase.getInstance(application)
+        val db = AppDatabase.getInstance(context)
         mTVShowDao = db.tvShowDao()
     }
 

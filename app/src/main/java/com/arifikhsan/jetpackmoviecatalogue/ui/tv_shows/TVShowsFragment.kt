@@ -28,18 +28,19 @@ class TVShowsFragment : Fragment(), TVShowCallback {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val adapter = TVShowsAdapter(this)
         activity?.let {
-            tvShowsViewModel.getTVShows()
-            tvShowsViewModel.tvShows.observe(viewLifecycleOwner, { responseTVShows ->
-                val tvShowsAdapter = TVShowsAdapter(this)
-                responseTVShows?.results?.let { tvShowsAdapter.setTVShows(ArrayList(it)) }
-
-                with(fragmentTVShowsBinding.rvTvShows) {
-                    layoutManager = LinearLayoutManager(context)
-                    setHasFixedSize(true)
-                    adapter = tvShowsAdapter
-                }
-            })
+//            tvShowsViewModel.getTVShows()
+//            tvShowsViewModel.tvShows.observe(viewLifecycleOwner, { responseTVShows ->
+//                val tvShowsAdapter = TVShowsAdapter(this)
+//                responseTVShows?.results?.let { tvShowsAdapter.setTVShows(ArrayList(it)) }
+//
+//                with(fragmentTVShowsBinding.rvTvShows) {
+//                    layoutManager = LinearLayoutManager(context)
+//                    setHasFixedSize(true)
+//                    adapter = tvShowsAdapter
+//                }
+//            })
 
         }
     }

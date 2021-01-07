@@ -9,6 +9,7 @@ import androidx.core.app.ShareCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.arifikhsan.jetpackmoviecatalogue.R
+import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.MovieEntity
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.MovieResultsItem
 import com.arifikhsan.jetpackmoviecatalogue.databinding.FragmentMoviesBinding
 import com.arifikhsan.jetpackmoviecatalogue.valueobject.Status
@@ -59,7 +60,7 @@ class MoviesFragment : Fragment(), MovieCallback {
         }
     }
 
-    override fun onShareClick(movie: MovieResultsItem?) {
+    override fun onShareClick(movie: MovieEntity?) {
         activity?.let {
             val mimeType = "text/plain"
             ShareCompat.IntentBuilder
