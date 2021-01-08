@@ -8,7 +8,7 @@ import com.arifikhsan.jetpackmoviecatalogue.data.repository.TVShowRepository
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.TVShowEntity
 import com.arifikhsan.jetpackmoviecatalogue.valueobject.Resource
 
-class DetailTVShowViewModel(private val repository: TVShowRepository) : ViewModel() {
+class TVShowDetailViewModel(private val repository: TVShowRepository) : ViewModel() {
     private var id = MutableLiveData<Int>()
 
     fun setTVShowId(id: Int) {

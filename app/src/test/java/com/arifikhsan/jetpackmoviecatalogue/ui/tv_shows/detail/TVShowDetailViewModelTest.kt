@@ -19,9 +19,9 @@ import org.mockito.junit.MockitoJUnitRunner
 import java.io.InputStreamReader
 
 @RunWith(MockitoJUnitRunner::class)
-class DetailTVShowViewModelTest {
+class TVShowDetailViewModelTest {
 
-    private lateinit var viewModel: DetailTVShowViewModel
+    private lateinit var detailViewModel: TVShowDetailViewModel
     private lateinit var sampleTVShow: GetTVShowDetailResponse
     private var sampleTVShowId: Int = 0
 
@@ -36,7 +36,7 @@ class DetailTVShowViewModelTest {
 
     @Before
     fun setUp() {
-        viewModel = DetailTVShowViewModel(repository)
+        detailViewModel = TVShowDetailViewModel(repository)
     }
 
     @Test
@@ -51,9 +51,9 @@ class DetailTVShowViewModelTest {
         sampleTVShow.id?.let { sampleTVShowId = it }
         `when`(repository.getTVShowDetail(sampleTVShowId)).thenReturn(MutableLiveData(sampleTVShow))
 
-        viewModel.setTVShowId(sampleTVShowId)
-        viewModel.getTVShowDetail()
-        val tvShow = viewModel.tvShow.value
+        detailViewModel.setTVShowId(sampleTVShowId)
+        detailViewModel.getTVShowDetail()
+        val tvShow = detailViewModel.tvShow.value
 
         assertNotNull(tvShow)
 
@@ -67,7 +67,7 @@ class DetailTVShowViewModelTest {
         assertEquals(sampleTVShow.popularity as Double, tvShow?.popularity as Double, 0.0001)
         assertEquals(sampleTVShow.voteAverage as Double, tvShow.voteAverage as Double, 0.0001)
 
-        viewModel.tvShow.observeForever(observer)
+        detailViewModel.tvShow.observeForever(observer)
         verify(observer).onChanged(sampleTVShow)
     }
 }

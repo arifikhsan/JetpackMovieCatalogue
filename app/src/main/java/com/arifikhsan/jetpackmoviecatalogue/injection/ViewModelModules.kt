@@ -4,7 +4,7 @@ import com.arifikhsan.jetpackmoviecatalogue.ui.favorite.FavoriteViewModel
 import com.arifikhsan.jetpackmoviecatalogue.ui.movies.MoviesViewModel
 import com.arifikhsan.jetpackmoviecatalogue.ui.movies.detail.MovieDetailViewModel
 import com.arifikhsan.jetpackmoviecatalogue.ui.tv_shows.TVShowsViewModel
-import com.arifikhsan.jetpackmoviecatalogue.ui.tv_shows.detail.DetailTVShowViewModel
+import com.arifikhsan.jetpackmoviecatalogue.ui.tv_shows.detail.TVShowDetailViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -13,7 +13,7 @@ val viewModelModules = module {
     viewModel { MovieDetailViewModel(get()) }
 
     viewModel { TVShowsViewModel(get()) }
-    viewModel { DetailTVShowViewModel(get()) }
+    viewModel { TVShowDetailViewModel(get()) }
 
     viewModel { FavoriteViewModel() }
 }

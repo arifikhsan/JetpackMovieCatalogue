@@ -27,7 +27,7 @@ class TVShowDetailActivity : AppCompatActivity() {
     private val mainBinding get() = _activityDetailTvShowBinding
     private val tvShowBinding get() = mainBinding?.detailTvShow
 
-    private val viewModel: DetailTVShowViewModel by viewModel()
+    private val detailViewModel: TVShowDetailViewModel by viewModel()
     private var menu: Menu? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,8 +49,8 @@ class TVShowDetailActivity : AppCompatActivity() {
         intent.extras?.let {
             val tvShowId = it.getInt(EXTRA_TV_SHOW)
 
-            viewModel.setTVShowId(tvShowId)
-            viewModel.tvShow.observe(this, { tvShowResource ->
+            detailViewModel.setTVShowId(tvShowId)
+            detailViewModel.tvShow.observe(this, { tvShowResource ->
                 if (tvShowResource != null) {
                     when (tvShowResource.status) {
                         Status.LOADING -> mainBinding?.progressBar?.visibility = View.VISIBLE
@@ -102,7 +102,7 @@ class TVShowDetailActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu_detail, menu)
         this.menu = menu
 
-        viewModel.tvShow.observe(this, { tvShowResource ->
+        detailViewModel.tvShow.observe(this, { tvShowResource ->
             if (tvShowResource != null) {
                 when (tvShowResource.status) {
                     Status.LOADING -> mainBinding?.progressBar?.visibility = View.VISIBLE
@@ -123,7 +123,7 @@ class TVShowDetailActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.action_favorite) {
-            viewModel.setFavorite()
+            detailViewModel.setFavorite()
             showNotification()
             return true
         }
@@ -143,7 +143,7 @@ class TVShowDetailActivity : AppCompatActivity() {
     }
 
     private fun showNotification() {
-        val isFavorite = viewModel.tvShow.value?.data?.favorite ?: false
+        val isFavorite = detailViewModel.tvShow.value?.data?.favorite ?: false
         val message: String
         message = if (isFavorite) {
             "Menghapus dari favorit..."
