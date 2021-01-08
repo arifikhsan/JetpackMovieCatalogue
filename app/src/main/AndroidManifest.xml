@@ -25,7 +25,7 @@
         </activity>
 
         <activity
-            android:name=".ui.movies.detail.DetailMovieActivity"
+            android:name=".ui.movies.detail.MovieDetailActivity"
             android:label="@string/detail_movie"
             android:parentActivityName=".ui.home.HomeActivity">
             <meta-data

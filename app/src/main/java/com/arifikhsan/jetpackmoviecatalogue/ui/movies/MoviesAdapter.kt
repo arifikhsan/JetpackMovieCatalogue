@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.arifikhsan.jetpackmoviecatalogue.R
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.MovieEntity
 import com.arifikhsan.jetpackmoviecatalogue.databinding.ItemMovieBinding
-import com.arifikhsan.jetpackmoviecatalogue.ui.movies.detail.DetailMovieActivity
-import com.arifikhsan.jetpackmoviecatalogue.ui.movies.detail.DetailMovieActivity.Companion.EXTRA_MOVIE
+import com.arifikhsan.jetpackmoviecatalogue.ui.movies.detail.MovieDetailActivity
+import com.arifikhsan.jetpackmoviecatalogue.ui.movies.detail.MovieDetailActivity.Companion.EXTRA_MOVIE
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
@@ -62,7 +62,7 @@ class MoviesAdapter(private val callback: MovieCallback) :
                     .into(imgPoster)
 
                 itemView.setOnClickListener {
-                    val intent = Intent(itemView.context, DetailMovieActivity::class.java)
+                    val intent = Intent(itemView.context, MovieDetailActivity::class.java)
                     intent.putExtra(EXTRA_MOVIE, movie?.id)
                     itemView.context.startActivity(intent)
                 }
