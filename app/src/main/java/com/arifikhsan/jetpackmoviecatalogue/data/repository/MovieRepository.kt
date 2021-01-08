@@ -8,6 +8,7 @@ import com.arifikhsan.jetpackmoviecatalogue.data.source.local.MovieLocalDatasour
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.MovieEntity
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.ApiResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.MovieRemoteDataSource
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMovieDetailResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMoviesResponse
 import com.arifikhsan.jetpackmoviecatalogue.util.AppExecutors
 import com.arifikhsan.jetpackmoviecatalogue.valueobject.Resource
@@ -42,29 +43,41 @@ class MovieRepository(
             }
 
             override fun saveCallResult(data: GetMoviesResponse) {
-                val movies = GetMoviesResponse()
-                local.insertMovies(movies)
+                MovieEntity.fromMoviesResponse(data)?.let { movies ->
+                    local.insertMovies(movies)
+                }
             }
         }.asLiveData()
     }
 
     override fun getMovie(id: Int): LiveData<Resource<MovieEntity>> {
-        TODO("Not yet implemented")
+        return object : NetworkBoundResource<MovieEntity, GetMovieDetailResponse>(appExecutors) {
+            override fun loadFromDB(): LiveData<MovieEntity> {
+                return local.getMovie(id)
+            }
+
+            override fun shouldFetch(data: MovieEntity?): Boolean {
+                return data == null
+            }
+
+            override fun createCall(): LiveData<ApiResponse<GetMovieDetailResponse>> {
+                return remote.getMovieDetail(id)
+            }
+
+            override fun saveCallResult(data: GetMovieDetailResponse) {
+                val movie = MovieEntity.fromMovieResponse(data)
+                local.insertMovie(movie)
+            }
+        }.asLiveData()
     }
 
-//    fun getMovies(): MutableLiveData<GetMoviesResponse?> {
-//        return remote.getMovies()
-//    }
-//
-//    fun getMovieDetail(id: Int): MutableLiveData<GetMovieDetailResponse?> {
-//        return local.getMovieDetail(id)
-//    }
+    override fun getFavoriteMovies(): LiveData<PagedList<MovieEntity>> {
+        val config = PagedList.Config.Builder()
+            .setEnablePlaceholders(false)
+            .setInitialLoadSizeHint(4)
+            .setPageSize(4)
+            .build()
 
-//    fun getTVShows(): MutableLiveData<GetTVShowsResponse?> {
-//        return remoteRemoteDataSource.getTVShows()
-//    }
-//
-//    fun getTVShowDetail(id: Int): MutableLiveData<GetTVShowDetailResponse?> {
-//        return remoteRemoteDataSource.getTVShowDetail(id)
-//    }
+        return LivePagedListBuilder(local.getFavoriteMovies(), config).build()
+    }
 }
