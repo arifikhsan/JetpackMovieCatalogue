@@ -76,6 +76,7 @@ class DetailMovieActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
+        _activityDetailMovieBinding = null
         finish()
     }
 
@@ -86,6 +87,8 @@ class DetailMovieActivity : AppCompatActivity() {
         with(movieBinding) {
             this?.tvTitle?.text = movie.title
             this?.tvDate?.text = movie.releaseDate
+            this?.tvOverview?.text = movie.overview
+
             this?.tvRating?.text =
                 resources.getString(
                     R.string.rate_from,

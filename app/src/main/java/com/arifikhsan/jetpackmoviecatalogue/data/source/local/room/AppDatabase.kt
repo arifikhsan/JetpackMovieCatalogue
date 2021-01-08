@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.MovieEntity
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.TVShowEntity
 
-@Database(entities = [MovieEntity::class, TVShowEntity::class], version = 1)
+@Database(entities = [MovieEntity::class, TVShowEntity::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun movieDao(): MovieDao
     abstract fun tvShowDao(): TVShowDao

@@ -59,7 +59,7 @@ class MoviesAdapter(private val callback: MovieCallback) :
                 tvRate.text = itemView.resources.getString(
                     R.string.rate_from,
                     movie?.voteAverage,
-                    movie?.voteCount.toString()
+                    movie?.voteCount
                 )
 
                 Glide.with(itemView.context)
