@@ -1,42 +1,35 @@
 package com.arifikhsan.jetpackmoviecatalogue.data.source.local
 
-import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.paging.DataSource
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.TVShowEntity
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.room.AppDatabase
-import com.arifikhsan.jetpackmoviecatalogue.data.source.local.room.TVShowDao
 
-class TVShowLocalDatasource(context: Context) {
-    private var mTVShowDao: TVShowDao
-
-    init {
-        val db = AppDatabase.getInstance(context)
-        mTVShowDao = db.tvShowDao()
-    }
+class TVShowLocalDatasource(database: AppDatabase) {
+    private var tvShowDao = database.tvShowDao()
 
     fun getTVShows(): DataSource.Factory<Int, TVShowEntity> {
-        return mTVShowDao.getTVShows()
+        return tvShowDao.getTVShows()
     }
 
     fun getFavoriteTVShows(): DataSource.Factory<Int, TVShowEntity> {
-        return mTVShowDao.getFavoriteTVShows()
+        return tvShowDao.getFavoriteTVShows()
     }
 
     fun getTVShow(id: Int): LiveData<TVShowEntity> {
-        return mTVShowDao.getTVShow(id)
+        return tvShowDao.getTVShow(id)
     }
 
-    fun insertMovies(tvShows: List<TVShowEntity>) {
-        return mTVShowDao.insertAll(tvShows)
+    fun insertTVShows(tvShows: List<TVShowEntity>) {
+        return tvShowDao.insertAll(tvShows)
     }
 
-    fun insertTVShow(movieEntity: TVShowEntity) {
-        mTVShowDao.insertTVShow(movieEntity)
+    fun insertTVShow(tvShowEntity: TVShowEntity) {
+        tvShowDao.insertTVShow(tvShowEntity)
     }
 
     fun setTVShowFavorite(tvShowEntity: TVShowEntity, newState: Boolean) {
         tvShowEntity.favorite = newState
-        mTVShowDao.updateTVShow(tvShowEntity)
+        tvShowDao.updateTVShow(tvShowEntity)
     }
 }

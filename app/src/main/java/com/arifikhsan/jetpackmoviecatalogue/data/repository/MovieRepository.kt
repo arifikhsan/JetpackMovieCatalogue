@@ -30,7 +30,6 @@ class MovieRepository(
                     .build()
 
                 val localMovies = local.getMovies()
-
                 return LivePagedListBuilder(localMovies, config).build()
             }
 
@@ -43,9 +42,7 @@ class MovieRepository(
             }
 
             override fun saveCallResult(data: GetMoviesResponse) {
-                MovieEntity.fromMoviesResponse(data)?.let { movies ->
-                    local.insertMovies(movies)
-                }
+                MovieEntity.fromMoviesResponse(data)?.let { local.insertMovies(it) }
             }
         }.asLiveData()
     }

@@ -9,10 +9,6 @@ import com.arifikhsan.jetpackmoviecatalogue.network.NetworkConfig
 
 class MovieRemoteDataSource(private val networkConfig: NetworkConfig) : MovieDataSourceInterface {
 
-    companion object {
-        private val TAG = MovieRemoteDataSource::class.java.simpleName
-    }
-
     override fun getMovies(): LiveData<ApiResponse<GetMoviesResponse>> {
         return call(networkConfig.getApiService().getMovies())
     }

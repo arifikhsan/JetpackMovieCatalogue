@@ -9,10 +9,6 @@ import com.arifikhsan.jetpackmoviecatalogue.network.NetworkConfig
 
 class TVShowRemoteDataSource(private val networkConfig: NetworkConfig) : TVShowDatasourceInterface {
 
-    companion object {
-        private val TAG = TVShowRemoteDataSource::class.java.simpleName
-    }
-
     override fun getTVShows(): LiveData<ApiResponse<GetTVShowsResponse>> {
         return call(networkConfig.getApiService().getTVShows())
     }
