@@ -19,9 +19,9 @@ import org.mockito.junit.MockitoJUnitRunner
 import java.io.InputStreamReader
 
 @RunWith(MockitoJUnitRunner::class)
-class DetailMovieViewModelTest {
+class MovieDetailViewModelTest {
 
-    private lateinit var viewModel: DetailMovieViewModel
+    private lateinit var detailViewModel: MovieDetailViewModel
     private lateinit var sampleMovie: GetMovieDetailResponse
     private var sampleMovieId: Int = 0
 
@@ -36,7 +36,7 @@ class DetailMovieViewModelTest {
 
     @Before
     fun setUp() {
-        viewModel = DetailMovieViewModel(repository)
+        detailViewModel = MovieDetailViewModel(repository)
     }
 
     @Test
@@ -52,9 +52,9 @@ class DetailMovieViewModelTest {
         sampleMovie.id?.let { sampleMovieId = it }
         `when`(repository.getMovieDetail(sampleMovieId)).thenReturn(MutableLiveData(sampleMovie))
 
-        viewModel.setMovieId(sampleMovieId)
-        viewModel.getMovieDetail()
-        val movie = viewModel.movie.value
+        detailViewModel.setMovieId(sampleMovieId)
+        detailViewModel.getMovieDetail()
+        val movie = detailViewModel.movie.value
 
         assertNotNull(movie)
         assertEquals(sampleMovie.id, movie?.id)
@@ -67,7 +67,7 @@ class DetailMovieViewModelTest {
         assertEquals(sampleMovie.popularity as Double, movie?.popularity as Double, 0.0001)
         assertEquals(sampleMovie.voteAverage as Double, movie.voteAverage as Double, 0.0001)
 
-        viewModel.movie.observeForever(observer)
+        detailViewModel.movie.observeForever(observer)
         verify(observer).onChanged(sampleMovie)
     }
 }

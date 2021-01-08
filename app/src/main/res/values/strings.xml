@@ -4,7 +4,7 @@
     <string name="title">Judul film</string>
     <string name="dateline">2020-12-12</string>
     <string name="rate">⭐ 7.5 dari 1234 review</string>
-    <string name="rate_from">⭐ %.1f dari %s review</string>
+    <string name="rate_from">⭐ %.1f dari %d review</string>
     <string name="movies">Film</string>
     <string name="tv_shows">Serial TV</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -17,4 +17,5 @@
     <string name="share_text">Segera tonton film \"%s\" di Jetpack Movie Catalogue!</string>
     <string name="share_title">Bagikan film ini sekarang!</string>
     <string name="tab_favorite">Kesukaan</string>
+    <string name="menu_favorite">Favorite</string>
 </resources>

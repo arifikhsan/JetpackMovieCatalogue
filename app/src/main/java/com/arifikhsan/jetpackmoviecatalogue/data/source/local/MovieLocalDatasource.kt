@@ -15,18 +15,6 @@ import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.MovieRes
 class MovieLocalDatasource(context: Context) {
     private var mMovieDao: MovieDao
 
-//    companion object {
-//        private var INSTANCE: MovieLocalDatasource? = null
-//
-//        fun getInstance(movieDao: MovieDao): MovieLocalDatasource {
-//            if (INSTANCE == null) {
-//                INSTANCE = MovieLocalDatasource(movieDao)
-//            }
-//
-//            return INSTANCE as MovieLocalDatasource
-//        }
-//    }
-
     init {
         val db = AppDatabase.getInstance(context)
         mMovieDao = db.movieDao()
@@ -52,7 +40,11 @@ class MovieLocalDatasource(context: Context) {
         mMovieDao.insertMovie(movieEntity)
     }
 
-    fun updateMovie(movieEntity: MovieEntity, newState: Boolean) {
+    fun updateMovie(movieEntity: MovieEntity) {
+        mMovieDao.updateMovie(movieEntity)
+    }
+
+    fun setMovieFavorite(movieEntity: MovieEntity, newState: Boolean) {
         movieEntity.favorite = newState
         mMovieDao.updateMovie(movieEntity)
     }

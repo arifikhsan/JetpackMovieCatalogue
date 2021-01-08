@@ -80,4 +80,8 @@ class MovieRepository(
 
         return LivePagedListBuilder(local.getFavoriteMovies(), config).build()
     }
+
+    override fun setFavoriteMovie(movie: MovieEntity, state: Boolean) {
+        return appExecutors.diskIO().execute { local.setMovieFavorite(movie, state) }
+    }
 }
