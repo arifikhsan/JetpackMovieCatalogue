@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.arifikhsan.jetpackmoviecatalogue.R
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.MovieEntity
 import com.arifikhsan.jetpackmoviecatalogue.databinding.ActivityDetailMovieBinding
@@ -49,18 +50,24 @@ class DetailMovieActivity : AppCompatActivity() {
 
             viewModel.setMovieId(movieId)
             viewModel.movie.observe(this, { movieResource ->
-                when (movieResource.status) {
-                    Status.LOADING -> mainBinding?.progressBar?.visibility = View.VISIBLE
-                    Status.SUCCESS -> movieResource.data?.let { movie ->
-                        mainBinding?.progressBar?.visibility = View.GONE
-                        mainBinding?.movie?.visibility = View.VISIBLE
+                if (movieResource != null) {
+                    when (movieResource.status) {
+                        Status.LOADING -> mainBinding?.progressBar?.visibility = View.VISIBLE
+                        Status.SUCCESS -> movieResource.data?.let { movie ->
+                            mainBinding?.progressBar?.visibility = View.GONE
+                            mainBinding?.movie?.visibility = View.VISIBLE
 
-                        populateDetail(movie)
-                    }
-                    Status.ERROR -> {
-                        mainBinding?.progressBar?.visibility = View.GONE
-                        Toast.makeText(applicationContext, "Terjadi kesalahan", Toast.LENGTH_SHORT)
-                            .show()
+                            populateDetail(movie)
+                        }
+                        Status.ERROR -> {
+                            mainBinding?.progressBar?.visibility = View.GONE
+                            Toast.makeText(
+                                applicationContext,
+                                "Terjadi kesalahan",
+                                Toast.LENGTH_SHORT
+                            )
+                                .show()
+                        }
                     }
                 }
             })
@@ -97,6 +104,42 @@ class DetailMovieActivity : AppCompatActivity() {
                     .into(it.imagePoster)
             }
 
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_detail, menu)
+        this.menu = menu
+
+        viewModel.movie.observe(this, { movieResource ->
+            if (movieResource != null) {
+                when (movieResource.status) {
+                    Status.LOADING -> mainBinding?.progressBar?.visibility = View.VISIBLE
+                    Status.SUCCESS -> movieResource.data?.let {
+                        val state = it.favorite
+                        setFavoriteState(state)
+                    }
+                    Status.ERROR -> {
+                        mainBinding?.progressBar?.visibility = View.GONE
+                        Toast.makeText(applicationContext, "Terjadi kesalahan", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                }
+            }
+        })
+
+        return true
+    }
+
+    private fun setFavoriteState(state: Boolean) {
+        menu?.let {
+            val menuItem = it.findItem(R.id.action_favorite)
+
+            if (state) {
+                menuItem.icon = ContextCompat.getDrawable(this, R.drawable.ic_favorited_white)
+            } else {
+                menuItem.icon = ContextCompat.getDrawable(this, R.drawable.ic_favorite_white)
+            }
         }
     }
 }
