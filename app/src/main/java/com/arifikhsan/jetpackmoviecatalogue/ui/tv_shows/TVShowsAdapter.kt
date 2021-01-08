@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.arifikhsan.jetpackmoviecatalogue.R
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.TVShowEntity
 import com.arifikhsan.jetpackmoviecatalogue.databinding.ItemMovieBinding
-import com.arifikhsan.jetpackmoviecatalogue.ui.tv_shows.detail.DetailTVShowActivity
+import com.arifikhsan.jetpackmoviecatalogue.ui.tv_shows.detail.TVShowDetailActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
@@ -62,8 +62,8 @@ class TVShowsAdapter(private val callback: TVShowCallback) :
                     .into(imgPoster)
 
                 itemView.setOnClickListener {
-                    val intent = Intent(itemView.context, DetailTVShowActivity::class.java)
-                    intent.putExtra(DetailTVShowActivity.EXTRA_TV_SHOW, tvShow?.id)
+                    val intent = Intent(itemView.context, TVShowDetailActivity::class.java)
+                    intent.putExtra(TVShowDetailActivity.EXTRA_TV_SHOW, tvShow?.id)
                     itemView.context.startActivity(intent)
                 }
 

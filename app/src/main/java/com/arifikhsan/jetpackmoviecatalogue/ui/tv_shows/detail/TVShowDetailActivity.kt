@@ -16,7 +16,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class DetailTVShowActivity : AppCompatActivity() {
+class TVShowDetailActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_TV_SHOW = "extra_tv_show"
@@ -86,7 +86,7 @@ class DetailTVShowActivity : AppCompatActivity() {
                 )
 
             this?.let {
-                Glide.with(this@DetailTVShowActivity)
+                Glide.with(this@TVShowDetailActivity)
                     .load("https://image.tmdb.org/t/p/w500/${tvShow.posterPath}")
                     .transform(RoundedCorners(16))
                     .apply(

@@ -16,7 +16,7 @@
         tools:ignore="AllowBackup">
 
         <activity
-            android:name=".ui.tv_shows.detail.DetailTVShowActivity"
+            android:name=".ui.tv_shows.detail.TVShowDetailActivity"
             android:label="@string/detail_tv_show"
             android:parentActivityName=".ui.home.HomeActivity">
             <meta-data
