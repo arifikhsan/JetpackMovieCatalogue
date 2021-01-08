@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.arifikhsan.jetpackmoviecatalogue.R
@@ -26,7 +25,7 @@ class MovieDetailActivity : AppCompatActivity() {
     private var _activityDetailMovieBinding: ActivityDetailMovieBinding? = null
 
     private val mainBinding get() = _activityDetailMovieBinding
-    private val movieBinding get() = _activityDetailMovieBinding?.detailMovie
+    private val movieBinding get() = mainBinding?.detailMovie
 
     private val viewModel: MovieDetailViewModel by viewModel()
     private var menu: Menu? = null
@@ -63,12 +62,7 @@ class MovieDetailActivity : AppCompatActivity() {
                         }
                         Status.ERROR -> {
                             mainBinding?.progressBar?.visibility = View.GONE
-                            Toast.makeText(
-                                applicationContext,
-                                "Terjadi kesalahan",
-                                Toast.LENGTH_SHORT
-                            )
-                                .show()
+                            Notification.showToast(this, "Terjadi kesalahan")
                         }
                     }
                 }
@@ -85,7 +79,6 @@ class MovieDetailActivity : AppCompatActivity() {
     private fun populateDetail(movie: MovieEntity) {
         supportActionBar?.subtitle = movie.title
 
-        movieBinding
         with(movieBinding) {
             this?.tvTitle?.text = movie.title
             this?.tvDate?.text = movie.releaseDate
@@ -126,8 +119,7 @@ class MovieDetailActivity : AppCompatActivity() {
                     }
                     Status.ERROR -> {
                         mainBinding?.progressBar?.visibility = View.GONE
-                        Toast.makeText(applicationContext, "Terjadi kesalahan", Toast.LENGTH_SHORT)
-                            .show()
+                        Notification.showToast(this, "Terjadi kesalahan")
                     }
                 }
             }
