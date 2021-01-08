@@ -70,12 +70,6 @@ class MovieDetailActivity : AppCompatActivity() {
         }
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        _activityDetailMovieBinding = null
-        finish()
-    }
-
     private fun populateDetail(movie: MovieEntity) {
         supportActionBar?.subtitle = movie.title
 
@@ -165,5 +159,11 @@ class MovieDetailActivity : AppCompatActivity() {
             "Menambahkan ke favorit..."
         }
         mainBinding?.root?.let { Notification.showSnackbar(it, message) }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        _activityDetailMovieBinding = null
+        finish()
     }
 }
