@@ -17,8 +17,6 @@ import com.bumptech.glide.request.RequestOptions
 class MoviesAdapter(private val callback: MovieCallback) :
     PagedListAdapter<MovieEntity, MoviesAdapter.MoviesViewHolder>(DIFF_CALLBACK) {
 
-//    private val movies = ArrayList<MovieResultsItem?>()
-
     companion object {
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<MovieEntity>() {
             override fun areItemsTheSame(oldItem: MovieEntity, newItem: MovieEntity): Boolean {
@@ -30,13 +28,6 @@ class MoviesAdapter(private val callback: MovieCallback) :
             }
         }
     }
-
-//    fun setMovies(movies: ArrayList<MovieResultsItem?>?) {
-//        movies?.let {
-//            this.movies.clear()
-//            this.movies.addAll(it)
-//        }
-//    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
         val itemMovieBinding =

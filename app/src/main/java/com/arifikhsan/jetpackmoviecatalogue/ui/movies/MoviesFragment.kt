@@ -1,26 +1,24 @@
 package com.arifikhsan.jetpackmoviecatalogue.ui.movies
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.app.ShareCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.arifikhsan.jetpackmoviecatalogue.R
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.MovieEntity
-import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.MovieResultsItem
 import com.arifikhsan.jetpackmoviecatalogue.databinding.FragmentMoviesBinding
+import com.arifikhsan.jetpackmoviecatalogue.util.Notification
 import com.arifikhsan.jetpackmoviecatalogue.valueobject.Status
-import org.koin.android.ext.android.bind
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MoviesFragment : Fragment(), MovieCallback {
 
     private var _fragmentMoviesBinding: FragmentMoviesBinding? = null
     private val binding get() = _fragmentMoviesBinding
+
     private val viewModel: MoviesViewModel by viewModel()
 
     override fun onCreateView(
@@ -38,7 +36,7 @@ class MoviesFragment : Fragment(), MovieCallback {
             val adapter = MoviesAdapter(this)
 
             viewModel.getMovies().observe(viewLifecycleOwner, { movies ->
-                movies?.let {
+                if (movies != null) {
                     when (movies.status) {
                         Status.LOADING -> binding?.progressBar?.visibility = View.VISIBLE
                         Status.SUCCESS -> {
@@ -47,7 +45,7 @@ class MoviesFragment : Fragment(), MovieCallback {
                         }
                         Status.ERROR -> {
                             binding?.progressBar?.visibility = View.GONE
-                            Toast.makeText(context, "Terjadi kesalahan", Toast.LENGTH_SHORT).show()
+                            Notification.showToast(context, "Terjai Kesalahan")
                         }
                     }
                 }

@@ -3,23 +3,28 @@ package com.arifikhsan.jetpackmoviecatalogue.ui.tv_shows
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.arifikhsan.jetpackmoviecatalogue.R
-import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.TVShowResultsItem
+import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.TVShowEntity
 import com.arifikhsan.jetpackmoviecatalogue.databinding.ItemMovieBinding
 import com.arifikhsan.jetpackmoviecatalogue.ui.tv_shows.detail.DetailTVShowActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
 class TVShowsAdapter(private val callback: TVShowCallback) :
-    RecyclerView.Adapter<TVShowsAdapter.TVShowsViewHolder>() {
+    PagedListAdapter<TVShowEntity, TVShowsAdapter.TVShowsViewHolder>(DIFF_CALLBACK) {
 
-    private val tvShows = ArrayList<TVShowResultsItem?>()
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<TVShowEntity>() {
+            override fun areItemsTheSame(oldItem: TVShowEntity, newItem: TVShowEntity): Boolean {
+                return oldItem.id == newItem.id
+            }
 
-    fun setTVShows(shows: ArrayList<TVShowResultsItem?>?) {
-        shows?.let {
-            tvShows.clear()
-            tvShows.addAll(it)
+            override fun areContentsTheSame(oldItem: TVShowEntity, newItem: TVShowEntity): Boolean {
+                return oldItem == newItem
+            }
         }
     }
 
@@ -30,15 +35,14 @@ class TVShowsAdapter(private val callback: TVShowCallback) :
     }
 
     override fun onBindViewHolder(holder: TVShowsViewHolder, position: Int) {
-        holder.bind(tvShows[position])
+        val tvShow = getItem(position)
+        tvShow?.let { holder.bind(it) }
     }
-
-    override fun getItemCount(): Int = tvShows.size
 
     inner class TVShowsViewHolder(private val binding: ItemMovieBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(tvShow: TVShowResultsItem?) {
+        fun bind(tvShow: TVShowEntity?) {
             with(binding) {
                 tvItemTitle.text = tvShow?.name
                 tvItemDate.text = tvShow?.firstAirDate
