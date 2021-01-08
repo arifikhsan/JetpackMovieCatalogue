@@ -122,11 +122,18 @@ class TVShowDetailActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.action_favorite) {
-            detailViewModel.setFavorite()
-            showNotification()
-            return true
+        when (item.itemId) {
+            R.id.action_favorite -> {
+                detailViewModel.setFavorite()
+                showNotification()
+                return true
+            }
+            android.R.id.home -> {
+                onBackPressed()
+                return true
+            }
         }
+
         return super.onOptionsItemSelected(item)
     }
 
