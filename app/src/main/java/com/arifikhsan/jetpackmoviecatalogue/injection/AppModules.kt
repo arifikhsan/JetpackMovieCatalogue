@@ -1,6 +1,7 @@
 package com.arifikhsan.jetpackmoviecatalogue.injection
 
 import com.arifikhsan.jetpackmoviecatalogue.data.repository.MovieRepository
+import com.arifikhsan.jetpackmoviecatalogue.data.repository.TVShowRepository
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.MovieLocalDatasource
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.TVShowLocalDatasource
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.room.AppDatabase
@@ -24,4 +25,5 @@ val appModules = module {
     single { TVShowLocalDatasource(get()) }
 
     single { MovieRepository(get(), get(), get()) }
+    single { TVShowRepository(get(), get(), get()) }
 }
