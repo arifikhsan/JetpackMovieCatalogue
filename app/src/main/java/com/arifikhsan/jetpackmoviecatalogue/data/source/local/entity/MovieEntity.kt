@@ -31,7 +31,7 @@ data class MovieEntity(
             return fromMovieItem(movie as MovieResultsItem?)
         }
 
-        fun fromMovieItem(movie: MovieResultsItem?): MovieEntity {
+        private fun fromMovieItem(movie: MovieResultsItem?): MovieEntity {
             return MovieEntity(
                 movie?.id ?: 0,
                 movie?.title ?: "",

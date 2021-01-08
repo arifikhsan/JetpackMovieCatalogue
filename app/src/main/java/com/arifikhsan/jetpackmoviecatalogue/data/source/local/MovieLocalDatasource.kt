@@ -1,16 +1,11 @@
 package com.arifikhsan.jetpackmoviecatalogue.data.source.local
 
-import android.app.Application
 import android.content.Context
-import android.provider.ContactsContract
 import androidx.lifecycle.LiveData
 import androidx.paging.DataSource
-import androidx.room.Insert
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.MovieEntity
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.room.AppDatabase
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.room.MovieDao
-import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMoviesResponse
-import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.MovieResultsItem
 
 class MovieLocalDatasource(context: Context) {
     private var mMovieDao: MovieDao

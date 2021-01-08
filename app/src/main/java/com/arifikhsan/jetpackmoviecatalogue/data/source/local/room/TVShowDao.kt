@@ -20,6 +20,9 @@ interface TVShowDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertTVShow(movie: TVShowEntity)
 
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insertAll(movies: List<TVShowEntity>)
+
     @Update
     fun updateTVShow(movie: TVShowEntity)
 

@@ -2,6 +2,7 @@ package com.arifikhsan.jetpackmoviecatalogue.ui.movies.detail
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -9,10 +10,12 @@ import androidx.core.content.ContextCompat
 import com.arifikhsan.jetpackmoviecatalogue.R
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.MovieEntity
 import com.arifikhsan.jetpackmoviecatalogue.databinding.ActivityDetailMovieBinding
+import com.arifikhsan.jetpackmoviecatalogue.util.Notification
 import com.arifikhsan.jetpackmoviecatalogue.valueobject.Status
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
+import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailMovieActivity : AppCompatActivity() {
@@ -134,6 +137,15 @@ class DetailMovieActivity : AppCompatActivity() {
         return true
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.action_favorite) {
+            viewModel.setFavorite()
+            showNotification()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
     private fun setFavoriteState(state: Boolean) {
         menu?.let {
             val menuItem = it.findItem(R.id.action_favorite)
@@ -144,5 +156,16 @@ class DetailMovieActivity : AppCompatActivity() {
                 menuItem.icon = ContextCompat.getDrawable(this, R.drawable.ic_favorite_white)
             }
         }
+    }
+
+    private fun showNotification() {
+        val isFavorite = viewModel.movie.value?.data?.favorite ?: false
+        val message: String
+        message = if (isFavorite) {
+            "Menghapus dari favorit..."
+        } else {
+            "Menambahkan ke favorit..."
+        }
+        mainBinding?.root?.let { Notification.showSnackbar(it, message) }
     }
 }

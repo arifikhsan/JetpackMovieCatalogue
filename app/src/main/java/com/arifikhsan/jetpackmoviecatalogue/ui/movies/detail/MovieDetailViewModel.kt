@@ -22,6 +22,7 @@ class MovieDetailViewModel(private val repository: MovieRepository) : ViewModel(
 
     fun setFavorite() {
         val movieResource = movie.value
+
         if (movieResource != null) {
             val movieData = movieResource.data
 
