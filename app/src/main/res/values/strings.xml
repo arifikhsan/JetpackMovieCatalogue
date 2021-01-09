@@ -18,4 +18,6 @@
     <string name="share_title">Bagikan film ini sekarang!</string>
     <string name="tab_favorite">Kesukaan</string>
     <string name="menu_favorite">Favorite</string>
+    <string name="text_movies">Movies</string>
+    <string name="text_12_item">12 item</string>
 </resources>
