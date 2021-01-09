@@ -1,4 +1,4 @@
-package com.arifikhsan.jetpackmoviecatalogue.network
+package com.arifikhsan.jetpackmoviecatalogue.data.source.remote.network
 
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

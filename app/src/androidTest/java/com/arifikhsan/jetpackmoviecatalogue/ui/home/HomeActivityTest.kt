@@ -13,7 +13,7 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.platform.app.InstrumentationRegistry
 import com.arifikhsan.jetpackmoviecatalogue.R
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.MovieRemoteDataSource
-import com.arifikhsan.jetpackmoviecatalogue.network.NetworkConfig
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.network.NetworkConfig
 import com.arifikhsan.jetpackmoviecatalogue.util.EspressoIdlingResource
 import org.junit.After
 import org.junit.Before

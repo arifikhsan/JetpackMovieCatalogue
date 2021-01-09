@@ -7,7 +7,7 @@ import com.arifikhsan.jetpackmoviecatalogue.data.source.local.TVShowLocalDatasou
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.room.AppDatabase
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.MovieRemoteDataSource
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.TVShowRemoteDataSource
-import com.arifikhsan.jetpackmoviecatalogue.network.NetworkConfig
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.network.NetworkConfig
 import com.arifikhsan.jetpackmoviecatalogue.util.AppExecutors
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module

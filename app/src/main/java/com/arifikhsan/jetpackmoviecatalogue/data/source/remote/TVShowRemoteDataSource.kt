@@ -5,7 +5,7 @@ import com.arifikhsan.jetpackmoviecatalogue.data.source.TVShowDatasourceInterfac
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.RemoteHelper.call
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetTVShowDetailResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetTVShowsResponse
-import com.arifikhsan.jetpackmoviecatalogue.network.NetworkConfig
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.network.NetworkConfig
 
 class TVShowRemoteDataSource(private val networkConfig: NetworkConfig) : TVShowDatasourceInterface {
 

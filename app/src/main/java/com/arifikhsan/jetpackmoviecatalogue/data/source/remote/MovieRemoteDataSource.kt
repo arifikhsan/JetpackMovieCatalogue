@@ -5,7 +5,7 @@ import com.arifikhsan.jetpackmoviecatalogue.data.source.MovieDataSourceInterface
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.RemoteHelper.call
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMovieDetailResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMoviesResponse
-import com.arifikhsan.jetpackmoviecatalogue.network.NetworkConfig
+import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.network.NetworkConfig
 
 class MovieRemoteDataSource(private val networkConfig: NetworkConfig) : MovieDataSourceInterface {
 

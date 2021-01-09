@@ -1,4 +1,4 @@
-package com.arifikhsan.jetpackmoviecatalogue.network
+package com.arifikhsan.jetpackmoviecatalogue.data.source.remote.network
 
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMovieDetailResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMoviesResponse
