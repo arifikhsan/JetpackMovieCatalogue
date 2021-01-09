@@ -16,6 +16,7 @@ val appModules = module {
     factory { AppDatabase.getInstance(androidContext()) }
 
     single { NetworkConfig() }
+    single { get<NetworkConfig>().getApiService() }
     single { AppExecutors() }
 
     single { MovieRemoteDataSource(get()) }
