@@ -14,6 +14,6 @@ class TVShowRemoteDataSource(private val networkConfig: NetworkConfig) : TVShowD
     }
 
     override fun getTVShowDetail(id: Int): LiveData<ApiResponse<GetTVShowDetailResponse>> {
-        return call(networkConfig.getApiService().getTVShowDetail(id))
+        return call(networkConfig.getApiService().getTVShow(id))
     }
 }

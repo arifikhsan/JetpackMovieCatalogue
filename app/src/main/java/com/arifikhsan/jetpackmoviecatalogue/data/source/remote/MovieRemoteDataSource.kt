@@ -14,6 +14,6 @@ class MovieRemoteDataSource(private val networkConfig: NetworkConfig) : MovieDat
     }
 
     override fun getMovieDetail(id: Int): LiveData<ApiResponse<GetMovieDetailResponse>> {
-        return call(networkConfig.getApiService().getMovieDetail(id))
+        return call(networkConfig.getApiService().getMovie(id))
     }
 }

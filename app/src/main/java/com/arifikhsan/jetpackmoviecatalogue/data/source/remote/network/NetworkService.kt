@@ -14,12 +14,12 @@ interface NetworkService {
     fun getMovies(): Call<GetMoviesResponse>
 
     @GET("movie/{id}")
-    fun getMovieDetail(@Path("id") id: Int): Call<GetMovieDetailResponse>
+    fun getMovie(@Path("id") id: Int): Call<GetMovieDetailResponse>
 
     @GET("tv/popular")
     fun getTVShows(): Call<GetTVShowsResponse>
 
     @GET("tv/{id}")
-    fun getTVShowDetail(@Path("id") id: Int): Call<GetTVShowDetailResponse>
+    fun getTVShow(@Path("id") id: Int): Call<GetTVShowDetailResponse>
 
 }
