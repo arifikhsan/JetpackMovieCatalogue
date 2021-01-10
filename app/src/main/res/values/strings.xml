@@ -19,6 +19,7 @@
     <string name="tab_favorite">Favorite</string>
     <string name="menu_favorite">Favorite</string>
     <string name="text_movies">Movies</string>
-    <string name="text_12_item">12 item</string>
+    <string name="text_12_item">12 items</string>
+    <string name="text_count_item">%d items</string>
     <string name="text_tv_shows">TV Shows</string>
 </resources>

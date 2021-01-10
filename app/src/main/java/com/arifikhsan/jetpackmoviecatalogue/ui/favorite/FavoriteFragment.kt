@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.arifikhsan.jetpackmoviecatalogue.R
 import com.arifikhsan.jetpackmoviecatalogue.databinding.FavoriteFragmentBinding
 import com.arifikhsan.jetpackmoviecatalogue.ui.favorite.movies.FavoriteMoviesActivity
 import com.arifikhsan.jetpackmoviecatalogue.ui.favorite.tv_shows.FavoriteTVShowsActivity
@@ -38,11 +39,11 @@ class FavoriteFragment : Fragment() {
 
         viewModel.getFavoriteMoviesCount().observe(viewLifecycleOwner, {
             binding?.progressBarMovies?.visibility = View.GONE
-            binding?.tvMoviesCount?.text = it.toString()
+            binding?.tvMoviesCount?.text = getString(R.string.text_count_item, it)
         })
         viewModel.getFavoriteTVShowsCount().observe(viewLifecycleOwner, {
             binding?.progressBarTvShows?.visibility = View.GONE
-            binding?.tvTvShowCount?.text = it.toString()
+            binding?.tvTvShowCount?.text = getString(R.string.text_count_item, it)
         })
 
         binding?.cardMovies?.setOnClickListener {
