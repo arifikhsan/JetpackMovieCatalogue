@@ -2,7 +2,7 @@
     <string name="app_name">Jetpack Movie Catalogue</string>
     <string name="app_subtitle">Daily dose of film and TV series :D</string>
     <string name="title">Film Title</string>
-    <string name="dateline">2020-12-12</string>
+    <string name="dateline">2020–12–12</string>
     <string name="rate">⭐ 7.5 from 1234 review</string>
     <string name="rate_from">⭐ %.1f from %d review</string>
     <string name="movies">Film</string>
