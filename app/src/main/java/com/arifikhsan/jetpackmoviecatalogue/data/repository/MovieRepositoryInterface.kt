@@ -10,4 +10,5 @@ interface MovieRepositoryInterface {
     fun getMovie(id: Int): LiveData<Resource<MovieEntity>>
     fun getFavoriteMovies(): LiveData<PagedList<MovieEntity>>
     fun setFavoriteMovie(movie: MovieEntity, state: Boolean)
+    fun getFavoriteMoviesCount(): LiveData<Int>
 }

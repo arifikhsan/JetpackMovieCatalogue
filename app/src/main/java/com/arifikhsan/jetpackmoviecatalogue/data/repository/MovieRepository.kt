@@ -82,7 +82,7 @@ class MovieRepository(
         return appExecutors.diskIO().execute { local.setMovieFavorite(movie, state) }
     }
 
-    fun getFavoriteMoviesCount(): LiveData<Int> {
+    override fun getFavoriteMoviesCount(): LiveData<Int> {
         return local.getFavoriteCounts()
     }
 }

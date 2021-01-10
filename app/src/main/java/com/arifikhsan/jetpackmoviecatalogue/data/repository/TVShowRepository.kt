@@ -5,7 +5,6 @@ import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.arifikhsan.jetpackmoviecatalogue.data.source.NetworkBoundResource
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.TVShowLocalDatasource
-import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.MovieEntity
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.TVShowEntity
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.ApiResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.TVShowRemoteDataSource
@@ -84,7 +83,7 @@ class TVShowRepository(
         return appExecutors.diskIO().execute { local.setTVShowFavorite(tvShow, state) }
     }
 
-    fun getFavoriteTVShowsCount(): LiveData<Int> {
+    override fun getFavoriteTVShowsCount(): LiveData<Int> {
         return local.getFavoriteCounts()
     }
 }

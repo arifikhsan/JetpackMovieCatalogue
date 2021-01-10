@@ -10,4 +10,5 @@ interface TVShowRepositoryInterface {
     fun getTVShow(id: Int): LiveData<Resource<TVShowEntity>>
     fun getFavoriteTVShows(): LiveData<PagedList<TVShowEntity>>
     fun setFavoriteTVShow(tvShow: TVShowEntity, state: Boolean)
+    fun getFavoriteTVShowsCount(): LiveData<Int>
 }
