@@ -1,36 +1,29 @@
 package com.arifikhsan.jetpackmoviecatalogue.data.source.local
 
-import org.junit.Before
-import org.junit.Test
-
-import org.junit.Assert.*
-
 //class MovieLocalDataSourceTest {
 //
-//    private lateinit var localDatasource: MovieLocalDatasource
+//    private val context: Context = InstrumentationRegistry.getInstrumentation().targetContext
+//    private val database = AppDatabase.getInstance(context)
+//    private val local = MovieLocalDatasource(database)
+//    private val jsonHelper = JsonHelper()
+//
+//    private lateinit var movies: ArrayList<MovieEntity>
 //
 //    @Before
 //    fun setUp() {
-//        localDatasource = MovieLocalDatasource()
+//        movies = MovieEntity.fromMoviesResponse(jsonHelper.getMovies()) as ArrayList<MovieEntity>
+//
+//        local.insertMovies(movies)
 //    }
 //
 //    @Test
 //    fun getMovies() {
-//        assertNotNull(localDatasource.getMovies())
+//        assertNotNull(local.getMovies())
 //    }
 //
 //    @Test
 //    fun getMovie() {
-//        assertNotNull(localDatasource.getMovieDetail())
-//    }
-//
-//    @Test
-//    fun getTVShows() {
-//        assertNotNull(localDatasource.getTVShows())
-//    }
-//
-//    @Test
-//    fun getTVShow() {
-//        assertNotNull(localDatasource.getTVShowDetail())
+//        val randomMovieId = movies.random().id
+//        assertNotNull(local.getMovie(randomMovieId))
 //    }
 //}
