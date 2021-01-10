@@ -31,7 +31,6 @@ class FavoriteMoviesActivity : AppCompatActivity(), MovieCallback {
     }
 
     private fun initView() {
-
         supportActionBar?.title = "Favorite Movies"
         adapter = MoviesAdapter(this)
 
