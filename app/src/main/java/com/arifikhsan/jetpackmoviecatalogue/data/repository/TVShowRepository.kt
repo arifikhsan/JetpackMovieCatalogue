@@ -83,4 +83,8 @@ class TVShowRepository(
     override fun setFavoriteMovie(tvShow: TVShowEntity, state: Boolean) {
         return appExecutors.diskIO().execute { local.setTVShowFavorite(tvShow, state) }
     }
+
+    fun getFavoriteTVShowsCount(): LiveData<Int> {
+        return local.getFavoriteCounts()
+    }
 }

@@ -15,5 +15,5 @@ val viewModelModules = module {
     viewModel { TVShowsViewModel(get()) }
     viewModel { TVShowDetailViewModel(get()) }
 
-    viewModel { FavoriteViewModel() }
+    viewModel { FavoriteViewModel(get(), get()) }
 }

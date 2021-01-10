@@ -10,8 +10,11 @@ interface MovieDao {
     @Query("SELECT * FROM movies")
     fun getMovies(): DataSource.Factory<Int, MovieEntity>
 
-    @Query("SELECT * FROM movies where favorite = 1")
+    @Query("SELECT * FROM movies WHERE favorite = 1")
     fun getFavoriteMovies(): DataSource.Factory<Int, MovieEntity>
+
+    @Query("SELECT COUNT(id) FROM movies WHERE favorite = 1")
+    fun getFavoriteCounts(): LiveData<Int>
 
     @Query("SELECT * FROM movies where id = :id")
     fun getMovie(id: Int): LiveData<MovieEntity>

@@ -16,6 +16,10 @@ class TVShowLocalDatasource(database: AppDatabase) {
         return tvShowDao.getFavoriteTVShows()
     }
 
+    fun getFavoriteCounts(): LiveData<Int> {
+        return tvShowDao.getFavoriteCounts()
+    }
+
     fun getTVShow(id: Int): LiveData<TVShowEntity> {
         return tvShowDao.getTVShow(id)
     }

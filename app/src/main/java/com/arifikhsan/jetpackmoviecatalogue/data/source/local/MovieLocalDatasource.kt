@@ -16,6 +16,10 @@ class MovieLocalDatasource(database: AppDatabase) {
         return movieDao.getFavoriteMovies()
     }
 
+    fun getFavoriteCounts(): LiveData<Int> {
+        return movieDao.getFavoriteCounts()
+    }
+
     fun getMovie(id: Int): LiveData<MovieEntity> {
         return movieDao.getMovie(id)
     }

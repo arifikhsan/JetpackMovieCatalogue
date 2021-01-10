@@ -14,6 +14,9 @@ interface TVShowDao {
     @Query("SELECT * FROM tv_shows where favorite = 1")
     fun getFavoriteTVShows(): DataSource.Factory<Int, TVShowEntity>
 
+    @Query("SELECT COUNT(id) FROM tv_shows WHERE favorite = 1")
+    fun getFavoriteCounts(): LiveData<Int>
+
     @Query("SELECT * FROM tv_shows where id = :id")
     fun getTVShow(id: Int): LiveData<TVShowEntity>
 

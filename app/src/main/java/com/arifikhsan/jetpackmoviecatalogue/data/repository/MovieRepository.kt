@@ -81,4 +81,8 @@ class MovieRepository(
     override fun setFavoriteMovie(movie: MovieEntity, state: Boolean) {
         return appExecutors.diskIO().execute { local.setMovieFavorite(movie, state) }
     }
+
+    fun getFavoriteMoviesCount(): LiveData<Int> {
+        return local.getFavoriteCounts()
+    }
 }
