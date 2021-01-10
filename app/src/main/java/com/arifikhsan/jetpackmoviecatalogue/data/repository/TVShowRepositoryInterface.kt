@@ -8,6 +8,6 @@ import com.arifikhsan.jetpackmoviecatalogue.valueobject.Resource
 interface TVShowRepositoryInterface {
     fun getTVShows(): LiveData<Resource<PagedList<TVShowEntity>>>
     fun getTVShow(id: Int): LiveData<Resource<TVShowEntity>>
-    fun getFavoriteMovies(): LiveData<PagedList<TVShowEntity>>
-    fun setFavoriteMovie(tvShow: TVShowEntity, state: Boolean)
+    fun getFavoriteTVShows(): LiveData<PagedList<TVShowEntity>>
+    fun setFavoriteTVShow(tvShow: TVShowEntity, state: Boolean)
 }

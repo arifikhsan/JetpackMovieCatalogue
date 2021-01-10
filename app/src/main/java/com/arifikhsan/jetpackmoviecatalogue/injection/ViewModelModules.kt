@@ -1,6 +1,8 @@
 package com.arifikhsan.jetpackmoviecatalogue.injection
 
 import com.arifikhsan.jetpackmoviecatalogue.ui.favorite.FavoriteViewModel
+import com.arifikhsan.jetpackmoviecatalogue.ui.favorite.movies.FavoriteMoviesViewModel
+import com.arifikhsan.jetpackmoviecatalogue.ui.favorite.tv_shows.FavoriteTVShowsViewModel
 import com.arifikhsan.jetpackmoviecatalogue.ui.movies.MoviesViewModel
 import com.arifikhsan.jetpackmoviecatalogue.ui.movies.detail.MovieDetailViewModel
 import com.arifikhsan.jetpackmoviecatalogue.ui.tv_shows.TVShowsViewModel
@@ -16,4 +18,7 @@ val viewModelModules = module {
     viewModel { TVShowDetailViewModel(get()) }
 
     viewModel { FavoriteViewModel(get(), get()) }
+
+    viewModel { FavoriteMoviesViewModel(get()) }
+    viewModel { FavoriteTVShowsViewModel(get()) }
 }

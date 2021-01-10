@@ -27,7 +27,7 @@ class TVShowDetailViewModel(private val repository: TVShowRepository) : ViewMode
             val tvShowData = tvShowResource.data
 
             tvShowData?.let {
-                repository.setFavoriteMovie(it, !it.favorite)
+                repository.setFavoriteTVShow(it, !it.favorite)
             }
         }
     }

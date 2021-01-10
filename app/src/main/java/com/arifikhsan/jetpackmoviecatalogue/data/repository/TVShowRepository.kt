@@ -70,7 +70,7 @@ class TVShowRepository(
         }.asLiveData()
     }
 
-    override fun getFavoriteMovies(): LiveData<PagedList<TVShowEntity>> {
+    override fun getFavoriteTVShows(): LiveData<PagedList<TVShowEntity>> {
         val config = PagedList.Config.Builder()
             .setEnablePlaceholders(false)
             .setInitialLoadSizeHint(4)
@@ -80,7 +80,7 @@ class TVShowRepository(
         return LivePagedListBuilder(local.getFavoriteTVShows(), config).build()
     }
 
-    override fun setFavoriteMovie(tvShow: TVShowEntity, state: Boolean) {
+    override fun setFavoriteTVShow(tvShow: TVShowEntity, state: Boolean) {
         return appExecutors.diskIO().execute { local.setTVShowFavorite(tvShow, state) }
     }
 
