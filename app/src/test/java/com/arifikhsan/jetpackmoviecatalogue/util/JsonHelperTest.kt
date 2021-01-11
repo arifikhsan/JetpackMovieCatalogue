@@ -1,12 +1,22 @@
 package com.arifikhsan.jetpackmoviecatalogue.util
 
+import com.arifikhsan.jetpackmoviecatalogue.injection.appModules
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
+import org.junit.Rule
 import org.junit.Test
+import org.koin.test.KoinTest
+import org.koin.test.KoinTestRule
+import org.koin.test.inject
 
-class JsonHelperTest {
+class JsonHelperTest : KoinTest {
 
-    private val jsonHelper = JsonHelper()
+    private val jsonHelper by inject<JsonHelper>()
+
+    @get:Rule
+    val koinTestRule = KoinTestRule.create {
+        modules(appModules)
+    }
 
     @Test
     fun getMovies() {

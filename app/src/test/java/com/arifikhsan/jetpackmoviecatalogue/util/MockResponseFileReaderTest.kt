@@ -1,9 +1,6 @@
 package com.arifikhsan.jetpackmoviecatalogue.util
 
-import org.json.JSONObject
-import org.junit.Before
-
-import org.junit.Assert.*
+import org.junit.Assert.assertNotNull
 import org.junit.Test
 
 class MockResponseFileReaderTest {

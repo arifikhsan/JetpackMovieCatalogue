@@ -9,22 +9,29 @@ import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.MovieRemoteDataSo
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.TVShowRemoteDataSource
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.network.NetworkConfig
 import com.arifikhsan.jetpackmoviecatalogue.util.AppExecutors
+import com.arifikhsan.jetpackmoviecatalogue.util.JsonHelper
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
 val appModules = module {
+    // context
     factory { AppDatabase.getInstance(androidContext()) }
 
+    // core
     single { NetworkConfig() }
     single { get<NetworkConfig>().getApiService() }
     single { AppExecutors() }
 
+    // datasource
     single { MovieRemoteDataSource(get()) }
     single { MovieLocalDatasource(get()) }
-
     single { TVShowRemoteDataSource(get()) }
     single { TVShowLocalDatasource(get()) }
 
+    // repository
     single { MovieRepository(get(), get(), get()) }
     single { TVShowRepository(get(), get(), get()) }
+
+    // utils
+    single { JsonHelper() }
 }
