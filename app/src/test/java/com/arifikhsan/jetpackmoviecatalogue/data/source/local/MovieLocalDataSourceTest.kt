@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
-//import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.platform.app.InstrumentationRegistry
 import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.MovieEntity
 import com.arifikhsan.jetpackmoviecatalogue.injection.appModules
 import com.arifikhsan.jetpackmoviecatalogue.util.JsonHelper
@@ -21,10 +21,9 @@ import org.mockito.Mockito.`when`
 import org.mockito.Mockito.mock
 import org.mockito.junit.MockitoJUnitRunner
 
-//@RunWith(MockitoJUnitRunner::class)
 class MovieLocalDataSourceTest : KoinTest {
 
-//    private val context: Context = InstrumentationRegistry.getInstrumentation().targetContext
+    private val context: Context = InstrumentationRegistry.getInstrumentation().targetContext
 //    private val database = AppDatabase.getInstance(context)
 
 //    private val local by inject<MovieLocalDatasource>()
@@ -34,11 +33,8 @@ class MovieLocalDataSourceTest : KoinTest {
     private lateinit var movies: ArrayList<MovieEntity>
 
     @get:Rule
-    var instantTaskExecutorRule = InstantTaskExecutorRule()
-
-    @get:Rule
     val koinTestRule = KoinTestRule.create {
-//        androidContext(context)
+        androidContext(context)
         modules(appModules)
     }
 
@@ -50,14 +46,14 @@ class MovieLocalDataSourceTest : KoinTest {
         local.insertMovies(movies)
     }
 
-//    @Test
-//    fun getMovies() {
+    @Test
+    fun getMovies() {
 //        var dummyMovies: DataSource.Factory<Int, MovieEntity>
 //        dummyMovies  = jsonHelper.getMovies()
 //        `when`(local.getMovies()).thenReturn(dummyMovies)
-//
-//        assertNotNull(local.getMovies())
-//    }
+
+        assertNotNull(local.getMovies())
+    }
 //
 //    @Test
 //    fun getMovie() {
