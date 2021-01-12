@@ -1,3 +1,5 @@
+@file:Suppress("UNCHECKED_CAST")
+
 package com.arifikhsan.jetpackmoviecatalogue.util
 
 import androidx.paging.PagedList
