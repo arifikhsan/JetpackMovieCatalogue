@@ -17,10 +17,8 @@ import org.junit.Rule
 import org.junit.Test
 import org.mockito.Mockito.*
 
+@Suppress("UNCHECKED_CAST")
 class MovieRepositoryTest {
-
-//    private val remoteDataSource = mock(MovieRemoteDataSource::class.java)
-//    private val repository = MovieRepository(remoteDataSource)
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -53,49 +51,43 @@ class MovieRepositoryTest {
     }
 
     @Test
-    fun getMovieDetail() {
+    fun getMovie() {
         val dummyMovie = MutableLiveData<MovieEntity>()
-        val movieEntity = MovieEntity.fromMovieResponse(dataDummy.getMovie())
+        val movieEntity = MovieEntity.fromMovieResponse(sampleMovieResponse)
         dummyMovie.value = movieEntity
         `when`(local.getMovie(sampleMovieId)).thenReturn(dummyMovie)
 
-        val movie = LiveDataTestUtil.getValue(repository.getMovie(sampleMovieId))
+        val movieLive = LiveDataTestUtil.getValue(repository.getMovie(sampleMovieId))
         verify(local).getMovie(sampleMovieId)
-        assertNotNull(movie)
-        assertNotNull(movie.data)
-        assertEquals(MovieEntity.fromMovieResponse(sampleMovieResponse), movie.data)
+        assertNotNull(movieLive)
+        assertNotNull(movieLive.data)
+        assertEquals(movieEntity, movieLive.data)
     }
-//
-//    @Test
-//    fun getTVShows() {
-//        val sampleTVShows = Gson().fromJson(
-//            InputStreamReader(javaClass.getResourceAsStream("get_tv_shows.json")),
-//            GetTVShowsResponse::class.java
-//        )
-//        `when`(remoteDataSource.getTVShows()).thenReturn(MutableLiveData(sampleTVShows))
-//        val tvShows = repository.getTVShows()
-//
-//        verify(remoteDataSource).getTVShows()
-//        assertEquals(sampleTVShows, tvShows.value)
-//    }
-//
-//    @Test
-//    fun getTVShowDetail() {
-//        val sampleTVShow = Gson().fromJson(
-//            InputStreamReader(javaClass.getResourceAsStream("get_tv_show.json")),
-//            GetTVShowDetailResponse::class.java
-//        )
-//        var sampleTVShowId: Int
-//        sampleTVShow?.id.let { sampleTVShowId = it ?: 0 }
-//
-//        `when`(remoteDataSource.getTVShowDetail(sampleTVShowId)).thenReturn(
-//            MutableLiveData(
-//                sampleTVShow
-//            )
-//        )
-//        val tvShow = repository.getTVShowDetail(sampleTVShowId)
-//
-//        verify(remoteDataSource).getTVShowDetail(sampleTVShowId)
-//        assertEquals(sampleTVShow, tvShow.value)
-//    }
+
+    @Test
+    fun getFavoriteMovies() {
+        val dataSourceFactory =
+            mock(DataSource.Factory::class.java) as DataSource.Factory<Int, MovieEntity>
+        `when`(local.getFavoriteMovies()).thenReturn(dataSourceFactory)
+        repository.getFavoriteMovies()
+
+        val moviesEntity = MovieEntity.fromMoviesResponse(dataDummy.getMovies())!!
+        val moviesPaged = PagedListUtil.mockPagedList(moviesEntity)
+        val moviesResource = Resource.success(moviesPaged)
+
+        verify(local).getFavoriteMovies()
+        assertNotNull(moviesResource)
+        assertEquals(sampleMoviesResponse.results?.size, moviesResource.data?.size)
+    }
+
+    @Test
+    fun getFavoriteMoviesCount() {
+        val randomNumber = MutableLiveData<Int>()
+        randomNumber.value = (0 until 100).random()
+        `when`(local.getFavoriteCounts()).thenReturn(randomNumber)
+
+        val countLive = LiveDataTestUtil.getValue(repository.getFavoriteMoviesCount())
+        verify(local).getFavoriteCounts()
+        assertEquals(randomNumber.value, countLive)
+    }
 }
