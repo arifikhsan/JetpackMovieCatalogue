@@ -63,17 +63,16 @@ data class MovieResultsItem(
     val voteCount: Int? = null
 ) {
     companion object {
-        fun toEntity(movie: MovieResultsItem?): MovieEntity {
-            return MovieEntity(
-                movie?.id ?: 0,
-                movie?.title ?: "",
-                movie?.overview ?: "",
-                movie?.popularity ?: 0.0,
-                movie?.posterPath ?: "",
-                movie?.releaseDate ?: "",
-                movie?.voteAverage ?: 0.0,
-                movie?.voteCount ?: 0,
-                false
+        fun fromMovieDetailResponse(movie: GetMovieDetailResponse?): MovieResultsItem {
+            return MovieResultsItem(
+                id = movie?.id ?: 0,
+                title = movie?.title ?: "",
+                overview = movie?.overview ?: "",
+                popularity = movie?.popularity ?: 0.0,
+                posterPath = movie?.posterPath ?: "",
+                releaseDate = movie?.releaseDate ?: "",
+                voteAverage = movie?.voteAverage ?: 0.0,
+                voteCount = movie?.voteCount ?: 0,
             )
         }
     }

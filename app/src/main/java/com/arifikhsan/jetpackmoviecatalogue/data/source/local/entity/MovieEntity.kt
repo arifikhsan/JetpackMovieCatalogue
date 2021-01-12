@@ -28,7 +28,7 @@ data class MovieEntity(
         }
 
         fun fromMovieResponse(movie: GetMovieDetailResponse?): MovieEntity {
-            return fromMovieItem(movie as MovieResultsItem?)
+            return fromMovieItem(MovieResultsItem.fromMovieDetailResponse(movie))
         }
 
         private fun fromMovieItem(movie: MovieResultsItem?): MovieEntity {
