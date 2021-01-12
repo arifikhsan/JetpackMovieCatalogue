@@ -9,7 +9,7 @@ import java.io.File
 import java.io.FileInputStream
 import java.io.InputStreamReader
 
-class JsonHelper {
+class DataDummy {
     fun getMovies(): GetMoviesResponse {
         return getFromJson("get_movies.json", GetMoviesResponse::class.java)
     }

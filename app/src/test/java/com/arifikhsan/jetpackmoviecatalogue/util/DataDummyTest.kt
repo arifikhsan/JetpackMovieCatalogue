@@ -6,14 +6,13 @@ import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Rule
 import org.junit.Test
-import org.koin.android.ext.koin.androidContext
 import org.koin.test.KoinTest
 import org.koin.test.KoinTestRule
 import org.koin.test.inject
 
-class JsonHelperTest : KoinTest {
+class DataDummyTest : KoinTest {
 
-    private val jsonHelper by inject<JsonHelper>()
+    private val jsonHelper by inject<DataDummy>()
     private val local by inject<MovieLocalDatasource>()
 
 

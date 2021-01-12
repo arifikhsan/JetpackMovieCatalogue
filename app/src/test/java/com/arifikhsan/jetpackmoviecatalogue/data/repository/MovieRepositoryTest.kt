@@ -1,22 +1,37 @@
 package com.arifikhsan.jetpackmoviecatalogue.data.repository
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
+import com.arifikhsan.jetpackmoviecatalogue.data.source.local.MovieLocalDatasource
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMovieDetailResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetMoviesResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetTVShowDetailResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetTVShowsResponse
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.MovieRemoteDataSource
+import com.arifikhsan.jetpackmoviecatalogue.util.AppExecutors
 import com.google.gson.Gson
 import org.junit.Assert.assertEquals
+import org.junit.Rule
 import org.junit.Test
 import org.mockito.Mockito.*
 import java.io.InputStreamReader
 
-//class MovieRepositoryTest {
-//
+class MovieRepositoryTest {
+
 //    private val remoteDataSource = mock(MovieRemoteDataSource::class.java)
 //    private val repository = MovieRepository(remoteDataSource)
-//
+
+    @get:Rule
+    var instantTaskExecutorRule = InstantTaskExecutorRule()
+
+    private val remote = mock(MovieRemoteDataSource::class.java)
+    private val local = mock(MovieLocalDatasource::class.java)
+    private val appExecutor = mock(AppExecutors::class.java)
+
+    private val repository = MovieRepository(remote, local, appExecutor)
+
+    
+
 //    @Test
 //    fun getMovies() {
 //        val sampleMovies = Gson().fromJson(
@@ -82,4 +97,4 @@ import java.io.InputStreamReader
 //        verify(remoteDataSource).getTVShowDetail(sampleTVShowId)
 //        assertEquals(sampleTVShow, tvShow.value)
 //    }
-//}
+}

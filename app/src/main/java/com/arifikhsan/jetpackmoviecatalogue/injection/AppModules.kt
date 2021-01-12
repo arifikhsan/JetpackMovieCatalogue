@@ -9,7 +9,7 @@ import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.MovieRemoteDataSo
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.TVShowRemoteDataSource
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.network.NetworkConfig
 import com.arifikhsan.jetpackmoviecatalogue.util.AppExecutors
-import com.arifikhsan.jetpackmoviecatalogue.util.JsonHelper
+import com.arifikhsan.jetpackmoviecatalogue.util.DataDummy
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
@@ -33,5 +33,5 @@ val appModules = module {
     single { TVShowRepository(get(), get(), get()) }
 
     // utils
-    single { JsonHelper() }
+    single { DataDummy() }
 }
