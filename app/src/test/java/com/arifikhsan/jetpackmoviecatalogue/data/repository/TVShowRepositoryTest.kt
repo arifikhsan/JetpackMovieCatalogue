@@ -34,6 +34,7 @@ class TVShowRepositoryTest {
     private val sampleTVShowsResponse = dataDummy.getTVShows()
     private val sampleTVShowResponse = dataDummy.getTVShow()
     private val sampleTVShowId = sampleTVShowResponse.id!!
+    private val sampleTVShowEntity = TVShowEntity.fromTVShowResponse(sampleTVShowResponse)
 
 
     @Test
@@ -84,6 +85,10 @@ class TVShowRepositoryTest {
 
     @Test
     fun setFavoriteTVShow() {
+        local.setTVShowFavorite(sampleTVShowEntity, true)
+
+        verify(local).setTVShowFavorite(sampleTVShowEntity, true)
+        verifyNoMoreInteractions(local)
     }
 
     @Test

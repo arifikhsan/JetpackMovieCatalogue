@@ -33,6 +33,7 @@ class MovieRepositoryTest {
     private val sampleMoviesResponse = dataDummy.getMovies()
     private val sampleMovieResponse = dataDummy.getMovie()
     private val sampleMovieId = sampleMovieResponse.id!!
+    private val sampleMovieEntity = MovieEntity.fromMovieResponse(sampleMovieResponse)
 
     @Test
     fun getMovies() {
@@ -82,6 +83,10 @@ class MovieRepositoryTest {
 
     @Test
     fun setFavoriteMovie() {
+        local.setMovieFavorite(sampleMovieEntity, true)
+
+        verify(local).setMovieFavorite(sampleMovieEntity, true)
+        verifyNoMoreInteractions(local)
     }
 
     @Test
