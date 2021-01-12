@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/fr_tv_shows"
     tools:context=".ui.movies.MoviesFragment">
 
     <androidx.recyclerview.widget.RecyclerView

@@ -20,6 +20,22 @@
 
 ## Instrumental Test Scenario
 
+### Home Activity
+
+1. Menampilkan Fragment Movies
+  - Klik tab **MOVIES**.
+  - Memastikan **fr_movies** dalam keadaan tampil.
+
+2. Menampilkan Fragment TV Show
+  - Klik tab **TV SHOWS**.
+  - Memastikan **fr_tv_shows** dalam keadaan tampil.
+  
+3. Menampilkan Fragment Favorite
+  - Klik tab **FAVORITES**.
+  - Memastikan **fr_favorite** dalam keadaan tampil.
+
+## Movies Fragment
+
 1. Menampilkan Movies
   - Memastikan **rv_movies** dalam keadaan tampil.
   - Gulir **rv_movies** ke posisi data terakhir.
