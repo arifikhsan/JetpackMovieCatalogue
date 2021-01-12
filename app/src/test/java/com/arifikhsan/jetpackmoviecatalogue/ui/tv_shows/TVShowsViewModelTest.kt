@@ -3,58 +3,59 @@ package com.arifikhsan.jetpackmoviecatalogue.ui.tv_shows
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.arifikhsan.jetpackmoviecatalogue.data.repository.MovieRepository
-import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.response.GetTVShowsResponse
-import com.google.gson.Gson
-import com.nhaarman.mockitokotlin2.verify
-import junit.framework.TestCase.assertEquals
-import junit.framework.TestCase.assertNotNull
+import androidx.paging.PagedList
+import com.arifikhsan.jetpackmoviecatalogue.data.repository.TVShowRepository
+import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.TVShowEntity
+import com.arifikhsan.jetpackmoviecatalogue.valueobject.Resource
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
+import org.mockito.Mockito.verify
 import org.mockito.junit.MockitoJUnitRunner
-import java.io.InputStreamReader
 
-//@RunWith(MockitoJUnitRunner::class)
-//class TVShowsViewModelTest {
-//
-//    private lateinit var viewModel: TVShowsViewModel
-//
-//    @Mock
-//    private lateinit var repository: MovieRepository
-//
-//    @get:Rule
-//    var instantTaskExecutorRule = InstantTaskExecutorRule()
-//
-//    @Mock
-//    private lateinit var observer: Observer<GetTVShowsResponse?>
-//
-//    @Before
-//    fun setUp() {
-//        viewModel = TVShowsViewModel(repository)
-//    }
-//
-//    @Test
-//    fun getTVShows() {
-//        val sampleTVShows = Gson().fromJson(
-//            InputStreamReader(javaClass.getResourceAsStream("get_tv_shows.json")),
-//            GetTVShowsResponse::class.java
-//        )
-//        val tvShows = MutableLiveData<GetTVShowsResponse>()
-//        tvShows.value = sampleTVShows
-//
-//        `when`(repository.getTVShows()).thenReturn(MutableLiveData(sampleTVShows))
-//        viewModel.getTVShows()
-//
-//        assertNotNull(sampleTVShows)
-//        assertNotNull(viewModel.tvShows)
-//        assertEquals(sampleTVShows, viewModel.tvShows.value)
-//        assertEquals(sampleTVShows.results?.size, viewModel.tvShows.value?.results?.size)
-//
-//        viewModel.tvShows.observeForever(observer)
-//        verify(observer).onChanged(sampleTVShows)
-//    }
-//}
+@RunWith(MockitoJUnitRunner::class)
+class TVShowsViewModelTest {
+
+    @get:Rule
+    var instantTaskExecutorRule = InstantTaskExecutorRule()
+
+    private lateinit var viewModel: TVShowsViewModel
+
+    @Mock
+    private lateinit var repository: TVShowRepository
+
+    @Mock
+    private lateinit var observer: Observer<Resource<PagedList<TVShowEntity>>>
+
+    @Mock
+    private lateinit var pagedList: PagedList<TVShowEntity>
+
+    @Before
+    fun setUp() {
+        viewModel = TVShowsViewModel(repository)
+    }
+
+    @Test
+    fun getTVShows() {
+        val dummyTVShows = Resource.success(pagedList)
+        val randomNumber = (0 until 100).random()
+        `when`(dummyTVShows.data?.size).thenReturn(randomNumber)
+        val tvShows = MutableLiveData<Resource<PagedList<TVShowEntity>>>()
+        tvShows.value = dummyTVShows
+
+        `when`(repository.getTVShows()).thenReturn(tvShows)
+        val tvShowsEntity = viewModel.getTVShows().value?.data
+
+        verify(repository).getTVShows()
+        assertNotNull(tvShowsEntity)
+        assertEquals(randomNumber, tvShowsEntity?.size)
+
+        viewModel.getTVShows().observeForever(observer)
+        verify(observer).onChanged(dummyTVShows)
+    }
+}

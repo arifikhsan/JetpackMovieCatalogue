@@ -21,10 +21,10 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class MoviesViewModelTest {
 
-    private lateinit var viewModel: MoviesViewModel
-
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
+
+    private lateinit var viewModel: MoviesViewModel
 
     @Mock
     private lateinit var repository: MovieRepository
