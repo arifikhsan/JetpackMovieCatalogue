@@ -81,6 +81,10 @@ class MovieRepositoryTest {
     }
 
     @Test
+    fun setFavoriteMovie() {
+    }
+
+    @Test
     fun getFavoriteMoviesCount() {
         val randomNumber = MutableLiveData<Int>()
         randomNumber.value = (0 until 100).random()

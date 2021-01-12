@@ -28,7 +28,7 @@ data class TVShowEntity(
         }
 
         fun fromTVShowResponse(tvShow: GetTVShowDetailResponse?): TVShowEntity {
-            return fromTVShowItem(tvShow as TVShowResultsItem?)
+            return fromTVShowItem(TVShowResultsItem.fromTVShowDetailResponse(tvShow))
         }
 
         private fun fromTVShowItem(tvShow: TVShowResultsItem?): TVShowEntity {
