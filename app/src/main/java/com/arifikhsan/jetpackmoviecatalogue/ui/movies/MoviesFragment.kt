@@ -45,7 +45,7 @@ class MoviesFragment : Fragment(), MovieCallback {
                         }
                         Status.ERROR -> {
                             binding?.progressBar?.visibility = View.GONE
-                            Notification.showToast(context, "Terjai Kesalahan")
+                            Notification.showToast(context, "Terjadi Kesalahan")
                         }
                     }
                 }

@@ -37,6 +37,7 @@
 ## Movies Fragment
 
 1. Menampilkan Movies
+  - Klik tab **MOVIES**.
   - Memastikan **rv_movies** dalam keadaan tampil.
   - Gulir **rv_movies** ke posisi data terakhir.
   
