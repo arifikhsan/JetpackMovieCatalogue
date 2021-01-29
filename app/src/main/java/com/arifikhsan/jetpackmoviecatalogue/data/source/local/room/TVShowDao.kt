@@ -8,7 +8,7 @@ import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.TVShowEntit
 
 @Dao
 interface TVShowDao {
-    @Query("SELECT * FROM tv_shows")
+    @Query("SELECT * FROM tv_shows ORDER BY popularity DESC")
     fun getTVShows(): DataSource.Factory<Int, TVShowEntity>
 
     @Query("SELECT * FROM tv_shows where favorite = 1")

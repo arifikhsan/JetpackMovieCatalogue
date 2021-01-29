@@ -7,7 +7,7 @@ import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.MovieEntity
 
 @Dao
 interface MovieDao {
-    @Query("SELECT * FROM movies")
+    @Query("SELECT * FROM movies ORDER BY popularity DESC")
     fun getMovies(): DataSource.Factory<Int, MovieEntity>
 
     @Query("SELECT * FROM movies WHERE favorite = 1")

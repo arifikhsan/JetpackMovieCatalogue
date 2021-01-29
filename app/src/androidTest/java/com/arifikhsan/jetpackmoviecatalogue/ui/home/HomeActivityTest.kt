@@ -78,21 +78,57 @@ class HomeActivityTest {
         onView(withId(R.id.rv_movies)).check(matches(isDisplayed()))
 
         val res = sampleMovies.value?.body?.results!!
-        val sampleMovie = res.random()
+        val sampleMovie = res.first()
         val position = res.indexOf(sampleMovie)
 
-        onView(withId(R.id.rv_movies)).perform(scrollToPosition<RecyclerView.ViewHolder>(position))
         onView(withId(R.id.rv_movies)).perform(
             actionOnItemAtPosition<RecyclerView.ViewHolder>(position, click())
         )
 
         onView(withId(R.id.tv_title)).check(matches(isDisplayed()))
-//        onView(withId(R.id.tv_title)).check(matches(withText(sampleMovie?.title)))
+        onView(withId(R.id.tv_title)).check(matches(withText(sampleMovie?.title)))
         onView(withId(R.id.tv_overview)).check(matches(isDisplayed()))
-//        onView(withId(R.id.tv_overview)).check(matches(withText(sampleMovie?.overview)))
+        onView(withId(R.id.tv_overview)).check(matches(withText(sampleMovie?.overview)))
         onView(withId(R.id.tv_date)).check(matches(isDisplayed()))
-//        onView(withId(R.id.tv_date)).check(matches(withText(sampleMovie?.releaseDate)))
+        onView(withId(R.id.tv_date)).check(matches(withText(sampleMovie?.releaseDate)))
     }
+
+    @Test
+    fun favoriteMovies() {
+        onView(withText("MOVIES")).perform(click())
+        onView(withId(R.id.rv_movies)).check(matches(isDisplayed()))
+
+        val res = sampleMovies.value?.body?.results!!
+        val sampleMovie = res.first()
+        val position = res.indexOf(sampleMovie)
+
+        onView(withId(R.id.rv_movies)).perform(
+            actionOnItemAtPosition<RecyclerView.ViewHolder>(position, click())
+        )
+
+        onView(withId(R.id.action_favorite)).perform(click())
+        onView(withContentDescription("Navigate up")).perform(click())
+        onView(withText("FAVORITE")).perform(click())
+        onView(withId(R.id.tv_movies_count)).check(matches(withText("1 items")))
+        onView(withId(R.id.card_movies)).perform(click())
+        onView(withText(sampleMovie?.title)).check(matches(isDisplayed()))
+        onView(withText(sampleMovie?.title)).perform(click())
+
+        onView(withId(R.id.tv_title)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_title)).check(matches(withText(sampleMovie?.title)))
+        onView(withId(R.id.tv_overview)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_overview)).check(matches(withText(sampleMovie?.overview)))
+        onView(withId(R.id.tv_date)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_date)).check(matches(withText(sampleMovie?.releaseDate)))
+
+        onView(withId(R.id.action_favorite)).perform(click())
+        onView(withContentDescription("Navigate up")).perform(click())
+        onView(withId(R.id.rv_movies)).check(matches(hasChildCount(0)))
+        onView(withContentDescription("Navigate up")).perform(click())
+        onView(withId(R.id.tv_movies_count)).check(matches(withText("0 items")))
+    }
+
+    // TV Shows Fragment
 
     @Test
     fun loadTVShows() {
@@ -104,22 +140,23 @@ class HomeActivityTest {
     }
 
     @Test
-    fun loadDetailTVShow() {
+    fun loadTVShow() {
         onView(withText("TV SHOWS")).perform(click())
         onView(withId(R.id.rv_tv_shows)).check(matches(isDisplayed()))
 
-        val sampleTVShow = sampleTVShows.value?.body?.results?.first()
-        val position = sampleTVShows.value?.body?.results?.indexOf(sampleTVShow)!!
+        val res = sampleTVShows.value?.body?.results!!
+        val sampleTVShow = res.first()
+        val position = res.indexOf(sampleTVShow)
 
         onView(withId(R.id.rv_tv_shows)).perform(
             actionOnItemAtPosition<RecyclerView.ViewHolder>(position, click())
         )
 
         onView(withId(R.id.tv_name)).check(matches(isDisplayed()))
-//        onView(withId(R.id.tv_name)).check(matches(withText(sampleTVShow?.name)))
+        onView(withId(R.id.tv_name)).check(matches(withText(sampleTVShow?.name)))
         onView(withId(R.id.tv_overview)).check(matches(isDisplayed()))
-//        onView(withId(R.id.tv_overview)).check(matches(withText(sampleTVShow?.overview)))
+        onView(withId(R.id.tv_overview)).check(matches(withText(sampleTVShow?.overview)))
         onView(withId(R.id.tv_date)).check(matches(isDisplayed()))
-//        onView(withId(R.id.tv_date)).check(matches(withText(sampleTVShow?.firstAirDate)))
+        onView(withId(R.id.tv_date)).check(matches(withText(sampleTVShow?.firstAirDate)))
     }
 }
