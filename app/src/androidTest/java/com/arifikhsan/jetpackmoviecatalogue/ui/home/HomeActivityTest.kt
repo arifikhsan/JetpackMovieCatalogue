@@ -94,7 +94,7 @@ class HomeActivityTest {
     }
 
     @Test
-    fun favoriteMovies() {
+    fun favoriteMovie() {
         onView(withText("MOVIES")).perform(click())
         onView(withId(R.id.rv_movies)).check(matches(isDisplayed()))
 
@@ -158,5 +158,40 @@ class HomeActivityTest {
         onView(withId(R.id.tv_overview)).check(matches(withText(sampleTVShow?.overview)))
         onView(withId(R.id.tv_date)).check(matches(isDisplayed()))
         onView(withId(R.id.tv_date)).check(matches(withText(sampleTVShow?.firstAirDate)))
+    }
+
+    @Test
+    fun favoriteTVShow() {
+        onView(withText("TV SHOWS")).perform(click())
+        onView(withId(R.id.rv_tv_shows)).check(matches(isDisplayed()))
+
+        val res = sampleTVShows.value?.body?.results!!
+        val sampleTVShow = res.first()
+        val position = res.indexOf(sampleTVShow)
+
+        onView(withId(R.id.rv_tv_shows)).perform(
+            actionOnItemAtPosition<RecyclerView.ViewHolder>(position, click())
+        )
+
+        onView(withId(R.id.action_favorite)).perform(click())
+        onView(withContentDescription("Navigate up")).perform(click())
+        onView(withText("FAVORITE")).perform(click())
+        onView(withId(R.id.tv_tv_show_count)).check(matches(withText("1 items")))
+        onView(withId(R.id.card_tv_shows)).perform(click())
+        onView(withText(sampleTVShow?.name)).check(matches(isDisplayed()))
+        onView(withText(sampleTVShow?.name)).perform(click())
+
+        onView(withId(R.id.tv_name)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_name)).check(matches(withText(sampleTVShow?.name)))
+        onView(withId(R.id.tv_overview)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_overview)).check(matches(withText(sampleTVShow?.overview)))
+        onView(withId(R.id.tv_date)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_date)).check(matches(withText(sampleTVShow?.firstAirDate)))
+
+        onView(withId(R.id.action_favorite)).perform(click())
+        onView(withContentDescription("Navigate up")).perform(click())
+        onView(withId(R.id.rv_tv_shows)).check(matches(hasChildCount(0)))
+        onView(withContentDescription("Navigate up")).perform(click())
+        onView(withId(R.id.tv_tv_show_count)).check(matches(withText("0 items")))
     }
 }
