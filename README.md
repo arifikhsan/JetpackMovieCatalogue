@@ -1,6 +1,8 @@
 # Jetpack Movie Catalogue
 
-## Unit Test ViewModel Movies
+## Unit Test
+
+### Unit Test ViewModel Movies
 
 1. MoviesViewModelTest
   - Memastikan **getMovies()** tidak null.
@@ -10,7 +12,7 @@
   - Memastikan **movie** tidak null.
   - Memastikan **movie** nilainya sesuai.
   
-## Unit Test ViewModel TV Shows
+### Unit Test ViewModel TV Shows
 
 1. TVShowViewModelTest
   - Memastikan **getTVShows()** tidak null.
@@ -20,7 +22,7 @@
   - Memastikan **tv show** tidak null.
   - Memastikan **tv show** nilainya sesuai.
 
-## Unit Test ViewModel Favorites
+### Unit Test ViewModel Favorites
 
 1. FavoriteViewModelTest
   - Memastikan **getFavoriteMoviesCount()** tidak null.
@@ -34,7 +36,7 @@
   - Memastikan **getFavoriteTVShows()** tidak null.
   - Memastikan **getFavoriteTVShows()** nilainya sesuai.
   
-## Instrumental Test Scenario
+## Instrumentation Test Scenario
 
 ### Home Activity
 
