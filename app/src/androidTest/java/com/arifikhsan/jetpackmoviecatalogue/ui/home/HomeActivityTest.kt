@@ -62,6 +62,18 @@ class HomeActivityTest {
         onView(withId(R.id.fr_favorite)).check(matches(isDisplayed()))
     }
 
+    @Test
+    fun upButton() {
+        onView(withText("FAVORITE")).perform(click())
+        onView(withId(R.id.fr_favorite)).check(matches(isDisplayed()))
+        onView(isRoot()).perform(ViewActions.pressBack())
+        onView(withText("TV SHOWS")).check(matches(isDisplayed()))
+        onView(withId(R.id.fr_tv_shows)).check(matches(isDisplayed()))
+        onView(isRoot()).perform(ViewActions.pressBack())
+        onView(withText("MOVIES")).check(matches(isDisplayed()))
+        onView(withId(R.id.fr_movies)).check(matches(isDisplayed()))
+    }
+
     // Movies Fragment
 
     @Test

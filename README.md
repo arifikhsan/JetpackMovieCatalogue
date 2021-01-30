@@ -52,6 +52,16 @@
   - Klik tab **FAVORITES**.
   - Memastikan **fr_favorite** dalam keadaan tampil. 
 
+4. Menggukanan Up Button
+  - Klik tab **FAVORITES**.
+  - Memastikan **fr_favorite** dalam keadaan tampil.
+  - Klik tombol kembali (up button).
+  - Memastikan teks **TV SHOWS** dalam keadaan tampil.
+  - Memastikan **fr_tv_shows** dalam keadaan tampil.
+  - Klik tombol kembali (up button).
+  - Memastikan teks **MOVIES** dalam keadaan tampil.
+  - Memastikan **fr_movies** dalam keadaan tampil.
+  
 ## Movies Fragment
 
 1. Menampilkan Movies
