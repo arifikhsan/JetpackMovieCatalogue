@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.IdlingRegistry
+import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
@@ -71,7 +72,6 @@ class HomeActivityTest {
         onView(withId(R.id.rv_movies)).perform(scrollToPosition<RecyclerView.ViewHolder>(moviesSize))
     }
 
-
     @Test
     fun loadMovie() {
         onView(withText("MOVIES")).perform(click())
@@ -107,7 +107,7 @@ class HomeActivityTest {
         )
 
         onView(withId(R.id.action_favorite)).perform(click())
-        onView(withContentDescription("Navigate up")).perform(click())
+        onView(isRoot()).perform(ViewActions.pressBack())
         onView(withText("FAVORITE")).perform(click())
         onView(withId(R.id.tv_movies_count)).check(matches(withText("1 items")))
         onView(withId(R.id.card_movies)).perform(click())
@@ -122,9 +122,9 @@ class HomeActivityTest {
         onView(withId(R.id.tv_date)).check(matches(withText(sampleMovie?.releaseDate)))
 
         onView(withId(R.id.action_favorite)).perform(click())
-        onView(withContentDescription("Navigate up")).perform(click())
+        onView(isRoot()).perform(ViewActions.pressBack())
         onView(withId(R.id.rv_movies)).check(matches(hasChildCount(0)))
-        onView(withContentDescription("Navigate up")).perform(click())
+        onView(isRoot()).perform(ViewActions.pressBack())
         onView(withId(R.id.tv_movies_count)).check(matches(withText("0 items")))
     }
 
@@ -174,7 +174,7 @@ class HomeActivityTest {
         )
 
         onView(withId(R.id.action_favorite)).perform(click())
-        onView(withContentDescription("Navigate up")).perform(click())
+        onView(isRoot()).perform(ViewActions.pressBack())
         onView(withText("FAVORITE")).perform(click())
         onView(withId(R.id.tv_tv_show_count)).check(matches(withText("1 items")))
         onView(withId(R.id.card_tv_shows)).perform(click())
@@ -189,9 +189,9 @@ class HomeActivityTest {
         onView(withId(R.id.tv_date)).check(matches(withText(sampleTVShow?.firstAirDate)))
 
         onView(withId(R.id.action_favorite)).perform(click())
-        onView(withContentDescription("Navigate up")).perform(click())
+        onView(isRoot()).perform(ViewActions.pressBack())
         onView(withId(R.id.rv_tv_shows)).check(matches(hasChildCount(0)))
-        onView(withContentDescription("Navigate up")).perform(click())
+        onView(isRoot()).perform(ViewActions.pressBack())
         onView(withId(R.id.tv_tv_show_count)).check(matches(withText("0 items")))
     }
 }
