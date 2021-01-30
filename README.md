@@ -1,23 +1,39 @@
 # Jetpack Movie Catalogue
 
-## Unit Test ViewModel Scenario
+## Unit Test ViewModel Movies
 
 1. MoviesViewModelTest
-  - Memastikan **movies** tidak null.
-  - Memastikan jumlah **movies** sesuai (10).
+  - Memastikan **getMovies()** tidak null.
+  - Memastikan jumlah **getMovies()** nilainya sesuai.
   
 2. DetailMoviesViewModelTest
   - Memastikan **movie** tidak null.
-  - Memastikan **movie** sesuai.
+  - Memastikan **movie** nilainya sesuai.
   
-3. TVShowViewModelTest
-  - Memastikan **tv shows** tidak null.
-  - Memastikan jumlah **tv shows** sesuai (10).
-  
-4. DetailTVShowViewModelTest
-  - Memastikan **tv show** tidak null.
-  - Memastikan **tv show** sesuai.
+## Unit Test ViewModel TV Shows
 
+1. TVShowViewModelTest
+  - Memastikan **getTVShows()** tidak null.
+  - Memastikan jumlah **getTVShows()** nilainya sesuai.
+  
+2. DetailTVShowViewModelTest
+  - Memastikan **tv show** tidak null.
+  - Memastikan **tv show** nilainya sesuai.
+
+## Unit Test ViewModel Favorites
+
+1. FavoriteViewModelTest
+  - Memastikan **getFavoriteMoviesCount()** tidak null.
+  - Memastikan **getFavoriteMoviesCount()** nilainya sesuai.
+  
+2. FavoriteMoviesViewModelTest
+  - Memastikan **getFavoriteMovies()** tidak null.
+  - Memastikan **getFavoriteMovies()** nilainya sesuai.
+  
+3. FavoriteTVShowsViewModelTest
+  - Memastikan **getFavoriteTVShows()** tidak null.
+  - Memastikan **getFavoriteTVShows()** nilainya sesuai.
+  
 ## Instrumental Test Scenario
 
 ### Home Activity

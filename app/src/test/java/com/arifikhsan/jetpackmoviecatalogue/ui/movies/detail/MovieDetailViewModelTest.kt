@@ -8,8 +8,7 @@ import com.arifikhsan.jetpackmoviecatalogue.data.source.local.entity.MovieEntity
 import com.arifikhsan.jetpackmoviecatalogue.util.DataDummy
 import com.arifikhsan.jetpackmoviecatalogue.valueobject.Resource
 import com.nhaarman.mockitokotlin2.verify
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNotNull
+import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -24,6 +23,7 @@ class MovieDetailViewModelTest {
     private lateinit var viewModel: MovieDetailViewModel
     private val sampleMovie = dataDummy.getMovie()
     private val sampleMovieId = sampleMovie.id!!
+    private val movieEntity = MovieEntity.fromMovieResponse(sampleMovie)
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -42,7 +42,6 @@ class MovieDetailViewModelTest {
 
     @Test
     fun getMovie() {
-        val movieEntity = MovieEntity.fromMovieResponse(sampleMovie)
         val movieResource = Resource.success(movieEntity)
         val movieLive = MutableLiveData<Resource<MovieEntity>>()
         movieLive.value = movieResource
@@ -52,17 +51,18 @@ class MovieDetailViewModelTest {
         viewModel.movie.observeForever(observer)
         verify(observer).onChanged(movieResource)
 
-        val movie = viewModel.movie.value?.data
+        val movie = viewModel.movie.value?.data!!
 
         assertNotNull(movie)
-        assertEquals(sampleMovie.id, movie?.id)
-        assertEquals(sampleMovie.title, movie?.title)
-        assertEquals(sampleMovie.overview, movie?.overview)
-        assertEquals(sampleMovie.posterPath, movie?.posterPath)
-        assertEquals(sampleMovie.releaseDate, movie?.releaseDate)
-        assertEquals(sampleMovie.voteCount, movie?.voteCount)
 
-        assertEquals(sampleMovie.popularity as Double, movie?.popularity as Double, 0.0001)
+        assertEquals(sampleMovie.id, movie.id)
+        assertEquals(sampleMovie.title, movie.title)
+        assertEquals(sampleMovie.overview, movie.overview)
+        assertEquals(sampleMovie.posterPath, movie.posterPath)
+        assertEquals(sampleMovie.releaseDate, movie.releaseDate)
+        assertEquals(sampleMovie.voteCount, movie.voteCount)
+
+        assertEquals(sampleMovie.popularity as Double, movie.popularity as Double, 0.0001)
         assertEquals(sampleMovie.voteAverage as Double, movie.voteAverage, 0.0001)
     }
 }
