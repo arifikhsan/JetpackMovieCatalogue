@@ -1,5 +1,16 @@
 # Jetpack Movie Catalogue
 
+## Cara Menjalankan Tes
+
+### Unit Test
+
+1. Langsung dijalankan saja.
+
+### Instrumentation Test
+
+1. Pastikan tidak ada film atau serial tv yang menjadi favorit.
+2. Kalau ada, jangan item yang paling atas. Karena belum ada pengecekan "jika sudah menjadi favorit, maka jangan ditekan." 
+
 ## Unit Test
 
 ### Unit Test ViewModel Movies
