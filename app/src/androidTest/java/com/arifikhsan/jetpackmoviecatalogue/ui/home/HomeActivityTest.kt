@@ -1,10 +1,15 @@
 package com.arifikhsan.jetpackmoviecatalogue.ui.home
 
 import android.content.Context
+import android.view.View
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.IdlingRegistry
+import androidx.test.espresso.UiController
+import androidx.test.espresso.ViewAction
+import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -17,6 +22,7 @@ import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.MovieRemoteDataSo
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.TVShowRemoteDataSource
 import com.arifikhsan.jetpackmoviecatalogue.data.source.remote.network.NetworkConfig
 import com.arifikhsan.jetpackmoviecatalogue.util.EspressoIdlingResource
+import org.hamcrest.Matcher
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -107,6 +113,9 @@ class HomeActivityTest {
 
     @Test
     fun favoriteMovie() {
+        onView(withText("FAVORITE")).perform(click())
+        val moviesCount = getText(onView(withId(R.id.tv_movies_count))).split(" ").first().toInt()
+
         onView(withText("MOVIES")).perform(click())
         onView(withId(R.id.rv_movies)).check(matches(isDisplayed()))
 
@@ -121,7 +130,7 @@ class HomeActivityTest {
         onView(withId(R.id.action_favorite)).perform(click())
         onView(isRoot()).perform(ViewActions.pressBack())
         onView(withText("FAVORITE")).perform(click())
-        onView(withId(R.id.tv_movies_count)).check(matches(withText("1 items")))
+        onView(withId(R.id.tv_movies_count)).check(matches(withText("${moviesCount + 1} items")))
         onView(withId(R.id.card_movies)).perform(click())
         onView(withText(sampleMovie?.title)).check(matches(isDisplayed()))
         onView(withText(sampleMovie?.title)).perform(click())
@@ -135,9 +144,8 @@ class HomeActivityTest {
 
         onView(withId(R.id.action_favorite)).perform(click())
         onView(isRoot()).perform(ViewActions.pressBack())
-        onView(withId(R.id.rv_movies)).check(matches(hasChildCount(0)))
         onView(isRoot()).perform(ViewActions.pressBack())
-        onView(withId(R.id.tv_movies_count)).check(matches(withText("0 items")))
+        onView(withId(R.id.tv_movies_count)).check(matches(withText("$moviesCount items")))
     }
 
     // TV Shows Fragment
@@ -174,6 +182,9 @@ class HomeActivityTest {
 
     @Test
     fun favoriteTVShow() {
+        onView(withText("FAVORITE")).perform(click())
+        val tvShowsCount = getText(onView(withId(R.id.tv_tv_show_count))).split(" ").first().toInt()
+
         onView(withText("TV SHOWS")).perform(click())
         onView(withId(R.id.rv_tv_shows)).check(matches(isDisplayed()))
 
@@ -188,7 +199,7 @@ class HomeActivityTest {
         onView(withId(R.id.action_favorite)).perform(click())
         onView(isRoot()).perform(ViewActions.pressBack())
         onView(withText("FAVORITE")).perform(click())
-        onView(withId(R.id.tv_tv_show_count)).check(matches(withText("1 items")))
+        onView(withId(R.id.tv_tv_show_count)).check(matches(withText("${tvShowsCount + 1} items")))
         onView(withId(R.id.card_tv_shows)).perform(click())
         onView(withText(sampleTVShow?.name)).check(matches(isDisplayed()))
         onView(withText(sampleTVShow?.name)).perform(click())
@@ -202,8 +213,29 @@ class HomeActivityTest {
 
         onView(withId(R.id.action_favorite)).perform(click())
         onView(isRoot()).perform(ViewActions.pressBack())
-        onView(withId(R.id.rv_tv_shows)).check(matches(hasChildCount(0)))
         onView(isRoot()).perform(ViewActions.pressBack())
-        onView(withId(R.id.tv_tv_show_count)).check(matches(withText("0 items")))
+        onView(withId(R.id.tv_tv_show_count)).check(matches(withText("$tvShowsCount items")))
     }
+
+    private fun getText(matcher: ViewInteraction): String {
+        var text = String()
+        matcher.perform(object : ViewAction {
+            override fun getConstraints(): Matcher<View> {
+                return isAssignableFrom(TextView::class.java)
+            }
+
+            override fun getDescription(): String {
+                return "Text of the view"
+            }
+
+            override fun perform(uiController: UiController, view: View) {
+                val tv = view as TextView
+                text = tv.text.toString()
+            }
+        })
+
+        return text
+    }
+
+
 }

@@ -78,13 +78,15 @@
   - Memastikan **TextView** untuk **date** tampil sesuai dengan yang diharapkan.
   
 3. Menampilkan Favorite Movie
+  - Klik tab **FAVORITES**.
+  - Mengambil jumlah items pada **TextView** di **tv_movies_count** di variabel **moviesCount**.
   - Klik tab **MOVIES**.
   - Memastikan **rv_movies** dalam keadaan tampil.
   - Memberi tindakan klik pada film pertama di **rv_movies**.
   - Klik tombol favorite di **action_favorite**.
   - Klik tombol kembali (up button).
   - Klik tab **FAVORITE**.
-  - Memastikan **TextView** untuk **tv_movies_count** bertuliskan "1 items"
+  - Memastikan **TextView** untuk **tv_movies_count** bertuliskan "**moviesCount + 1** items"
   - Klik card **card_movies**.
   - Memastikan ada film yang dengan **title** sama.
   - Klik film tersebut.
@@ -93,9 +95,8 @@
   - Memastikan **TextView** untuk **date** tampil sesuai dengan yang diharapkan.
   - Klik tombol favorite di **action_favorite**.
   - Klik tombol kembali (up button).
-  - Memastikan recyclerview **rv_movies** kosong.
   - Klik tombol kembali (up button).
-  - Memastikan **TextView** untuk **tv_movies_count** bertuliskan "0 items"
+  - Memastikan **TextView** untuk **tv_movies_count** bertuliskan "**moviesCount** items"
   
 ## Movies TV Shows
 
@@ -113,13 +114,15 @@
   - Memastikan **TextView** untuk **date** tampil sesuai dengan yang diharapkan.
   
 3. Menampilkan Favorite TV Shows
+  - Klik tab **FAVORITES**.
+  - Mengambil jumlah items pada **TextView** di **tv_tv_show_count** di variabel **tvShowsCount**.
   - Klik tab **TV SHOWS**.
   - Memastikan **rv_tv_shows** dalam keadaan tampil.
   - Memberi tindakan klik pada serial TV pertama di **rv_tv_shows**.
   - Klik tombol favorite di **action_favorite**.
   - Klik tombol kembali (up button).
   - Klik tab **FAVORITE**.
-  - Memastikan **TextView** untuk **tv_tv_show_count** bertuliskan "1 items"
+  - Memastikan **TextView** untuk **tv_tv_show_count** bertuliskan "**tvShowsCount + 1** items"
   - Klik card **card_tv_shows**.
   - Memastikan ada serial TV yang dengan **name** sama.
   - Klik serial TV tersebut.
@@ -128,7 +131,6 @@
   - Memastikan **TextView** untuk **date** tampil sesuai dengan yang diharapkan.
   - Klik tombol favorite di **action_favorite**.
   - Klik tombol kembali (up button).
-  - Memastikan recyclerview **rv_tv_shows** kosong.
   - Klik tombol kembali (up button).
-  - Memastikan **TextView** untuk **tv_tv_show_count** bertuliskan "0 items"
+  - Memastikan **TextView** untuk **tv_tv_show_count** bertuliskan "**tvShowsCount** items"
   
