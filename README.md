@@ -97,7 +97,7 @@
   - Klik tombol favorite di **action_favorite**.
   - Klik tombol kembali (up button).
   - Klik tab **FAVORITE**.
-  - Memastikan **TextView** untuk **tv_movies_count** bertuliskan "**moviesCount + 1** items"
+  - Memastikan **TextView** untuk **tv_movies_count** bertuliskan "**moviesCount + 1** items".
   - Klik card **card_movies**.
   - Memastikan ada film yang dengan **title** sama.
   - Klik film tersebut.
@@ -107,7 +107,7 @@
   - Klik tombol favorite di **action_favorite**.
   - Klik tombol kembali (up button).
   - Klik tombol kembali (up button).
-  - Memastikan **TextView** untuk **tv_movies_count** bertuliskan "**moviesCount** items"
+  - Memastikan **TextView** untuk **tv_movies_count** bertuliskan "**moviesCount** items".
   
 ## Movies TV Shows
 
@@ -133,7 +133,7 @@
   - Klik tombol favorite di **action_favorite**.
   - Klik tombol kembali (up button).
   - Klik tab **FAVORITE**.
-  - Memastikan **TextView** untuk **tv_tv_show_count** bertuliskan "**tvShowsCount + 1** items"
+  - Memastikan **TextView** untuk **tv_tv_show_count** bertuliskan "**tvShowsCount + 1** items".
   - Klik card **card_tv_shows**.
   - Memastikan ada serial TV yang dengan **name** sama.
   - Klik serial TV tersebut.
@@ -143,5 +143,5 @@
   - Klik tombol favorite di **action_favorite**.
   - Klik tombol kembali (up button).
   - Klik tombol kembali (up button).
-  - Memastikan **TextView** untuk **tv_tv_show_count** bertuliskan "**tvShowsCount** items"
+  - Memastikan **TextView** untuk **tv_tv_show_count** bertuliskan "**tvShowsCount** items".
   
